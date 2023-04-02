@@ -21,29 +21,33 @@ form {
 }
 
 div {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+    max-width: 300px;
+    padding: 8px;
+    border-radius: 6px;
+    box-shadow: 0 0 3px #000000b3;
+    box-sizing: border-box;
 }
 
 label {
     display: block;
+    margin-bottom: 3px;
 }
 
 input {
     padding: 5px;
     border-radius: 3px;
-    border: 1px solid;
+    border: 1px solid gray;
+    /* width: 100%; */
+    box-sizing: border-box;
 }
 
 /* עיצוב Class */
 .elyashivClass {
-    background-color: burlywood;
+    border-right: 5px solid burlywood;
 }
 
 /* עיצוב ID בודד */
 #idoID {
     background-color: #de8383;
-}
-
-#birthday {
-    font-size: 20px;
 }
