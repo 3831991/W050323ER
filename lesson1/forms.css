@@ -30,3 +30,17 @@ input {
     border-radius: 3px;
     border: 1px solid;
 }
+
+/* עיצוב Class */
+.elyashivClass {
+    background-color: burlywood;
+}
+
+/* עיצוב ID בודד */
+#idoID {
+    background-color: #de8383;
+}
+
+#birthday {
+    font-size: 20px;
+}
