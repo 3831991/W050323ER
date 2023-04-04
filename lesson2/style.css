@@ -87,3 +87,13 @@ img {
 img:hover {
     scale: 1.1;
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    padding: 8px;
+    border-bottom: 1px solid gainsboro;
+}
