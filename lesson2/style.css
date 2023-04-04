@@ -22,6 +22,8 @@ h1 {
     width: 80%;
     /* מקסימום רוחב */
     max-width: 900px;
+    /* מינימום גובה */
+    min-height: 300px;
     /* רקע */
     background-color: white;
     /* ריווח חיצוני אוטומטי (גורם למרכוס האלמנט) */
@@ -30,4 +32,12 @@ h1 {
     padding: 8px 16px;
     /* עיגול קצוות */
     border-radius: 6px;
+}
+
+.images {
+    text-align: center;
+}
+
+img {
+    width: 49%;
 }
