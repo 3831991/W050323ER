@@ -1,6 +1,11 @@
 /* ייבוא גופן ממקור חיצוני */
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
 
+html {
+    scroll-behavior: smooth;
+
+}
+
 body {
     /* כיוון האתר מימין לשמאל */
     direction: rtl;
@@ -44,7 +49,7 @@ h1 {
     margin: -8px -16px 16px -16px;
 }
 
-a {
+.navbar a {
     /* ריווח פנימי מכל הכיוונים */
     padding: 8px;
     /* שינוי מצב תצוגה */
@@ -55,17 +60,17 @@ a {
 }
 
 /* עיצוב נוסף במעבר עכבר  */
-a:hover {
+.navbar a:hover {
     background-color: rgb(11, 224, 153);
 }
 
 /* עיצוב נוסף תוך כדי לחיצה עם העכבר */
-a:active {
+.navbar a:active {
     background-color: chocolate;
 }
 
 /* עיצוב לאחר ביקור בקישור */
-a:visited {
+.navbar a:visited {
     background-color: red;
 }
 
