@@ -38,6 +38,42 @@ h1 {
     text-align: center;
 }
 
+.navbar {
+    background-color: #00d6f1;
+    text-align: right;
+    margin: -8px -16px 16px -16px;
+}
+
+a {
+    /* ריווח פנימי מכל הכיוונים */
+    padding: 8px;
+    /* שינוי מצב תצוגה */
+    display: inline-block;
+    /* ביטול קו תחתון */
+    text-decoration: none;
+    color: white;
+}
+
+/* עיצוב נוסף במעבר עכבר  */
+a:hover {
+    background-color: rgb(11, 224, 153);
+}
+
+/* עיצוב נוסף תוך כדי לחיצה עם העכבר */
+a:active {
+    background-color: chocolate;
+}
+
+/* עיצוב לאחר ביקור בקישור */
+a:visited {
+    background-color: red;
+}
+
 img {
     width: 49%;
+    transition: 0.3s;
+}
+
+img:hover {
+    scale: 1.1;
 }
