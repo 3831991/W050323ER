@@ -81,14 +81,17 @@ h1 {
 
 img {
     width: 49%;
+    /* משנה את העיצוב בהנפשה */
     transition: 0.3s;
 }
 
 img:hover {
+    /* משנה את גודל האלמנט ללא השפעה על הסביבה */
     scale: 1.1;
 }
 
 ul {
+    /* מבטל את הסימונים של הרשימה */
     list-style-type: none;
     padding: 0;
 }
@@ -97,3 +100,26 @@ ul li {
     padding: 8px;
     border-bottom: 1px solid gainsboro;
 }
+
+table {
+    width: 100%;
+    /* מחבר את כל התאים יחד */
+    border-collapse: collapse;
+    /* רוחב אחיד לכל העמודות */
+    table-layout: fixed;
+}
+
+th, td {
+    /* גבול לתאים של הטבלה */
+    border: 1px solid;
+    height: 30px;
+    text-align: center;
+}
+
+th {
+    background-color: yellow;
+}
+
+/* tr:hover {
+    background-color: greenyellow;
+} */
