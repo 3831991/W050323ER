@@ -69,6 +69,12 @@ a:visited {
     background-color: red;
 }
 
+/* יצרנו קלאס לצורך התפריט */
+/* צובע בתפריט את הקישור לדף הפעיל */
+.active {
+    background-color: #07d892;
+}
+
 img {
     width: 49%;
     transition: 0.3s;
