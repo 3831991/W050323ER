@@ -43,3 +43,21 @@ th, td {
     border: 1px solid black;
     height: 30px;
 }
+
+nav {
+    background-color: #e06606;
+    margin-bottom: 16px;
+    direction: rtl;
+}
+
+nav a {
+    padding: 6px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #b04c00;
+
+}
