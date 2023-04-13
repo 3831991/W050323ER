@@ -34,3 +34,19 @@ h1 {
     border-radius: 6px;
     padding-bottom: 200px;
 }
+
+.dropdown div {
+    display: none;
+    width: 150px;
+}
+
+/* עיצוב כל הכפתורים בתפריט הנפתח */
+/*  */
+.dropdown div button {
+    display: block;
+    width: 100%;
+}
+
+.dropdown:hover div {
+    display: block;
+}
