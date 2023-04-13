@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>טפסים</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>טפסים</h1>
+
+        <div class="frame">
+            
+            <form>
+                <fieldset>
+                    <legend>פרטי המתשמש</legend>
+
+                    <div class="field">
+                        <label>שם פרטי</label>
+                        <input type="text" value="ישראל">
+                    </div>
+
+                    <div class="field">
+                        <label>שם משפחה</label>
+                        <input type="text" value="ישראלי">
+                    </div>
+
+                    <div class="field">
+                        <label>טלפון</label>
+                        <input type="tel">
+                    </div>
+
+                    <div class="field">
+                        <label>אימייל</label>
+                        <input type="email">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>פרטי תשלום</legend>
+
+                    <div class="field">
+                        <label>אמצעי תשלום:</label>
+
+                        <label class="radioLabel">
+                            <input type="radio" name="paymentType"> אשראי
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="radio" name="paymentType"> מזומן
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="radio" name="paymentType"> העברה בנקאית
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="radio" name="paymentType"> צ'קים
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="radio" name="paymentType"> חליפין
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <label>מספר תשלומים:</label>
+                        <input type="number" min="1" max="6" value="1">
+                    </div>
+
+                    <div class="field">
+                        <label>גודל מגש:</label>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                            <option>XXL</option>
+                            <option>3XL</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>תוספות:</label>
+
+                        <label class="radioLabel">
+                            <input type="checkbox"> זיתים
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="checkbox"> עגבניות
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="checkbox"> בולגרית
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="checkbox"> בצל
+                        </label>
+
+                        <label class="radioLabel">
+                            <input type="checkbox"> פטריות
+                        </label>
+                    </div>
+
+                    <div class="field">
+                        <label>הערות</label>
+                        <textarea></textarea>
+                    </div>
+                </fieldset>
+            </form>
+
+        </div>
+    </body>
+</html>

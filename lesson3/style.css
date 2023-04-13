@@ -1,0 +1,75 @@
+/* ייבוא גופן ממקור חיצוני */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
+
+body {
+    /* כיוון האתר מימין לשמאל */
+    direction: rtl;
+    /* שינוי גופן לאתר */
+    font-family: 'Rubik', sans-serif;
+    /* רקע */
+    background-color: #9c27b0;
+}
+
+h1 {
+    /* יישור טקסט */
+    text-align: center;
+    /* צבע הטקסט */
+    color: white;
+}
+
+.frame {
+    /* רוחב */
+    width: 80%;
+    /* מקסימום רוחב */
+    max-width: 900px;
+    /* מינימום גובה */
+    min-height: 300px;
+    /* רקע */
+    background-color: white;
+    /* ריווח חיצוני אוטומטי (גורם למרכוס האלמנט) */
+    margin: auto;
+    /* ריווח פנימי של האלמנט */
+    padding: 8px 16px;
+    /* עיגול קצוות */
+    border-radius: 6px;
+}
+
+fieldset {
+    border: 5px groove #673ab7;
+    border-radius: 12px;
+    padding: 16px 24px;
+}
+
+legend {
+    font-weight: bold;
+}
+
+.field {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+}
+
+.radioLabel {
+    display: inline-block;
+}
+
+input, select {
+    padding: 6px;
+    /* width: 300px; */
+    border: none;
+    border-bottom: 1px solid #673ab7;
+}
+
+input:focus,
+select:focus {
+    outline: 0;
+    border-bottom: 2px solid #673ab7;
+}
+
+textarea {
+    width: 100%;
+    height: 60px;
+}
