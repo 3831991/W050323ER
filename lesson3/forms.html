@@ -10,28 +10,28 @@
 
         <div class="frame">
             
-            <form>
+            <form action="form_data.html">
                 <fieldset>
                     <legend>פרטי המתשמש</legend>
 
                     <div class="field">
                         <label>שם פרטי</label>
-                        <input type="text" value="ישראל">
+                        <input type="text" value="ישראל" name="firstName">
                     </div>
 
                     <div class="field">
                         <label>שם משפחה</label>
-                        <input type="text" value="ישראלי">
+                        <input type="text" value="ישראלי" name="lastName">
                     </div>
 
                     <div class="field">
-                        <label>טלפון</label>
-                        <input type="tel">
+                        <label>טלפון *</label>
+                        <input type="tel" required>
                     </div>
 
                     <div class="field">
                         <label>אימייל</label>
-                        <input type="email">
+                        <input type="email" required>
                     </div>
                 </fieldset>
 
