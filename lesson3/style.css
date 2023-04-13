@@ -7,7 +7,10 @@ body {
     /* שינוי גופן לאתר */
     font-family: 'Rubik', sans-serif;
     /* רקע */
-    background-color: #9c27b0;
+    /* background-color: #9c27b0; */
+    background-image: url(https://cdn.foodbox.co.il/wp-content/uploads/sites/7/2020/05/10145719/2000X980_SALE_2.jpg);
+    background-size: cover;
+    background-position: bottom;
 }
 
 h1 {
@@ -25,7 +28,7 @@ h1 {
     /* מינימום גובה */
     min-height: 300px;
     /* רקע */
-    background-color: white;
+    background-color: #ffffffc9;
     /* ריווח חיצוני אוטומטי (גורם למרכוס האלמנט) */
     margin: auto;
     /* ריווח פנימי של האלמנט */
@@ -35,9 +38,10 @@ h1 {
 }
 
 fieldset {
-    border: 5px groove #673ab7;
+    border: 5px groove #d77b52;
     border-radius: 12px;
     padding: 16px 24px;
+    margin: 16px 0;
 }
 
 legend {
