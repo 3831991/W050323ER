@@ -1,0 +1,33 @@
+body {
+    background-color: #00c36f;
+}
+
+.frame div {
+    height: 100px;
+    margin: 8px;
+    border: 3px solid #00c36f;
+    width: 50%;
+    border-right-width: 8px;
+    box-sizing: border-box;
+    /* border-width: 3px; */
+    /* border-style: solid; */
+    /* border-color: #00c36f; */
+}
+
+.frame div:first-child {
+    border-top: solid 10px red;
+}
+
+.frame div:nth-child(3) {
+    border-style: dashed;
+    border-left: solid 10px;
+    border-color: rebeccapurple;
+}
+
+.frame div:nth-child(4) {
+    border-color: rgb(143, 153, 51);
+}
+
+.frame div:last-child {
+    border-color: rgb(153, 51, 82);
+}
