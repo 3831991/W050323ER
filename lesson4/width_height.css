@@ -1,0 +1,18 @@
+.myDiv {
+    background-color: #dcdcdc;
+    width: 300px;
+    padding: 12px;
+    margin: 16px;
+}
+
+.myDiv:last-child {
+    /* הגדרנו גובה לאלמנט האחרון וכל הטקסט גולש ממנו */
+    height: 300px;
+    /* הגדרנו שהגודל יכלול בתוכו את הריווח הפנימי והמסמגרת */
+    box-sizing: border-box;
+}
+
+p {
+    /* ביטלנו את ריווח ברירת המחדל של הפסקאות */
+    margin: 0;
+}

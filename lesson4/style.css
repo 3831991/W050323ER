@@ -8,6 +8,7 @@ body {
     font-family: 'Rubik', sans-serif;
     /* רקע */
     background-color: #00afc3;
+    padding-bottom: 200px;
 }
 
 h1 {
@@ -32,5 +33,4 @@ h1 {
     padding: 8px 16px;
     /* עיגול קצוות */
     border-radius: 6px;
-    padding-bottom: 200px;
 }
