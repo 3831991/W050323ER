@@ -1,0 +1,36 @@
+/* ייבוא גופן ממקור חיצוני */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
+
+body {
+    /* כיוון האתר מימין לשמאל */
+    direction: rtl;
+    /* שינוי גופן לאתר */
+    font-family: 'Rubik', sans-serif;
+    /* רקע */
+    background-color: #00afc3;
+}
+
+h1 {
+    /* יישור טקסט */
+    text-align: center;
+    /* צבע הטקסט */
+    color: white;
+}
+
+.frame {
+    /* רוחב */
+    width: 80%;
+    /* מקסימום רוחב */
+    max-width: 900px;
+    /* מינימום גובה */
+    min-height: 300px;
+    /* רקע */
+    background-color: #ffffffc9;
+    /* ריווח חיצוני אוטומטי (גורם למרכוס האלמנט) */
+    margin: auto;
+    /* ריווח פנימי של האלמנט */
+    padding: 8px 16px;
+    /* עיגול קצוות */
+    border-radius: 6px;
+    padding-bottom: 200px;
+}
