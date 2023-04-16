@@ -1,0 +1,18 @@
+.myDiv {
+    background-color: #CDDC39;
+    padding: 4px;
+}
+
+.myDiv>div {
+    background-color: #f5f5f5;
+    margin: 12px;
+    padding: 12px;
+}
+
+.myDiv>div:first-child {
+    margin: 40px 0;
+}
+
+.myDiv>div:last-child {
+    margin-top: 50px;
+}
