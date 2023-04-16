@@ -1,0 +1,74 @@
+body {
+    background-color: #99c300;
+}
+
+.frame {
+    text-align: center;
+}
+
+.frame>div:not(.adam) {
+    width: 200px;
+    height: 200px;
+    margin: 16px;
+    display: inline-block;
+    background-color: crimson;
+    border-radius: 4px;
+}
+
+.frame>div:first-child {
+    box-shadow: 0 0 9px 2px #878787;
+}
+
+.frame>div:nth-child(2) {
+    box-shadow: inset 0 0 42px #000000;
+}
+
+.frame>div:nth-child(3) {
+    box-shadow: 0 0 42px #000000, inset 0 0 42px #000000;
+}
+
+.frame>div:nth-child(4) {
+    box-shadow: 7px 7px 0px 4px #2a2a2a;
+}
+
+.frame>div:nth-child(5) {
+    box-shadow: 0 0 0px 4px #2a2a2a, inset 0 0 0px 4px #d6e91e;
+    border: 4px solid #0a93d7;
+}
+
+.frame>div:nth-child(6) {
+    box-shadow: 7px 7px 0px 6px #2a2a2a inset;
+}
+
+p {
+    font-size: 36px;
+}
+
+p:first-child {
+    text-shadow: 4px 4px 0px silver;
+}
+
+p:nth-child(2) {
+    text-shadow: 2px 2px 5px #F44336;
+}
+
+p:nth-child(3) {
+    text-shadow: -2px -2px 4px #F44336, 2px -2px 4px #F44336, 2px 2px 4px #F44336, -2px 2px 4px #F44336;
+}
+
+p:nth-child(4) {
+    color: white;
+    text-shadow: 0 0 6px black;
+    font-weight: bold;
+}
+
+p:nth-child(5) {
+    color: white;
+    text-shadow: -1px -1px 0px black, 1px -1px 0px black, 1px 1px 0px black, -1px 1px 0px black;
+    font-weight: bold;
+}
+
+p:nth-child(6) {
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    color: white;
+}
