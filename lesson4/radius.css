@@ -11,7 +11,6 @@ body {
     height: 150px;
     margin: 16px;
     display: inline-block;
-    background-color: #333333;
 }
 
 .frame>div:first-child {
@@ -50,4 +49,9 @@ body {
     background: none;
     border: 16px solid #77756e;
     box-sizing: border-box;
+}
+
+.frame>div:nth-child(8) {
+    border-radius: 50% 50% 0 0;
+    background-color: #3d341f;
 }
