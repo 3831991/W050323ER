@@ -1,5 +1,5 @@
 body {
-    background-color: #333;
+    background-color: hsl(129, 100%, 30%);
 }
 
 h2 {
@@ -10,4 +10,42 @@ h2 {
     border-right: 0;
     border-left: 0;
     text-align: center;
+}
+
+.myDiv {
+    width: 300px;
+    height: 180px;
+    transition: 0.6s;
+}
+
+.div1 {
+    background-color: hsl(30, 100%, 30%);
+}
+
+.div1:hover {
+    transform: rotate(90deg);
+}
+
+.div2 {
+    background-color: hsl(80, 100%, 30%);
+}
+
+.div2:hover {
+    transform: rotate3d(1, 1, 1, 360deg);
+}
+
+.div3 {
+    background-color: hsl(180, 100%, 30%);
+}
+
+.div3:hover {
+    transform: rotate(360deg);
+}
+
+.div4 {
+    background-color: hsl(250, 100%, 30%);
+}
+
+.div4:hover {
+    transform: scale(1.5) rotate(20deg);
 }
