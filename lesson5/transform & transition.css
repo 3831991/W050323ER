@@ -1,0 +1,13 @@
+body {
+    background-color: #333;
+}
+
+h2 {
+    background-color: rgb(195, 195, 195);
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px dashed gray;
+    border-right: 0;
+    border-left: 0;
+    text-align: center;
+}
