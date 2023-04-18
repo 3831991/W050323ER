@@ -1,0 +1,44 @@
+body {
+    background-color: darkviolet;
+}
+
+h2 {
+    background-color: rgb(195, 195, 195);
+    padding: 8px;
+    margin: 8px 0;
+    border: 2px dashed gray;
+    border-right: 0;
+    border-left: 0;
+    text-align: center;
+}
+
+.image {
+    width: 900px;
+    height: 400px;
+    border: 1px solid gray;
+    max-width: 100%;
+}
+
+.image1 {
+    background-image: url(images/repeat_background.png);
+    background-size: 50px;
+}
+
+.image2 {
+    background-image: url(images/project.jpeg);
+    background-size: cover;
+}
+
+.image3 {
+    background-image: url(images/web.png), url(images/project.jpeg);
+    background-size: 200px, cover;
+    background-position: center, top;
+    background-repeat: no-repeat;
+}
+
+.image4 {
+    background-image: url(images/web.png), url(images/repeat_background.png);
+    background-size: 300px, 50px;
+    background-repeat: no-repeat, repeat;
+    background-position: center;
+}
