@@ -70,3 +70,68 @@ h2 {
     margin: 0;
     font-weight: bold;
 }
+
+.outside {
+    background: beige;
+    padding: 8px;
+}
+
+.outside div {
+    background-color: aquamarine;
+    padding: 30px;
+    margin: 12px;
+    border: 1px solid;
+}
+
+.outside p {
+    direction: ltr;
+    text-align: center;
+    margin: 0;
+    font-weight: bold;
+}
+
+.radius div {
+    display: inline-block;
+    width: 32%;
+    height: 150px;
+    box-sizing: border-box;
+    border: 6px solid purple;
+}
+
+.radius div:first-child {
+    border-radius: 30px;
+}
+
+.radius div:nth-child(2) {
+    border-radius: 0 50px 0 50px;
+}
+
+.radius div:nth-child(3) {
+    border-radius: 50%;
+}
+
+.shadow {
+    text-align: center;
+}
+
+.shadow div {
+    display: inline-block;
+    width: 28%;
+    height: 150px;
+    margin: 0 8px;
+    box-sizing: border-box;
+    background-color: #c96f00;
+    border-radius: 6px;
+}
+
+.shadow div:first-child {
+    box-shadow: 2px 2px 6px gray;
+}
+
+.shadow div:nth-child(2) {
+    box-shadow: 0 0 58px 13px inset;
+}
+
+.shadow div:nth-child(3) {
+    box-shadow: 4px 4px 0;
+}
