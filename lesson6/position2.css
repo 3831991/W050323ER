@@ -1,0 +1,30 @@
+h2 {
+    margin: 40px 0 8px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #c9f2e5;
+}
+
+.divFrame div {
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    border: 2px solid #00c382;
+}
+
+.rightLayer, .leftLayer {
+    background-color: #00c382;
+    position: relative;
+    z-index: 2;
+}
+
+.rightLayer {
+    top: 30px;
+    left: 30px;
+}
+
+.leftLayer {
+    top: -30px;
+    left: -30px;
+}
