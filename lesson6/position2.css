@@ -1,3 +1,7 @@
+.frame {
+    padding-bottom: 50px;
+}
+
 h2 {
     margin: 40px 0 8px 0;
     position: sticky;
@@ -11,10 +15,11 @@ h2 {
     width: 100px;
     display: inline-block;
     border: 2px solid #00c382;
+    background-color: white;
 }
 
-.rightLayer, .leftLayer {
-    background-color: #00c382;
+.rightLayer, .leftLayer, .rightLayerLow {
+    background-color: #00c382 !important;
     position: relative;
     z-index: 2;
 }
@@ -27,4 +32,67 @@ h2 {
 .leftLayer {
     top: -30px;
     left: -30px;
+}
+
+.bigDiv {
+    width: 600px;
+    height: 300px;
+    background-color: #c1c1c1;
+    margin: auto;
+    position: relative;
+}
+
+.bigDiv div {
+    width: 100px;
+    height: 60px;
+    position: absolute;
+}
+
+.bigDiv div:first-child {
+    background-color: red;
+    top: 150px;
+    left: 350px;
+}
+
+.bigDiv div:last-child {
+    background-color: blue;
+    left: 40px;
+    top: 100px;
+}
+
+.rightLayerLow {
+    left: 30px;
+    top: 30px;
+}
+
+.show {
+    position: relative;
+    width: 300px;
+    height: 240px;
+}
+
+.show div {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+}
+
+.show div:nth-child(1) {
+    background-color: #3027b0;
+}
+
+.show div:nth-child(2) {
+    background-color: #b09727;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+.show div:nth-child(3) {
+    background-color: #9C27B0;
+    bottom: 0;
+    left: 0;
 }
