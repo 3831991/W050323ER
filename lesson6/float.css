@@ -1,0 +1,21 @@
+body {
+    background-color: #8b4a3d;
+}
+
+img {
+    width: 350px;
+    margin-left: 20px;
+    border: 20px solid white;
+    box-shadow: 0 0 6px;
+    float: right;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
+    background-color: greenyellow;
+    margin: 3px;
+    border: 1px solid #7abe12;
+    border-radius: 6px;
+    float: right;
+}

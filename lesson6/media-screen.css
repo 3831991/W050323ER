@@ -1,0 +1,23 @@
+body {
+    background-color: #483d8b;
+}
+
+.third {
+    width: 33.33%;
+    height: 200px;
+    background-color: cadetblue;
+    border: 1px solid black;
+    box-sizing: border-box;
+    float: right;
+}
+
+@media (max-width: 601px) {
+    body {
+        background-color: #418b3d;
+    }
+
+    .third {
+        width: 100%;
+        float: none;
+    }
+}
