@@ -1,0 +1,65 @@
+.example1 {
+    text-align: center;
+}
+
+.rectangle {
+    background-color: chartreuse;
+    height: 170px;
+    width: 32%;
+    position: relative;
+    display: inline-block;
+}
+
+.rectangle div {
+    height: 50px;
+    width: 80px;
+    background-color: #00BCD4;
+    position: absolute;
+}
+
+.rectangle:nth-child(2) div {
+    margin: auto;
+    left: 0;
+    right: 0;
+}
+
+.rectangle:nth-child(3) div {
+    left: 0;
+}
+
+.rectangle:nth-child(4) div {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+}
+
+.rectangle:nth-child(5) div {
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.rectangle:nth-child(6) div {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.rectangle:nth-child(7) div {
+    bottom: 0;
+}
+
+.rectangle:nth-child(8) div {
+    margin: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.rectangle:nth-child(9) div {
+    bottom: 0;
+    left: 0;
+}
