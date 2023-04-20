@@ -1,11 +1,23 @@
+h2 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #c9f2e5;
+}
+
 .example1 {
-    background-color: darkslateblue;
+    background-color: #483d8bbd;
     color: white;
     height: 200px;
     width: 200px;
     position: fixed;
     top: 200px;
-    right: 0;
+    left: 0;
+    z-index: 2;
+    padding: 12px;
+    font-size: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 8px 18px;
 }
 
 .example2 {
