@@ -1,4 +1,14 @@
 .example1 {
+    background-color: darkslateblue;
+    color: white;
+    height: 200px;
+    width: 200px;
+    position: fixed;
+    top: 200px;
+    right: 0;
+}
+
+.example2 {
     text-align: center;
 }
 
@@ -62,4 +72,17 @@
 .rectangle:nth-child(9) div {
     bottom: 0;
     left: 0;
+}
+
+.rectangle div::after {
+    content: "Absolute";
+}
+
+.example3 {
+    width: 400px;
+    height: 200px;
+    background-color: cyan;
+    position: relative;
+    right: 50px;
+    top: 8px;
 }
