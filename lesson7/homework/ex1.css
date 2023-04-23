@@ -1,0 +1,73 @@
+/* הוספנו בסוף האלמנט ניקוי לפלואט */
+.ex1::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* עיצוב הילדים */
+.ex1>div {
+    height: 150px;
+    width: 32%;
+    background-color: coral;
+    box-sizing: border-box;
+    float: right;
+    margin: 3px;
+    position: relative;
+}
+
+/* עיצוב הנכדים */
+.ex1>div>div {
+    width: 70px;
+    height: 40px;
+    background-color: chartreuse;
+    position: absolute;
+}
+
+/* עיצוב הנכד הספציפי */
+.ex1>div:nth-child(2)>div {
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.ex1>div:nth-child(3)>div {
+    left: 0;
+}
+
+.ex1>div:nth-child(4)>div {
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.ex1>div:nth-child(5)>div {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.ex1>div:nth-child(6)>div {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.ex1>div:nth-child(7)>div {
+    bottom: 0;
+}
+
+.ex1>div:nth-child(8)>div {
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.ex1>div:nth-child(9)>div {
+    bottom: 0;
+    left: 0;
+}
