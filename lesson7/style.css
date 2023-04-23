@@ -41,24 +41,3 @@ h2 {
     border-bottom: 1px solid rgb(197, 197, 197);
     color: #4d4d4d;
 }
-
-nav {
-    background-color: #00d6f1;
-    text-align: right;
-    margin: -8px -16px 16px -16px;
-}
-
-nav a {
-    /* ריווח פנימי מכל הכיוונים */
-    padding: 8px;
-    /* שינוי מצב תצוגה */
-    display: inline-block;
-    /* ביטול קו תחתון */
-    text-decoration: none;
-    color: white;
-}
-
-/* עיצוב נוסף במעבר עכבר  */
-nav a:hover {
-    background-color: rgb(11, 224, 153);
-}

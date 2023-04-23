@@ -1,0 +1,48 @@
+nav {
+    background-color: rgb(63, 198, 239);
+    margin: -8px -16px;
+}
+
+/* הסתרנו את הנקודות */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* הפכנו את האייטמים ל-inline-block */
+li {
+    display: inline-block;
+    position: relative;
+}
+
+/* עיצוב התפריט הנפתח (והסתרתו כברירת מחדל) */
+.dropdown-content {
+    position: absolute;
+    background-color: #3fc6ef;
+    left: 0;
+    width: 170px;
+    right: 0;
+    display: none;
+}
+
+/* במעבר עכבר מציגים את התפריט  */
+li:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    display: block;
+}
+
+nav a {
+    padding: 8px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+nav a:hover {
+    background-color: coral;
+}
