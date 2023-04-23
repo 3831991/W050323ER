@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    border: 3px solid black;
+    height: 120px;
+    text-align: center;
+    background-color: #14573c;
+    color: white;
+    width: 25%;
+}
+
+tr:nth-child(2) td {
+    height: 300px;
+}
+
+tr:nth-child(2) td:nth-child(2) {
+    width: 50%;
+}
