@@ -1,0 +1,44 @@
+.frame {
+    padding: 0;
+}
+
+nav {
+    width: 150px;
+    background-color: #bdb76b;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    border-bottom: 1px solid white;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    padding: 8px;
+    display: block;
+    color: white;
+    font-size: 20px;
+}
+
+a:hover {
+    background-color: #d6d282;
+}
+
+.open-menu {
+    position: absolute;
+    background-color: #c9c486;
+    width: 150px;
+    right: 150px;
+    top: 0;
+    display: none;
+}
+
+li:hover .open-menu {
+    display: block;
+}
