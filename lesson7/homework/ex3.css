@@ -1,0 +1,16 @@
+.colors {
+    padding: 16px;
+    margin-bottom: 8px;
+}
+
+.colors:first-child {
+    background-color: yellow;
+}
+
+.colors:nth-child(2) {
+    background-color: rgb(38, 255, 0);
+}
+
+.colors:last-child {
+    background-color: rgb(0, 200, 255);
+}
