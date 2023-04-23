@@ -4,7 +4,7 @@
 
 nav {
     width: 150px;
-    background-color: #bdb76b;
+    background-image: linear-gradient(45deg, #009688, #72c8c0);
 }
 
 ul {
@@ -27,14 +27,14 @@ a {
 }
 
 a:hover {
-    background-color: #d6d282;
+    background-color: #ffffff47;
 }
 
 .open-menu {
     position: absolute;
-    background-color: #c9c486;
+    background-image: linear-gradient(45deg, #009688, #72c8c0);
     width: 150px;
-    right: 150px;
+    right: 100%;
     top: 0;
     display: none;
 }
