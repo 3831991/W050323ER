@@ -20,9 +20,7 @@ li {
 .dropdown-content {
     position: absolute;
     background-color: #3fc6ef;
-    left: 0;
     width: 170px;
-    right: 0;
     display: none;
 }
 
