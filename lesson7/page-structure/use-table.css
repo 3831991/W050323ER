@@ -19,3 +19,10 @@ tr:nth-child(2) td {
 tr:nth-child(2) td:nth-child(2) {
     width: 50%;
 }
+
+/* במצב של מסך צר, לא נציג את הטבלה (נציג חלופה אחרת) */
+@media (max-width: 768px) {
+    table {
+        display: none;
+    }
+}
