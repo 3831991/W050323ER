@@ -1,0 +1,24 @@
+.frame {
+    font-size: 0; /* removes the whitespace */
+}
+
+.frame>* {
+    border: 3px solid black;
+    height: 120px;
+    text-align: center;
+    background-color: #14573c;
+    font-size: 18px;
+    color: white;
+    padding-top: 16px;
+}
+
+nav, section, aside {
+    display: inline-block;
+    width: 25%;
+    box-sizing: border-box;
+    height: 300px !important;
+}
+
+section {
+    width: 50%;
+}
