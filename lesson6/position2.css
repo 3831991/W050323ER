@@ -21,7 +21,6 @@ h2 {
 .rightLayer, .leftLayer, .rightLayerLow {
     background-color: #00c382 !important;
     position: relative;
-    z-index: 2;
 }
 
 .rightLayer {
@@ -32,6 +31,7 @@ h2 {
 .leftLayer {
     top: -30px;
     left: -30px;
+    z-index: 2;
 }
 
 .bigDiv {

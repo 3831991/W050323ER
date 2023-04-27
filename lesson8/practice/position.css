@@ -1,0 +1,24 @@
+.bigDiv {
+    width: 500px;
+    height: 300px;
+    background-color: #c1c1c1;
+    position: relative;
+}
+
+.bigDiv div {
+    height: 50px;
+    width: 80px;
+    position: absolute;
+}
+
+.bigDiv div:first-child {
+    background-color: red;
+    top: 100px;
+    left: 300px;
+}
+
+.bigDiv div:last-child {
+    background-color: blue;
+    top: 150px;
+    left: 100px;
+}

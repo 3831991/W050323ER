@@ -1,0 +1,24 @@
+nav {
+    background-color: coral;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline;
+}
+
+a {
+    display: inline-block;
+    padding: 8px;
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    background-color: #ffffff40;
+}
