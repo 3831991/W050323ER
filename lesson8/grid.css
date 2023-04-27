@@ -60,6 +60,7 @@ small {
     position: relative;
     border: 2px dotted;
     min-height: 22px;
+    direction: ltr;
 }
 
 /*******************************/
@@ -120,18 +121,28 @@ small {
     content: "3";
 }
 
-.ex7 div:nth-child(11)::after {
+.ex7 div:nth-child(10)::after {
     content: "4";
 }
 
-.ex7 div:nth-child(16)::after {
+.ex7 div:nth-child(15)::after {
     content: "5";
 }
 
-.ex7 div:nth-child(21)::after {
+.ex7 div:nth-child(19)::after {
     content: "6";
 }
 /*******************************/
 /*******************************/
 /*******************************/
 
+.ex7 div:nth-child(7) {
+    grid-column: 2 / 4;
+    background-color: coral;
+}
+
+.ex7 div:nth-child(18) {
+    grid-column: 3 / 5;
+    grid-row: 4 / 6;
+    background-color: coral;
+}
