@@ -8,10 +8,13 @@ ul {
     margin: 0;
 }
 
+/* הגדרנו פוזישיין ע"מ לקבע את התפריטים הנפתחים */
 li {
     display: inline;
+    position: relative;
 }
 
+/* עיצבנו את הקישורים ע"מ שגם הריווח יהיה לחיץ */
 a {
     display: inline-block;
     padding: 8px;
@@ -21,4 +24,30 @@ a {
 
 a:hover {
     background-color: #ffffff40;
+}
+
+/* עיצוב התפריט הנפתח */
+li>ul {
+    background-color: cadetblue;
+    position: absolute;
+    width: 100%;
+    right: 0;
+    display: none;
+}
+
+/* הצגת התפריט הנתפתח במעבר עכבר */
+li:hover>ul {
+    display: block;
+}
+
+/* עיצוב כל הקישורים של התפריט הנפתח */
+li>ul a {
+    display: block;
+}
+
+/* עיצוב כל התפריטים הנכדים והלאה */
+li>ul>li ul {
+    background-color: rgb(98, 160, 95);
+    right: 100%;
+    top: 0;
 }
