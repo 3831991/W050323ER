@@ -42,9 +42,9 @@ h2 {
         height: 180px;
         // עשינו פלקס גם לזה לצורך מרכוז הטקסט שבפנים
         display: flex;
-        // מרכוז אופקי
+        // מרכוז אופקי (X)
         justify-content: center;
-        // מרכוז אנכי
+        // מרכוז אנכי (Y)
         align-items: center;
 
         &:first-child {
