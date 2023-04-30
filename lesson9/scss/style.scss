@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
+// משתנים
+$myBackground: #74bc0f;
+$myColor: white;
+$fontSize: 20px;
+
+// יצירת קטעי קוד הניתנים להטמעה
+@mixin my-stylings {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 50px;
+    font-weight: bold;
+    text-decoration: line-through;
+    font-style: italic;
+    color: yellow;
+    text-align: left;
+    rotate: 180deg;
+}
+
+body {
+    direction: rtl;
+    font-family: 'Rubik', sans-serif;
+    background-color: $myBackground;
+    padding-bottom: 200px;
+}
+
+h1 {
+    text-align: center;
+    color: $myColor;
+    font-size: $fontSize * 2;
+    // הטעמת העיצוב שיצרנו
+    @include my-stylings;
+}
+
+.frame {
+    width: 80%;
+    max-width: 900px;
+    min-height: 300px;
+    background-color: #ffffffc9;
+    margin: auto;
+    padding: 8px 16px;
+    border-radius: 6px;
+
+    h2 {
+        padding: 8px;
+        margin: 8px 0;
+        border-bottom: 1px solid rgb(197, 197, 197);
+        color: #4d4d4d;
+        font-size: $fontSize * 1.8;
+        // הופך את הצבע ליותר בהיר
+        background-color: lighten($myBackground, 30%);
+        @include my-stylings;
+    }
+}
+
+p {
+    font-size: $fontSize;
+}
+
+.ex1 {
+    h2 {
+        color: red;
+
+        &:hover {
+            background-color: $myBackground;
+            color: $myColor;
+        }
+    }
+
+    p {
+        color: blue;
+
+        &.myParagraph {
+            font-size: $fontSize * 1.5;
+        }
+    }
+}

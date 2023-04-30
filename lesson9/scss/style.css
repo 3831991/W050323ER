@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap");
+body {
+  direction: rtl;
+  font-family: "Rubik", sans-serif;
+  background-color: #74bc0f;
+  padding-bottom: 200px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+  font-weight: bold;
+  text-decoration: line-through;
+  font-style: italic;
+  color: yellow;
+  text-align: left;
+  rotate: 180deg;
+}
+
+.frame {
+  width: 80%;
+  max-width: 900px;
+  min-height: 300px;
+  background-color: rgba(255, 255, 255, 0.7882352941);
+  margin: auto;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+.frame h2 {
+  padding: 8px;
+  margin: 8px 0;
+  border-bottom: 1px solid rgb(197, 197, 197);
+  color: #4d4d4d;
+  font-size: 36px;
+  background-color: #bdf470;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 50px;
+  font-weight: bold;
+  text-decoration: line-through;
+  font-style: italic;
+  color: yellow;
+  text-align: left;
+  rotate: 180deg;
+}
+
+p {
+  font-size: 20px;
+}
+
+.ex1 h2 {
+  color: red;
+}
+.ex1 h2:hover {
+  background-color: #74bc0f;
+  color: white;
+}
+.ex1 p {
+  color: blue;
+}
+.ex1 p.myParagraph {
+  font-size: 30px;
+}/*# sourceMappingURL=style.css.map */
