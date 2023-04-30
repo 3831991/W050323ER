@@ -47,6 +47,136 @@
     </div>
 
     <div class="card">
+        <div class="card-header">List</div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">First item</li>
+                <li class="list-group-item">Second item</li>
+                <li class="list-group-item">Third item</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Navbar</div>
+        <div class="card-body">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <div class="container-fluid">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Link 3</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Alert</div>
+        <div class="card-body">
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Success!</strong> This alert box could indicate a successful or positive action.
+            </div>
+            <div class="alert alert-info alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Info!</strong> This alert box could indicate a neutral informative change or action.
+            </div>
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Warning!</strong> This alert box could indicate a warning that might need attention.
+            </div>
+            <div class="alert alert-danger alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+            </div>
+            <div class="alert alert-primary alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Primary!</strong> Indicates an important action.
+            </div>
+            <div class="alert alert-secondary alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Secondary!</strong> Indicates a slightly less important action.
+            </div>
+            <div class="alert alert-dark alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Dark!</strong> Dark grey alert.
+            </div>
+            <div class="alert alert-light alert-dismissible">
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <strong>Light!</strong> Light grey alert.
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">טופס</div>
+        <div class="card-body">
+            <form action="/action_page.php">
+                <div class="mb-3 mt-3">
+                    <label for="email">אימייל:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="pwd">סיסמה:</label>
+                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                </div>
+                <div class="form-check mb-3">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" name="remember"> זכור אותי
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">שלח</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Responsive</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img class="card-img-top" src="images/img (2).jpg">
+                        <div class="card-body">
+                            <h4 class="card-title">תמונה 1</h4>
+                            <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל
+                                בלינדו למרקל אס לכימפו, דול, צוט ומעיוט לפתיעם ברשג. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img class="card-img-top" src="images/img (7).jpg">
+                        <div class="card-body">
+                            <h4 class="card-title">תמונה 2</h4>
+                            <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל
+                                בלינדו למרקל אס לכימפו, דול, צוט ומעיוט לפתיעם ברשג. </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                        <img class="card-img-top" src="images/img (9).jpg">
+                        <div class="card-body">
+                            <h4 class="card-title">תמונה 3</h4>
+                            <p class="card-text">לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל
+                                בלינדו למרקל אס לכימפו, דול, צוט ומעיוט לפתיעם ברשג. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
         <div class="card-header">טבלה</div>
         <div class="card-body">
             <table class="table table-striped">
@@ -95,113 +225,75 @@
                         <td>caizikov4@sciencedirect.com</td>
                         <td>271-417-2301</td>
                     </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>Hilton</td>
-                        <td>Crop</td>
-                        <td>hcrop5@fda.gov</td>
-                        <td>892-108-3131</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>Emmit</td>
-                        <td>Cornner</td>
-                        <td>ecornner6@discovery.com</td>
-                        <td>408-447-9101</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>Geneva</td>
-                        <td>Studeart</td>
-                        <td>gstudeart7@miitbeian.gov.cn</td>
-                        <td>746-428-1135</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>Oralia</td>
-                        <td>Rabbe</td>
-                        <td>orabbe8@weather.com</td>
-                        <td>325-973-9814</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>Hedwiga</td>
-                        <td>Delacourt</td>
-                        <td>hdelacourt9@desdev.cn</td>
-                        <td>889-662-5621</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>Sari</td>
-                        <td>Jackman</td>
-                        <td>sjackmana@time.com</td>
-                        <td>395-291-2430</td>
-                    </tr>
-                    <tr>
-                        <td>12</td>
-                        <td>Petey</td>
-                        <td>Walczynski</td>
-                        <td>pwalczynskib@list-manage.com</td>
-                        <td>462-192-4231</td>
-                    </tr>
-                    <tr>
-                        <td>13</td>
-                        <td>Stacey</td>
-                        <td>Obell</td>
-                        <td>sobellc@go.com</td>
-                        <td>859-231-6386</td>
-                    </tr>
-                    <tr>
-                        <td>14</td>
-                        <td>Pen</td>
-                        <td>Hiseman</td>
-                        <td>phisemand@icq.com</td>
-                        <td>876-498-7534</td>
-                    </tr>
-                    <tr>
-                        <td>15</td>
-                        <td>Man</td>
-                        <td>Maving</td>
-                        <td>mmavinge@twitpic.com</td>
-                        <td>997-992-0238</td>
-                    </tr>
-                    <tr>
-                        <td>16</td>
-                        <td>Matty</td>
-                        <td>Terran</td>
-                        <td>mterranf@clickbank.net</td>
-                        <td>358-813-8484</td>
-                    </tr>
-                    <tr>
-                        <td>17</td>
-                        <td>Aldwin</td>
-                        <td>Digby</td>
-                        <td>adigbyg@wordpress.com</td>
-                        <td>921-899-4722</td>
-                    </tr>
-                    <tr>
-                        <td>18</td>
-                        <td>Maribeth</td>
-                        <td>Orton</td>
-                        <td>mortonh@upenn.edu</td>
-                        <td>472-665-5815</td>
-                    </tr>
-                    <tr>
-                        <td>19</td>
-                        <td>Sally</td>
-                        <td>Kyndred</td>
-                        <td>skyndredi@xrea.com</td>
-                        <td>641-586-2918</td>
-                    </tr>
-                    <tr>
-                        <td>20</td>
-                        <td>Saidee</td>
-                        <td>Weeds</td>
-                        <td>sweedsj@wikimedia.org</td>
-                        <td>720-234-9545</td>
-                    </tr>
                 </tbody>
             </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Modal</div>
+        <div class="card-body">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">דוגמא
+                1</button>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">כותרת</h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            תוכן...
+                        </div>
+
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">סגור</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">Carusle</div>
+        <div class="card-body">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                <!-- Indicators/dots -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                </div>
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/img (2).jpg" alt="Los Angeles" class="d-block">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/img (7).jpg" alt="Chicago" class="d-block">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/img (9).jpg" alt="New York" class="d-block">
+                    </div>
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
         </div>
     </div>
 
