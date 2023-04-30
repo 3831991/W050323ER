@@ -22,3 +22,9 @@ h1 {
 .card-header {
     font-weight: bold;
 }
+
+th {
+    position: sticky;
+    top: 0;
+    background: white !important;
+}
