@@ -157,7 +157,7 @@ a.nav-link {
   margin: 32px 0;
 }
 #contact .form-control {
-  border-bottom: 3px solid aqua;
+  border-bottom: 3px solid #31d2f2;
   border-radius: 0;
   margin-bottom: 16px;
 }
@@ -166,4 +166,26 @@ a.nav-link {
   font-size: 1.4em;
   border-radius: 30px;
   padding: 6px 32px;
+}
+
+#links {
+  background-color: #31d2f2;
+  text-align: center;
+  padding: 25px 0;
+  direction: ltr;
+}
+#links img {
+  height: 40px;
+  display: block;
+  margin: auto;
+}
+#links span {
+  margin: 8px 0;
+  display: inline-block;
+}
+
+footer {
+  padding: 8px;
+  background-color: black;
+  color: white;
 }/*# sourceMappingURL=style.css.map */
