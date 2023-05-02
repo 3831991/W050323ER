@@ -174,4 +174,21 @@ a.nav-link {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: revert;
+
+    form {
+        margin: 32px 0;
+    }
+
+    input.form-control {
+        border-bottom: 3px solid aqua;
+        border-radius: 0;
+        margin-bottom: 16px;
+    }
+
+    button {
+        margin-top: 32px;
+        font-size: 1.4em;
+        border-radius: 30px;
+        padding: 6px 32px;
+    }
 }
