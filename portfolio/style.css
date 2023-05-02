@@ -15,6 +15,10 @@ body {
 
 nav {
   padding: 0 !important;
+  box-shadow: 0px 5px 10px 1px rgba(168, 168, 168, 0.4784313725);
+  position: sticky !important;
+  top: 0;
+  z-index: 1;
 }
 
 .logo {
@@ -71,6 +75,8 @@ a.nav-link {
   text-align: center;
   max-width: 850px;
   margin: auto;
+  padding-top: 90px !important;
+  padding-bottom: 90px !important;
 }
 #about img {
   width: 150px;
@@ -88,7 +94,7 @@ a.nav-link {
 }
 
 #gallery {
-  padding: 60px 0;
+  padding: 100px 0;
   background-color: #f3f3f3;
 }
 #gallery h2 {
@@ -96,7 +102,7 @@ a.nav-link {
   font-weight: bold;
 }
 #gallery .row {
-  max-width: 900px;
+  max-width: 1100px;
   padding: 16px;
   margin: auto;
 }
@@ -107,6 +113,18 @@ a.nav-link {
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
+  transition: 0.6s;
+}
+#gallery .row .card img {
+  transition: 0.6s;
+}
+#gallery .row .card:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.337254902);
+}
+#gallery .row .card:hover img {
+  scale: 1.1;
+  translate: 0 -5px;
+  filter: brightness(80%);
 }
 #gallery .row .card .card-body {
   padding: 2rem 1rem;
