@@ -141,4 +141,15 @@ a.nav-link {
   margin-top: 20px;
   border-radius: 30px;
   padding: 6px 32px;
+}
+
+#contact {
+  background-image: url(assets/Image20230502125311.png);
+  background-color: #3A3A3A;
+  padding: 4vw 3vw !important;
+  margin: 0 !important;
+  color: white;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: revert;
 }/*# sourceMappingURL=style.css.map */
