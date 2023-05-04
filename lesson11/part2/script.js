@@ -13,3 +13,15 @@ function task2() {
         document.getElementById("output1").innerHTML = "תתבייש!!!!";
     }
 }
+
+function task3() {
+    const city = document.getElementById("city").value;
+
+    if (city == "קרית ארבע") {
+        document.getElementById("output2").innerHTML = "נכון";
+        document.getElementById("city").style.border = "3px solid green";
+    } else {
+        document.getElementById("output2").innerHTML = "שקר וכזב";
+        document.getElementById("city").style.border = "3px solid red";
+    }
+}
