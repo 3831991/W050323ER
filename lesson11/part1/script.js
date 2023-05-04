@@ -35,5 +35,10 @@ function sum() {
 }
 
 function sum2() {
-    
+    const n1 = +document.getElementById("num6").value;
+    const n2 = +document.getElementById("num7").value;
+    const res = n1 + n2;
+
+    document.getElementById("output3").innerHTML = n1 + " + " + n2 + " = " + res;
 }
+
