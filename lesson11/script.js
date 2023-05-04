@@ -26,3 +26,14 @@ function changeColor() {
 
     document.body.style.backgroundColor = color;
 }
+
+function sum() {
+    const n1 = +document.getElementById("num4").value;
+    const n2 = +document.getElementById("num5").value;
+
+    document.getElementById("output2").innerHTML = n1 + n2;
+}
+
+function sum2() {
+    
+}
