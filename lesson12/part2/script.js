@@ -20,3 +20,11 @@ function welcome(firstName, lastName) {
 }
 
 welcome("Elyashiv", "Lerner"); // שימוש בפונקציה
+
+// פונקציה המקבלת 4 מספרים ומחזירה את הממוצע שלהם
+function avg(n1, n2, n3, n4) {
+    return (n1 + n2 + n3 + n4) / 4;
+}
+
+const avgResult = avg(20, 60, 30, 50); // שימוש בפונקציה
+console.log("AVG:", avgResult); // הצגת התוצאה בקונסול
