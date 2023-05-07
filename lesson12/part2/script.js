@@ -1,15 +1,22 @@
+// פונקציה שמקבל 3 מספרים ומחזירה סיכום שלהם
 function sum(num1, num2, num3) {
     return num1 + num2 + num3;
 }
 
-// function 
+const sumResult = sum(6, 12, 1000); // שימוש בפונקציה
+console.log("sum:", sumResult); // הצגת התוצאה בקונסול
 
-const x = sum(5, 6, 9); // 20 
-console.log(x);
+// פונקציה המקבלת מספר ומחזירה את המספר כולל מע"מ
+function calcVat(num) {
+    return num * 1.17;
+}
 
-const y = sum(10, 6, 9); // 25
-console.log(y);
+const result = calcVat(1000); // שימוש בפונקציה
+console.log("calcVat:", result); // הצגת התוצאה בקונסול
 
-const z = sum(32, 6, 9); // 47
-console.log(z);
+// פונקציה המקבלת שם פרטי ומשפחה, מחברת ביניהם וכותבת הודעת ברכה באלרט
+function welcome(firstName, lastName) {
+    alert(`Welcome ${firstName} ${lastName}!!!!!`);
+}
 
+welcome("Elyashiv", "Lerner"); // שימוש בפונקציה
