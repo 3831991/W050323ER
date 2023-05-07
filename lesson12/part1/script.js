@@ -16,3 +16,10 @@ function task1() {
     elem.style.backgroundColor = color;
 }
 
+function task2() {
+    const str1 = document.getElementById("str1").value;
+    const str2 = document.getElementById("str2").value;
+
+    document.getElementById("str1").value = str2;
+    document.getElementById("str2").value = str1;
+}
