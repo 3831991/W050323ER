@@ -1,0 +1,53 @@
+body {
+    direction: rtl;
+}
+
+.row {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.row>* {
+    padding: 0;
+}
+
+.img {
+    background-image: url(assets/IMG_0511.jpg);
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.col-md-5 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+form {
+    max-width: 350px;
+    padding: 16px;
+}
+
+label {
+    display: block;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .row {
+        position: static;
+        flex-flow: wrap-reverse;
+    }
+
+    form {
+        margin-top: 60px;
+    }
+
+    .img {
+        height: 200px;
+    }
+}
