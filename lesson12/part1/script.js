@@ -23,3 +23,16 @@ function task2() {
     document.getElementById("str1").value = str2;
     document.getElementById("str2").value = str1;
 }
+
+function salerycalcultor() {
+    const user = document.getElementById("user").value;
+    const salery = document.getElementById("salery").value;
+
+    let raise = salery * 1.1;
+
+    if (raise > 6000) {
+        raise = salery * 1.05;
+    }
+
+    document.getElementById("output1").innerHTML = `המשכורת של ${user} היא: ${raise}`;
+}
