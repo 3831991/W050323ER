@@ -2,7 +2,7 @@
 
 body {
     direction: rtl;
-    background-color: #ea9100;
+    background-color: #8bc34a;
     padding-bottom: 200px;
 }
 
@@ -39,7 +39,7 @@ h2 {
 }
 
 button {
-    background-color: #b7743a;
+    background-color: #8bc34a;
     color: white;
     padding: 8px 12px;
     border-radius: 6px;
@@ -47,7 +47,7 @@ button {
 }
 
 button:hover {
-    background-color: #d79357;
+    background-color: #a4d967;
 }
 
 input, select {

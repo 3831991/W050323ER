@@ -47,3 +47,24 @@ function check() {
         document.getElementById("output2").innerHTML = 'לא התקבל';
     }
 }
+
+// אופן נוסף לפונקציה הקודמת
+function check2() {
+    const age = +document.getElementById("age").value;
+    const height = +document.getElementById("height").value;
+    let isAllow = false;
+
+    if ((age >= 14 && age <= 18) || (age >= 21 && age <= 26)) {
+        isAllow = true;
+    }
+
+    if (height <= 182) {
+        isAllow = false;
+    }
+
+    if (isAllow) {
+        document.getElementById("output2").innerHTML = 'השחקן התקבל';
+    } else {
+        document.getElementById("output2").innerHTML = 'לא התקבל';
+    }
+}
