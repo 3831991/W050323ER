@@ -36,3 +36,14 @@ function salerycalcultor() {
 
     document.getElementById("output1").innerHTML = `המשכורת של ${user} היא: ${raise}`;
 }
+
+function check() {
+    const age = +document.getElementById("age").value;
+    const height = +document.getElementById("height").value;
+
+    if (((age >= 14 && age <= 18) || (age >= 21 && age <= 26)) && height > 182) {
+        document.getElementById("output2").innerHTML = 'השחקן התקבל';
+    } else {
+        document.getElementById("output2").innerHTML = 'לא התקבל';
+    }
+}
