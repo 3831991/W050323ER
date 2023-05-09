@@ -31,3 +31,7 @@ function showNumbers() {
         i++;
     }
 }
+
+function showRange() {
+    
+}
