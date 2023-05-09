@@ -31,5 +31,5 @@ function showStudents2() {
 }
 
 function showStudents3() {
-    
+    document.getElementById("output3").innerHTML = '<li>' + students.join("</li><li>") + '</li>';
 }
