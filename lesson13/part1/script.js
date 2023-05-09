@@ -22,6 +22,8 @@ const students = [
     "שפירא אביב"
 ];
 
+const grades = [88, 96, 75, 100, 101, 95, 34, 45, 85];
+
 function showStudents() {
     const elem = document.getElementById("output1");
 
@@ -50,4 +52,9 @@ function showStudents3() {
     } else {
         elem.innerHTML = "";
     }
+}
+
+function showStudentByIndex() {
+    const i = +document.getElementById("index").value;
+    document.getElementById("output4").innerHTML = students[i];
 }
