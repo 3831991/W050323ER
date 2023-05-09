@@ -45,5 +45,11 @@ function showRange() {
 }
 
 function showSizeNumber() {
-    
+    let i = 1;
+
+    while (i <= 100) {
+        const span = `<span style="font-size: ${i}px">${i}, </span>`;
+        document.getElementById("output5").innerHTML += span;
+        i++;
+    }
 }
