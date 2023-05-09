@@ -15,5 +15,14 @@ function sum() {
 }
 
 function showAsterisks() {
+    let i = 0;
+
+    while (i < 10) {
+        document.getElementById("output2").innerHTML += "*" + "<br>";
+        i++;
+    }
+}
+
+function showNumbers() {
     
 }
