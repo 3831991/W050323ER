@@ -24,5 +24,10 @@ function showAsterisks() {
 }
 
 function showNumbers() {
-    
+    let i = 1;
+
+    while (i <= 15) {
+        document.getElementById("output3").innerHTML += i + "<br>";
+        i++;
+    }
 }
