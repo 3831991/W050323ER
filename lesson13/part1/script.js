@@ -29,3 +29,7 @@ function showStudents() {
 function showStudents2() {
     document.getElementById("output2").innerHTML = students.join("<br>");
 }
+
+function showStudents3() {
+    
+}
