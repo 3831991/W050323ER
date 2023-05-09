@@ -76,3 +76,14 @@ p {
     color: gray;
     margin-bottom: 12px;
 }
+
+#board {
+    direction: ltr;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 8px;
+    border: 1px solid black;
+    text-align: center;
+}

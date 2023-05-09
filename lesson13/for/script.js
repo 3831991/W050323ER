@@ -56,3 +56,42 @@ function colors() {
         document.getElementById("output7").innerHTML += div;
     }
 }
+
+function showSpecialAsterisks() {
+    for (let i = 1; i <= 10; i++) {
+
+        for (let x = 0; x < i; x++) {
+            document.getElementById("output8").innerHTML += "*";
+        }
+
+        document.getElementById("output8").innerHTML += "<br>";
+    }
+}
+
+function showSpecialAsterisks10() {
+    for (let i = 1; i <= 10; i++) {
+
+        for (let x = 1; x <= 10; x++) {
+            document.getElementById("output9").innerHTML += "*";
+        }
+
+        document.getElementById("output9").innerHTML += "<br>";
+    }
+}
+
+function multiBoard() {
+    let str = "";
+
+    for (let i = 1; i <= 10; i++) {
+
+        str += "<tr>";
+
+        for (let x = 1; x <= 10; x++) {
+            str += `<td>${i * x}</td>`;
+        }
+
+        str += "</tr>";
+    }
+
+    document.getElementById("board").innerHTML = str;
+}
