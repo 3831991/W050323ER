@@ -22,8 +22,6 @@ const students = [
     "שפירא אביב"
 ];
 
-const grades = [88, 96, 75, 100, 101, 95, 34, 45, 85];
-
 function showStudents() {
     const elem = document.getElementById("output1");
 
