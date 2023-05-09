@@ -23,5 +23,9 @@ const students = [
 ];
 
 function showStudents() {
-    
+    document.getElementById("output1").innerHTML = students.join(", ");
+}
+
+function showStudents2() {
+    document.getElementById("output2").innerHTML = students.join("<br>");
 }
