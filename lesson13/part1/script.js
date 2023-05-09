@@ -23,13 +23,31 @@ const students = [
 ];
 
 function showStudents() {
-    document.getElementById("output1").innerHTML = students.join(", ");
+    const elem = document.getElementById("output1");
+
+    if (elem.innerHTML == "") {
+        elem.innerHTML = students.join(", ");
+    } else {
+        elem.innerHTML = "";
+    }
 }
 
 function showStudents2() {
-    document.getElementById("output2").innerHTML = students.join("<br>");
+    const elem = document.getElementById("output2");
+
+    if (elem.innerHTML == "") {
+        elem.innerHTML = students.join("<br>");
+    } else {
+        elem.innerHTML = "";
+    }
 }
 
 function showStudents3() {
-    document.getElementById("output3").innerHTML = '<li>' + students.join("</li><li>") + '</li>';
+    const elem = document.getElementById("output3");
+
+    if (elem.innerHTML == "") {
+        elem.innerHTML = '<li>' + students.join("</li><li>") + '</li>';
+    } else {
+        elem.innerHTML = "";
+    }
 }
