@@ -33,5 +33,17 @@ function showNumbers() {
 }
 
 function showRange() {
+    let i = 10;
+    const arr = [];
+
+    while (i <= 30) {
+        arr.push(i);
+        i++;
+    }
+
+    document.getElementById("output4").innerHTML = arr.join(", ");
+}
+
+function showSizeNumber() {
     
 }
