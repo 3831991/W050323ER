@@ -17,3 +17,23 @@ function addToArray(ev) {
 function showArray() {
     document.getElementById("output1").innerHTML = numbers.join(", ");
 }
+
+function sum() {
+    let res = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+        res += numbers[i];
+    }
+
+    document.getElementById("output2").innerHTML = res;
+}
+
+function avg() {
+    let res = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+        res += numbers[i];
+    }
+
+    document.getElementById("output3").innerHTML = Math.round(res / numbers.length);
+}
