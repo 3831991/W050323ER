@@ -85,3 +85,7 @@ function showFactorial() {
 
     document.getElementById('output6').innerHTML = numbers.join(" x ") + " = " + res;
 }
+
+function showSumNum() {
+    
+}
