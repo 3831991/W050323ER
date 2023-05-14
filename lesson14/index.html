@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>For</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <h1>For</h1>
+
+        <div class="frame">
+            <div class="task">
+                <p>יש לקלוט מספרים למערך באמצעות לחיצה על Enter.</p>
+                <input type="number" onkeyup="addToArray(event)">
+            </div>
+
+            <div class="task">
+                <p>יש להציג את נתוני המערך באמצעות לחיצה על כפתור</p>
+                <button onclick="showArray()">הצג</button>
+                <p id="output1"></p>
+            </div>
+
+            <div class="task">
+                <p>יש להציג את סכום המספרים שבמערך</p>
+                <button onclick="sum()">הצג</button>
+                <p id="output2"></p>
+            </div>
+
+            <div class="task">
+                <p>יש להציג את הממוצע של המספרים שבמערך</p>
+                <button onclick="avg()">הצג</button>
+                <p id="output3"></p>
+            </div>
+        </div>
+    </body>
+</html>
