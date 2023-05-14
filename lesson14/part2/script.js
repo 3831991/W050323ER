@@ -45,3 +45,7 @@ function showDividers() {
 
     document.getElementById('output3').innerHTML = numbers.join(", ");
 }
+
+function showNumbersUnder() {
+    
+}
