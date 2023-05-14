@@ -35,6 +35,13 @@ function isPrime() {
 
 function showDividers() {
     const num = +document.getElementById('num2').value;
+    const numbers = [];
 
+    for (let i = 1; i <= num; i++) {
+        if (num % i === 0) {
+            numbers.push(i);
+        }
+    }
 
+    document.getElementById('output3').innerHTML = numbers.join(", ");
 }
