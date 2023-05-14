@@ -47,5 +47,27 @@ function showDividers() {
 }
 
 function showNumbersUnder() {
-    
+    const num = +document.getElementById('num3').value;
+    const numbers = [];
+
+    for (let i = 1; i <= num; i++) {
+        numbers.push(i);
+    }
+
+    document.getElementById('output4').innerHTML = numbers.join(", ");
+}
+
+function showNumbersBetween() {
+    const num1 = +document.getElementById('num4').value;
+    const num2 = +document.getElementById('num5').value;
+    const numbers = [];
+
+    const min = Math.min(num1, num2);
+    const max = Math.max(num1, num2);
+
+    for (let i = min; i <= max; i++) {
+        numbers.push(i);
+    }
+
+    document.getElementById('output5').innerHTML = numbers.join(", ");
 }
