@@ -32,3 +32,9 @@ function isPrime() {
         document.getElementById('output2').innerHTML = 'לא ראשוני';
     }
 }
+
+function showDividers() {
+    const num = +document.getElementById('num2').value;
+
+
+}
