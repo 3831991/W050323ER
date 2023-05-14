@@ -37,3 +37,11 @@ function avg() {
 
     document.getElementById("output3").innerHTML = Math.round(res / numbers.length);
 }
+
+function max() {
+    
+}
+
+function min() {
+
+}
