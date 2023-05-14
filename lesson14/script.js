@@ -1,4 +1,4 @@
-const numbers = [];
+const numbers = [56, 89, 88, 77, 36, 20, 100, 96, 35, 48, 77, 80];
 
 function addToArray(ev) {
     // באובייקט של האוונט שקיבלנו - יש פרמטר שמביא לנו את האלמנט (target)
@@ -39,9 +39,33 @@ function avg() {
 }
 
 function max() {
-    
+    let res = numbers[0];
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > res) {
+            res = numbers[i];
+        }
+    }
+
+    document.getElementById("output4").innerHTML = res;
 }
 
 function min() {
+    let res = numbers[0];
 
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] < res) {
+            res = numbers[i];
+        }
+    }
+
+    document.getElementById("output5").innerHTML = res;
+}
+
+function allFunctions() {
+    showArray();
+    sum();
+    avg();
+    max();
+    min();
 }
