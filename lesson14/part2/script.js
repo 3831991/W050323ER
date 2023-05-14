@@ -60,6 +60,7 @@ function showNumbersUnder() {
 function showNumbersBetween() {
     const num1 = +document.getElementById('num4').value;
     const num2 = +document.getElementById('num5').value;
+    
     const numbers = [];
 
     const min = Math.min(num1, num2);
@@ -70,4 +71,17 @@ function showNumbersBetween() {
     }
 
     document.getElementById('output5').innerHTML = numbers.join(", ");
+}
+
+function showFactorial() {
+    const num = +document.getElementById('num6').value;
+    const numbers = [];
+    let res = 1;
+
+    for (let i = 1; i <= num; i++) {
+        numbers.push(i);
+        res *= i;
+    }
+
+    document.getElementById('output6').innerHTML = numbers.join(" x ") + " = " + res;
 }
