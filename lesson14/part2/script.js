@@ -87,5 +87,12 @@ function showFactorial() {
 }
 
 function showSumNum() {
-    
+    const str = document.getElementById('num7').value;
+    let res = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        res += +str[i];
+    }
+
+    document.getElementById('output7').innerHTML = res;
 }
