@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
 
 body {
-    direction: rtl;
     background-color: #008612;
     padding-bottom: 200px;
 }
@@ -77,22 +76,16 @@ p {
     margin-bottom: 12px;
 }
 
-#board {
-    direction: ltr;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-}
-
-#board>div {
+#date {
     text-align: center;
-    border: 1px solid;
-    padding: 20px;
+    font-size: 3em;
 }
 
-/* עיצוב של 10 הראשונים */
-#board>div:nth-child(-n + 10),
-/* עיצוב בדילוגים של 10 - החלנו מ-1 קדימה */
-#board>div:nth-child(10n + 1) {
-    font-weight: bold;
-    background-color: #f1ce3f;
+#time {
+    text-align: center;
+    font-size: 5em;
+}
+
+#day {
+    text-align: center;
 }
