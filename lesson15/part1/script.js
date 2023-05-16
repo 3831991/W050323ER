@@ -11,3 +11,13 @@ function sum() {
 
     document.getElementById("output1").innerHTML = res;
 }
+
+function showAsterisks() {
+    const arr = [];
+
+    for (let i = 0; i < 10; i++) {
+        arr.push("*");
+    }
+
+    document.getElementById("output2").innerHTML = arr.join("<br>");
+}
