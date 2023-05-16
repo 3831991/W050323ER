@@ -2,7 +2,7 @@
 
 body {
     direction: rtl;
-    background-color: #b34ac3;
+    background-color: #333333;
     padding-bottom: 200px;
 }
 
@@ -79,11 +79,20 @@ p {
 
 #board {
     direction: ltr;
-    border-collapse: collapse;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
 }
 
-td {
-    padding: 8px;
-    border: 1px solid black;
+#board>div {
     text-align: center;
+    border: 1px solid;
+    padding: 20px;
+}
+
+/* עיצוב של 10 הראשונים */
+#board>div:nth-child(-n + 10),
+/* עיצוב בדילוגים של 10 - החלנו מ-1 קדימה */
+#board>div:nth-child(10n + 1) {
+    font-weight: bold;
+    background-color: #f1ce3f;
 }
