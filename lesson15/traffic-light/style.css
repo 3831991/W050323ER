@@ -96,6 +96,7 @@ p {
     background-color: black;
     border-radius: 8px;
     box-shadow: 0 0 9px #a1a1a1;
+    margin: 30px;
 }
 
 .traffic>div {
@@ -111,7 +112,7 @@ p {
     background-color: red !important;
 }
 
-.yellow.active {
+.yellow.active, .yellow2.active {
     background-color: yellow !important;
 }
 

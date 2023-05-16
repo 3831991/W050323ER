@@ -30,3 +30,17 @@ function yellow() {
 }
 
 red();
+
+// ********************************************** //
+
+function error() {
+    document.querySelector(".yellow2").classList.add("active");
+    setTimeout(stopError, 500);
+}
+
+function stopError() {
+    document.querySelector(".yellow2").classList.remove("active");
+    setTimeout(error, 500);
+}
+
+error();
