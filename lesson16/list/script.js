@@ -78,7 +78,15 @@ function raffleSpecial() {
     const frame = document.querySelector(".frame");
     frame.appendChild(elem);
 
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        decay: 0.9,
+        origin: { y: 0.6 }
+    });
+    
     setTimeout(function() {
         frame.removeChild(elem);
-    }, 2 * 1000)
+        raffleSpecial();
+    }, 2 * 1000);
 }
