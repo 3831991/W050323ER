@@ -42,3 +42,23 @@ task4.querySelector('button').addEventListener('click', function() {
 
     task4.querySelector('p').innerHTML = str;
 });
+
+task4.querySelector('#btn2').addEventListener('click', function() {
+    const len = +task4.querySelector("input").value;
+    task4.querySelector('p').innerHTML = '';
+
+    let i = 0;
+
+    const interval = setInterval(function() {
+        const rand = Math.floor(Math.random() * chars.length);
+        task4.querySelector('p').innerHTML += chars[rand];
+
+        if (i % 6 === 0) {
+            task4.querySelector('p').innerHTML += " ";
+        }
+
+        if (++i >= len) {
+            clearInterval(interval);
+        }
+    }, 10);
+});
