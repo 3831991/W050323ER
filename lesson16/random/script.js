@@ -25,12 +25,20 @@ task3.querySelector('button').addEventListener('click', function() {
     task3.querySelector('p').innerHTML = res;
 });
 
-const chars = ["א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ","נ","ס","ע","פ","צ","ק","ר","ש","ת","ך","ם","ן","ף","ץ"," "];
-
+const chars = ["א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ","נ","ס","ע","פ","צ","ק","ר","ש","ת","ך","ם","ן","ף","ץ"];
 
 task4.querySelector('button').addEventListener('click', function() {
     const len = +task4.querySelector("input").value;
     let str = "";
 
+    for (let i = 0; i < len; i++) {
+        const rand = Math.floor(Math.random() * chars.length);
+        str += chars[rand];
 
+        if (i % 6 === 0) {
+            str += " ";
+        }
+    }
+
+    task4.querySelector('p').innerHTML = str;
 });
