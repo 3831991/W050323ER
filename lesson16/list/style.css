@@ -2,7 +2,7 @@
 
 body {
     direction: rtl;
-    background-color: #333333;
+    background-color: #b31b7e;
     padding-bottom: 200px;
 }
 
@@ -77,26 +77,11 @@ p {
     margin-bottom: 12px;
 }
 
-#board {
-    direction: ltr;
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
+mark {
+    background-color: orange;
 }
 
-#board>div {
-    text-align: center;
-    border: 1px solid;
-    padding: 20px;
-}
-
-/* עיצוב של 10 הראשונים */
-#board>div:nth-child(-n + 10),
-/* עיצוב בדילוגים של 10 - החלנו מ-1 קדימה */
-#board>div:nth-child(10n + 1) {
-    font-weight: bold;
-    background-color: #f1ce3f;
-}
-
-.myBgc {
-    background-color: #3ff151;
+.magniv {
+    color: blue;
+    font-size: 50px;
 }
