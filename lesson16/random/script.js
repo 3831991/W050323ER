@@ -1,6 +1,7 @@
 const task1 = document.querySelector('#task1');
 const task2 = document.querySelector('#task2');
 const task3 = document.querySelector('#task3');
+const task4 = document.querySelector('#task4');
 
 task1.querySelector('button').addEventListener('click', function() {
     const rand = Math.random();
@@ -22,4 +23,14 @@ task3.querySelector('button').addEventListener('click', function() {
     const rand = Math.random();
     const res = Math.floor(rand * (max - min + 1)) + min;
     task3.querySelector('p').innerHTML = res;
+});
+
+const chars = ["א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ","נ","ס","ע","פ","צ","ק","ר","ש","ת","ך","ם","ן","ף","ץ"," "];
+
+
+task4.querySelector('button').addEventListener('click', function() {
+    const len = +task4.querySelector("input").value;
+    let res = "";
+
+    
 });
