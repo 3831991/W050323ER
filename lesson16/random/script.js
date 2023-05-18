@@ -30,7 +30,7 @@ const chars = ["א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ",
 
 task4.querySelector('button').addEventListener('click', function() {
     const len = +task4.querySelector("input").value;
-    let res = "";
+    let str = "";
 
-    
+
 });
