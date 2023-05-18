@@ -50,7 +50,8 @@ button:hover {
     background-color: #a4d967;
 }
 
-input, select {
+input,
+select {
     border: 1px solid black;
     padding: 8px 12px;
     border-radius: 5px;
@@ -84,4 +85,27 @@ mark {
 .magniv {
     color: blue;
     font-size: 50px;
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(2);
+    }
+}
+
+.raffle {
+    font-size: 80px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: zoom-in 2s;
 }

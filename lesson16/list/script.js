@@ -63,5 +63,22 @@ function sortDESC() {
 }
 
 function raffle() {
-    
+    const rand = Math.floor(Math.random() * students.length);
+
+    alert(`המנצח הוא: ${students[rand]}`);
+}
+
+function raffleSpecial() {
+    const rand = Math.floor(Math.random() * students.length);
+
+    const elem = document.createElement("div");
+    elem.classList.add("raffle");
+    elem.innerHTML = students[rand];
+
+    const frame = document.querySelector(".frame");
+    frame.appendChild(elem);
+
+    setTimeout(function() {
+        frame.removeChild(elem);
+    }, 2 * 1000)
 }
