@@ -23,26 +23,29 @@ const students = [
     "שפירא אביב"
 ];
 
-const students_1 = [];
-const students_2 = [];
-const students_3 = [];
-
+const ul1 = document.createElement("ul");
+const ul2 = document.createElement("ul");
+const ul3 = document.createElement("ul");
+const myDiv = document.querySelector("#myDiv");
 const studentLength = students.length;
 
 for (let i = 0; i < studentLength; i++) {
     const rand = Math.floor(Math.random() * students.length);
-    const student = students[rand];
+
+    const li = document.createElement("li");
+    li.innerHTML = students[rand];
+
     students.splice(rand, 1);
 
     if (i % 3 == 0) {
-        students_1.push(student);
+        ul1.appendChild(li);
     } else if (i % 3 == 1) {
-        students_2.push(student);
+        ul2.appendChild(li);
     } else if (i % 3 == 2) {
-        students_3.push(student);
+        ul3.appendChild(li);
     }
 }
 
-document.querySelector('#myDiv ul:first-child').innerHTML = '<li>' + students_1.join('</li><li>') + '</li>';
-document.querySelector('#myDiv ul:nth-child(2)').innerHTML = '<li>' + students_2.join('</li><li>') + '</li>';
-document.querySelector('#myDiv ul:last-child').innerHTML = '<li>' + students_3.join('</li><li>') + '</li>';
+myDiv.appendChild(ul1);
+myDiv.appendChild(ul2);
+myDiv.appendChild(ul3);
