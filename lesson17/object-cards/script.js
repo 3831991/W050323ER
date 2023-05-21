@@ -7,7 +7,7 @@ const elem = document.querySelector('.row');
 
 for (const student of students) {
     elem.innerHTML += `
-        <div class="col-sm-4">
+        <div class="col-sm-4 p-2">
             <div class="card">
                 <div class="card-body">
                     <h3>${student.firstName} ${student.lastName}</h3>
