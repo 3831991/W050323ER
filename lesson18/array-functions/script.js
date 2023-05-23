@@ -18,3 +18,11 @@ document.querySelector("#task3 p").innerHTML = numbers.map(n => n * 2).join(" | 
 document.querySelector("#task4 p").innerHTML = numbers.filter(n => n > 40).join(" | ");
 
 // task 5
+document.querySelector("#task5 p").innerHTML = numbers.filter(n => n >= 20 && n <= 50).join(" | ");
+
+// task 6
+document.querySelector("#task6 input").addEventListener("input", ev => {
+    const word = ev.target.value;
+    const len = students.filter(s => s.firstName.includes(word) || s.lastName.includes(word)).length;
+    document.querySelector("#task6 p").innerHTML = word ? len : '';
+});
