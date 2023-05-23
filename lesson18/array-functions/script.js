@@ -9,7 +9,12 @@ const names2 = students.slice(0, 20).map((s, i) => `${i + 1}. ${s.firstName}`);
 document.querySelector("#task2 p").innerHTML = names2.join(", ");
 
 // show numbers
-document.querySelector("#numbers").innerHTML = numbers.join(" | ");
+document.querySelector("#numbers div").innerHTML = numbers.join(" | ");
 
 // task 3
 document.querySelector("#task3 p").innerHTML = numbers.map(n => n * 2).join(" | ");
+
+// task 4
+document.querySelector("#task4 p").innerHTML = numbers.filter(n => n > 40).join(" | ");
+
+// task 5
