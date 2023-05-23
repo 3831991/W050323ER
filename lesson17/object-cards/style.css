@@ -26,42 +26,6 @@ h1 {
     border-radius: 6px;
 }
 
-.task {
-    border-bottom: 1px solid #c1c1c1;
-    padding-bottom: 12px;
-}
-
-h2 {
-    font-size: 18px;
-    font-weight: normal;
-    padding: 12px 0;
-    margin: 0px;
-}
-
-button {
-    background-color: #8bc34a;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    border: none;
-}
-
-button:hover {
-    background-color: #a4d967;
-}
-
-input,
-select {
-    border: 1px solid black;
-    padding: 8px 12px;
-    border-radius: 5px;
-    margin-top: 3px;
-}
-
-img {
-    width: 100%;
-}
-
 p {
     margin: 8px 0;
 }
