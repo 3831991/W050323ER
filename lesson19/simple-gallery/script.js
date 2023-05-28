@@ -15,23 +15,8 @@ function nextImage() {
 
 nextImage();
 
-// let currentImage = 0;
+function prevImage(ev) {
+    ev.preventDefault();
 
-// function nextImage() {
-//     if (currentImage >= images.length) {
-//         currentImage = 0;
-//     }
-
-//     // קודם כל מאפסים את הגלרייה
-//     const gallery = document.querySelector('#gallery');
-//     gallery.innerHTML = "";
-
-//     // יוצרים אלמנט של תמונה ומציגים אותה
-//     const img = document.createElement('img');
-//     img.src = `images/${images[currentImage]}`;
-//     gallery.appendChild(img);
-
-//     currentImage++;
-// }
-
-// nextImage();
+    
+}
