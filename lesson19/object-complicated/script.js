@@ -16,7 +16,7 @@ const tasks = [
     },
     {
         title: 'יש להציג את כל המספרים הגדולים מ-40',
-        result: '',
+        result: numbers.filter(n => n > 40).join(', '),
     },
 ];
 
