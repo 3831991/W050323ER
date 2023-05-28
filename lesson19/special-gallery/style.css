@@ -94,6 +94,10 @@ p {
     display: none;
 }
 
+#gallery button:hover {
+    background-color: black;
+}
+
 #gallery:hover button {
     display: block;
 }
