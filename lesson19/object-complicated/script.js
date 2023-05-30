@@ -8,7 +8,6 @@ const tasks = [
     {
         title: 'יש להציג את ממוצע המערך',
         result: Math.round(numbers.reduce((res, n) => res += n, 0) / numbers.length),
-
     },
     {
         title: 'יש להציג את המספר הגדול שבמערך',
