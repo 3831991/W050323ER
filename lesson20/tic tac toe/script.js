@@ -1,6 +1,7 @@
 const elem = document.querySelector(".board");
 let isX = true;
 let winner;
+let winnerArray;
 
 for (let i = 0; i < 9; i++) {
     const div = document.createElement("div");
@@ -19,7 +20,7 @@ for (let i = 0; i < 9; i++) {
             isX = !isX;
             check();
         }
-    })
+    });
 
     elem.appendChild(div);
 }
@@ -38,14 +39,16 @@ function check() {
         [2, 4, 6],
     ];
 
-    for (const op of options) {
-        const res = op.map(x => divs[x].innerHTML);
+    for (const arr of options) {
+        const res = arr.map(index => divs[index].innerHTML);
 
         if (res.every(val => val === 'X')) {
             winner = 'X';
+            winnerArray = arr;
             break;
         } else if (res.every(val => val === 'O')) {
             winner = 'O';
+            winnerArray = arr;
             break;
         }
     }
@@ -54,6 +57,8 @@ function check() {
         elem.querySelectorAll('div').forEach(el => {
             el.className = 'dirty';
         });
+
+        winnerArray.forEach(index => divs[index].classList.add('bg'));
 
         showWinner(`The winner is ${winner}`);
     }

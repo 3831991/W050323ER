@@ -92,3 +92,7 @@ button:hover {
     justify-content: center;
     animation: zoom-in 2s;
 }
+
+.bg {
+    background-color: #a4d967;
+}
