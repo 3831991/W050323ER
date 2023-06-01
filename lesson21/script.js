@@ -9,7 +9,10 @@ function showTasks() {
 }
 
 function addTask() {
-
+    const input = document.querySelector('input');
+    tasks.push(input.value);
+    input.value = '';
+    showTasks();
 }
 
 function removeTask() {
