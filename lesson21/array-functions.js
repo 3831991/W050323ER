@@ -14,7 +14,7 @@ numbers.filter(x => x > 10);
 
 // find
 // מחזיר את האבר הראשון ע"פ התנאי המבוקש
-numbers.find(x => x == 36);
+numbers.find(x => x > 36);
 
 // findIndex
 // מחזיר את האינדקס של האבר הראשון ע"פ התנאי המבוקש
