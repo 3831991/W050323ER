@@ -12,6 +12,7 @@ class Student {
     getAge() {
         // const current = new Date().getFullYear();
         // const year = new Date(this.student.birthday).getFullYear();
+        // return current - year;
 
         const rest = new Date() - new Date(this.student.birthday);
 
