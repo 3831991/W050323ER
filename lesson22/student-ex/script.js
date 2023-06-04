@@ -5,10 +5,12 @@ class Student {
 
     student;
 
-    
+    getFullName() {
+        return `${this.student.firstName} ${this.student.lastName}`;
+    }
 }
 
-new Student({
+const s = new Student({
     firstName: "יוסי",
     lastName: "אדלר",
     phone: "059-6506877",
@@ -16,3 +18,5 @@ new Student({
     city: "חיפה",
     grades: [90, 80, 100, 95, 100, 100, 100],
 });
+
+console.log(s.getFullName());
