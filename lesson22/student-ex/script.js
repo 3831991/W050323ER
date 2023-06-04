@@ -3,6 +3,7 @@ class Student {
         this.student = student;
     }
 
+    // משתנה של המחלקה
     student;
 
     getFullName() {
