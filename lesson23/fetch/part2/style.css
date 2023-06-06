@@ -94,3 +94,28 @@ select {
     background-color: #8623bf;
     color: white;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr {
+    background-color: white;
+}
+
+tr:first-child {
+    background: none;
+}
+
+tr:nth-child(even) {
+    background-color: #d9d9d9;
+}
+
+th {
+    text-align: center;
+}
+
+th, td {
+    padding: 6px;
+}
