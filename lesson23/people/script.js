@@ -24,7 +24,7 @@ class Person {
     }
 
     getAge() {
-        const rest = new Date() - new Date(this.student.birthday);
+        const rest = new Date() - new Date(this.birthday);
         return Math.floor(rest / (1000 / 60 / 60 / 24 / 365) * 10) / 10;
     }
 }
