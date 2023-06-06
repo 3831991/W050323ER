@@ -1,4 +1,12 @@
 class Person {
+    id          = null;
+    firstName   = '';
+    lastName    = '';
+    phone       = '';
+    email       = '';
+    city        = '';
+    birthday    = '';
+
     constructor(person) {
         this.id         = person.id;
         this.firstName  = person.firstName;
@@ -8,14 +16,6 @@ class Person {
         this.city       = person.city;
         this.birthday   = person.birthday;
     }
-
-    id          = null;
-    firstName   = '';
-    lastName    = '';
-    phone       = '';
-    email       = '';
-    city        = '';
-    birthday    = '';
 
     getFullName() {
         return `${this.firstName} ${this.lastName}`;
