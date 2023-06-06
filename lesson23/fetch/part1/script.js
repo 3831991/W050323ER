@@ -12,7 +12,7 @@ function showStudents(students) {
 }
 
 /////////////////////// אופציה 1 ////////////////////////
-fetch("students.json")
+fetch("../students.json")
     .then(response => response.json())
     .then(showStudents);
 
