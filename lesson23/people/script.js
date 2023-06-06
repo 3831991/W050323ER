@@ -1,4 +1,14 @@
 class Person {
+    constructor(person) {
+        this.id         = person.id;
+        this.firstName  = person.firstName;
+        this.lastName   = person.lastName;
+        this.phone      = person.phone;
+        this.email      = person.email;
+        this.city       = person.city;
+        this.birthday   = person.birthday;
+    }
+
     id          = null;
     firstName   = '';
     lastName    = '';
@@ -27,16 +37,6 @@ class Person {
         const rest = new Date() - new Date(this.birthday);
         return Math.floor(rest / 1000 / 60 / 60 / 24 / 365 * 10) / 10;
     }
-
-    constructor(person) {
-        this.id         = person.id;
-        this.firstName  = person.firstName;
-        this.lastName   = person.lastName;
-        this.phone      = person.phone;
-        this.email      = person.email;
-        this.city       = person.city;
-        this.birthday   = person.birthday;
-    }
 }
 
 class Student extends Person {
@@ -61,6 +61,9 @@ class Teacher extends Person {
 }
 
 class Director extends Person { }
+
+
+////////////////////// מימוש ///////////////////////
 
 const student = new Student({
     id: 537,
