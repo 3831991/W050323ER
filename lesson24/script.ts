@@ -3,3 +3,4 @@ function sum(num1: number, num2: number): number {
 }
 
 const num = sum(5, 10);
+
