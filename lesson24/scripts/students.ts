@@ -1,4 +1,4 @@
-export class StudentClass {
+class StudentClass {
     private student: Student;
 
     constructor(student: Student) {
@@ -20,7 +20,21 @@ export class StudentClass {
     }
 }
 
-export interface Student {
+const item = new StudentClass({
+    id: 0,
+    grades: [108, 4, 130, 34, 124, 11, 144, 85, 82, 80],
+    birthday: "2000-01-01",
+    firstName: 'Tomer',
+    isActive: false,
+    lastName: 'Gal',
+});
+
+console.log(item.getAge());
+console.log(item.getAvgGrades());
+console.log(item.getFullName());
+
+
+interface Student {
     id: number;
     firstName: string;
     lastName: string;
@@ -30,15 +44,24 @@ export interface Student {
     gender?: "male" | "female";
 }
 
-const item = new StudentClass({
-    id: 0,
-    grades: [108, 4, 130, 34, 124, 11, 144, 85, 82, 80],
-    birthday: "",
-    firstName: '',
-    isActive: false,
-    lastName: '',
-});
 
-console.log(item.getAge());
-console.log(item.getAvgGrades());
-console.log(item.getFullName());
+const rotem: Student = {
+    id: 1234564789,
+    firstName: 'Rotem',
+    lastName: 'Hershkovitz',
+    birthday: '1997-07-10',
+    grades: [100, 98, 100],
+    isActive: true,
+}
+
+const maya: Student = {
+    id: 9658658,
+    firstName: 'Maya',
+    lastName: 'Steinberg',
+    birthday: '1982-01-21',
+    grades: [100, 99, 100],
+    isActive: true,
+}
+
+const rotemClass = new StudentClass(rotem);
+const mayaClass = new StudentClass(maya);
