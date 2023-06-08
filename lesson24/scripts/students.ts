@@ -1,5 +1,5 @@
 export class StudentClass {
-    student: Student;
+    private student: Student;
 
     constructor(student: Student) {
         this.student = student;
@@ -15,7 +15,8 @@ export class StudentClass {
     }
 
     getAvgGrades() {
-
+        const sum = this.student.grades.reduce((res, n) => res += n, 0);
+        return Math.round(sum / this.student.grades.length);
     }
 }
 
@@ -37,3 +38,7 @@ const item = new StudentClass({
     isActive: false,
     lastName: '',
 });
+
+console.log(item.getAge());
+console.log(item.getAvgGrades());
+console.log(item.getFullName());
