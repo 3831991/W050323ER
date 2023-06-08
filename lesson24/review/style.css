@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
 
 body {
-    direction: rtl;
     background-color: #23bf86;
     padding-bottom: 200px;
 }
@@ -56,4 +55,15 @@ select {
     padding: 8px 12px;
     border-radius: 5px;
     margin-top: 3px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.grid div {
+    white-space: nowrap;
+    border-bottom: 1px solid;
+    padding: 8px 3px;
 }
