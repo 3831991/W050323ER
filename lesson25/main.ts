@@ -27,9 +27,17 @@ class TaskManager {
             id: 8,
             title: 'משימה שנייה',
             addedTime: '2023-06-11 11:11:22',
-            description: '',
+            description: 'התיאור הזה נכתב לאחר מאמצים כבירים של הבנה לא מובנת שגרמה לכולם ליאוש הניתן לשינוי וריפוי',
             isCompleted: false,
             priority: PriorityTypes.high,
+        },
+        {
+            id: 15,
+            title: 'משימה שלישית',
+            addedTime: '2023-06-11 11:11:22',
+            description: '',
+            isCompleted: false,
+            priority: PriorityTypes.medium,
         },
     ];
 
@@ -87,28 +95,36 @@ class TaskManager {
 
         this.showTasks();
     }
-    
+
     editTask() {
 
     }
 
-    removeTask(removeId: number) {
-        const i = this.tasks.findIndex(x => x.id == removeId);
+    removeTask(taskId: number) {
+        const i = this.tasks.findIndex(x => x.id == taskId);
         this.tasks.splice(i, 1);
 
         this.showTasks();
     }
 
-    completeTask() {
+    completeTask(taskId: number) {
+        const item = this.tasks.find(x => x.id == taskId);
 
+        if (item) {
+            item.isCompleted = true;
+        }
+
+        this.showTasks();
     }
 
-    unCompleteTask() {
+    unCompleteTask(taskId: number) {
+        const item = this.tasks.find(x => x.id == taskId);
 
-    }
+        if (item) {
+            item.isCompleted = false;
+        }
 
-    urgencyChange() {
-
+        this.showTasks();
     }
 
     showTasks() {
@@ -120,6 +136,10 @@ class TaskManager {
 
         this.tasks.forEach(t => {
             const div = document.createElement("div");
+
+            if (t.isCompleted) {
+                div.classList.add('completed');
+            }
 
             switch (t.priority) {
                 case PriorityTypes.low : div.classList.add('low'); break;
@@ -134,10 +154,13 @@ class TaskManager {
 
                 <footer>
                     <button class="remove">מחק</button>
+                    ${t.isCompleted ? '<button class="uncomplete">לא בוצע</button>' : '<button class="complete">בוצע</button>'}
                 </footer>
             `;
 
             div.querySelector('.remove')?.addEventListener("click", () => this.removeTask(t.id));
+            div.querySelector('.complete')?.addEventListener("click", () => this.completeTask(t.id));
+            div.querySelector('.uncomplete')?.addEventListener("click", () => this.unCompleteTask(t.id));
 
             elem?.appendChild(div);
         });

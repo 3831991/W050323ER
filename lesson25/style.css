@@ -93,6 +93,18 @@ header {
     gap: 10px;
 }
 
+@media (max-width: 930px) {
+    .tasks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tasks {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 .tasks>div {
     box-shadow: 0 0 3px #bababa;
     background-color: white;
@@ -105,7 +117,7 @@ header {
 }
 
 .tasks>div.low {
-    border-color: green;
+    border-color: #006980;
 }
 
 .tasks>div.medium {
@@ -114,6 +126,11 @@ header {
 
 .tasks>div.high {
     border-color: red;
+}
+
+.tasks>div.completed {
+    border: none;
+    background-color: #d5ff95;
 }
 
 .tasks footer {

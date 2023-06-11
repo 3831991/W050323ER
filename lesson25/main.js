@@ -21,9 +21,17 @@ class TaskManager {
                 id: 8,
                 title: 'משימה שנייה',
                 addedTime: '2023-06-11 11:11:22',
-                description: '',
+                description: 'התיאור הזה נכתב לאחר מאמצים כבירים של הבנה לא מובנת שגרמה לכולם ליאוש הניתן לשינוי וריפוי',
                 isCompleted: false,
                 priority: PriorityTypes.high,
+            },
+            {
+                id: 15,
+                title: 'משימה שלישית',
+                addedTime: '2023-06-11 11:11:22',
+                description: '',
+                isCompleted: false,
+                priority: PriorityTypes.medium,
             },
         ];
         this.showTasks();
@@ -69,16 +77,24 @@ class TaskManager {
     }
     editTask() {
     }
-    removeTask(removeId) {
-        const i = this.tasks.findIndex(x => x.id == removeId);
+    removeTask(taskId) {
+        const i = this.tasks.findIndex(x => x.id == taskId);
         this.tasks.splice(i, 1);
         this.showTasks();
     }
-    completeTask() {
+    completeTask(taskId) {
+        const item = this.tasks.find(x => x.id == taskId);
+        if (item) {
+            item.isCompleted = true;
+        }
+        this.showTasks();
     }
-    unCompleteTask() {
-    }
-    urgencyChange() {
+    unCompleteTask(taskId) {
+        const item = this.tasks.find(x => x.id == taskId);
+        if (item) {
+            item.isCompleted = false;
+        }
+        this.showTasks();
     }
     showTasks() {
         const elem = document.querySelector("div.tasks");
@@ -86,8 +102,11 @@ class TaskManager {
             elem.innerHTML = "";
         }
         this.tasks.forEach(t => {
-            var _a;
+            var _a, _b, _c;
             const div = document.createElement("div");
+            if (t.isCompleted) {
+                div.classList.add('completed');
+            }
             switch (t.priority) {
                 case PriorityTypes.low:
                     div.classList.add('low');
@@ -106,9 +125,12 @@ class TaskManager {
 
                 <footer>
                     <button class="remove">מחק</button>
+                    ${t.isCompleted ? '<button class="uncomplete">לא בוצע</button>' : '<button class="complete">בוצע</button>'}
                 </footer>
             `;
             (_a = div.querySelector('.remove')) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => this.removeTask(t.id));
+            (_b = div.querySelector('.complete')) === null || _b === void 0 ? void 0 : _b.addEventListener("click", () => this.completeTask(t.id));
+            (_c = div.querySelector('.uncomplete')) === null || _c === void 0 ? void 0 : _c.addEventListener("click", () => this.unCompleteTask(t.id));
             elem === null || elem === void 0 ? void 0 : elem.appendChild(div);
         });
     }
