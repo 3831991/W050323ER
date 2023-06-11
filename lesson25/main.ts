@@ -89,12 +89,14 @@ class TaskManager {
     }
     
     editTask() {
-        
+
     }
 
-    removeTask(id: number) {
-        // מוחק
-        console.log(id);
+    removeTask(removeId: number) {
+        const i = this.tasks.findIndex(x => x.id == removeId);
+        this.tasks.splice(i, 1);
+
+        this.showTasks();
     }
 
     completeTask() {

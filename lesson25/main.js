@@ -69,9 +69,10 @@ class TaskManager {
     }
     editTask() {
     }
-    removeTask(id) {
-        // מוחק
-        console.log(id);
+    removeTask(removeId) {
+        const i = this.tasks.findIndex(x => x.id == removeId);
+        this.tasks.splice(i, 1);
+        this.showTasks();
     }
     completeTask() {
     }
