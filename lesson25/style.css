@@ -51,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: #a4d967;
+    opacity: 0.8;
 }
 
 input,
@@ -114,4 +114,12 @@ header {
 
 .tasks>div.high {
     border-color: red;
+}
+
+.tasks footer {
+    padding: 8px 0;
+}
+
+.tasks footer .remove {
+    background-color: #bb4949;
 }

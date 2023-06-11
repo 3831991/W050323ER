@@ -1,4 +1,10 @@
 "use strict";
+var PriorityTypes;
+(function (PriorityTypes) {
+    PriorityTypes[PriorityTypes["low"] = 0] = "low";
+    PriorityTypes[PriorityTypes["medium"] = 1] = "medium";
+    PriorityTypes[PriorityTypes["high"] = 2] = "high";
+})(PriorityTypes || (PriorityTypes = {}));
 class TaskManager {
     constructor() {
         var _a;
@@ -22,14 +28,17 @@ class TaskManager {
         ];
         this.showTasks();
         const elem = document.querySelector("header");
+        // מגדירים שבלחיצה על הכפתור תופעל פונקציה המוסיפה משימה
         (_a = elem === null || elem === void 0 ? void 0 : elem.querySelector("button")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", ev => {
             const elemTitle = elem === null || elem === void 0 ? void 0 : elem.querySelector("input");
+            const elemPriority = elem === null || elem === void 0 ? void 0 : elem.querySelector("select");
             const title = (elemTitle === null || elemTitle === void 0 ? void 0 : elemTitle.value) || '';
+            const priority = (elemPriority === null || elemPriority === void 0 ? void 0 : elemPriority.value) || '';
+            // איפוס התיבה של הכותרת
             if (elemTitle) {
                 elemTitle.value = "";
             }
-            const elemPriority = elem === null || elem === void 0 ? void 0 : elem.querySelector("select");
-            const priority = (elemPriority === null || elemPriority === void 0 ? void 0 : elemPriority.value) || '';
+            // איפוס התיבה של רמת העדיפות
             if (elemPriority) {
                 elemPriority.value = "";
             }
@@ -60,7 +69,9 @@ class TaskManager {
     }
     editTask() {
     }
-    removeTask() {
+    removeTask(id) {
+        // מוחק
+        console.log(id);
     }
     completeTask() {
     }
@@ -74,6 +85,7 @@ class TaskManager {
             elem.innerHTML = "";
         }
         this.tasks.forEach(t => {
+            var _a;
             const div = document.createElement("div");
             switch (t.priority) {
                 case PriorityTypes.low:
@@ -90,15 +102,14 @@ class TaskManager {
                 <h3>${t.title}</h3>
                 <p><b>זמן יצירה:</b> ${t.addedTime}</p>
                 <p><b>תיאור:</b> ${t.description || '*אין הערה*'}</p>
+
+                <footer>
+                    <button class="remove">מחק</button>
+                </footer>
             `;
+            (_a = div.querySelector('.remove')) === null || _a === void 0 ? void 0 : _a.addEventListener("click", () => this.removeTask(t.id));
             elem === null || elem === void 0 ? void 0 : elem.appendChild(div);
         });
     }
 }
-var PriorityTypes;
-(function (PriorityTypes) {
-    PriorityTypes[PriorityTypes["low"] = 0] = "low";
-    PriorityTypes[PriorityTypes["medium"] = 1] = "medium";
-    PriorityTypes[PriorityTypes["high"] = 2] = "high";
-})(PriorityTypes || (PriorityTypes = {}));
 const tasks = new TaskManager;

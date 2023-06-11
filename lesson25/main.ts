@@ -1,3 +1,18 @@
+interface Task {
+    id: number;
+    title: string;
+    description: string;
+    addedTime: string;
+    priority: PriorityTypes;
+    isCompleted: boolean;
+}
+
+enum PriorityTypes {
+    low,
+    medium,
+    high,
+}
+
 class TaskManager {
     tasks: Task[] = [
         {
@@ -23,17 +38,20 @@ class TaskManager {
 
         const elem = document.querySelector("header");
 
+        // מגדירים שבלחיצה על הכפתור תופעל פונקציה המוסיפה משימה
         elem?.querySelector("button")?.addEventListener("click", ev => {
             const elemTitle = elem?.querySelector("input");
-            const title = elemTitle?.value || '';
+            const elemPriority = elem?.querySelector("select");
 
+            const title = elemTitle?.value || '';
+            const priority = elemPriority?.value || '';
+
+            // איפוס התיבה של הכותרת
             if (elemTitle) {
                 elemTitle.value = "";
             }
 
-            const elemPriority = elem?.querySelector("select");
-            const priority = elemPriority?.value || '';
-
+            // איפוס התיבה של רמת העדיפות
             if (elemPriority) {
                 elemPriority.value = "";
             }
@@ -74,8 +92,9 @@ class TaskManager {
         
     }
 
-    removeTask() {
-
+    removeTask(id: number) {
+        // מוחק
+        console.log(id);
     }
 
     completeTask() {
@@ -110,26 +129,17 @@ class TaskManager {
                 <h3>${t.title}</h3>
                 <p><b>זמן יצירה:</b> ${t.addedTime}</p>
                 <p><b>תיאור:</b> ${t.description || '*אין הערה*'}</p>
+
+                <footer>
+                    <button class="remove">מחק</button>
+                </footer>
             `;
+
+            div.querySelector('.remove')?.addEventListener("click", () => this.removeTask(t.id));
 
             elem?.appendChild(div);
         });
     }
-}
-
-interface Task {
-    id: number;
-    title: string;
-    description: string;
-    addedTime: string;
-    priority: PriorityTypes;
-    isCompleted: boolean;
-}
-
-enum PriorityTypes {
-    low,
-    medium,
-    high,
 }
 
 const tasks = new TaskManager;
