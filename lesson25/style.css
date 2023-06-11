@@ -82,3 +82,36 @@ p {
     margin-bottom: 12px;
     color: white;
 }
+
+header {
+    margin-bottom: 12px;
+}
+
+.tasks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.tasks>div {
+    box-shadow: 0 0 3px #bababa;
+    background-color: white;
+    border-radius: 5px;
+    padding: 0 14px;
+}
+
+.tasks>div {
+    border-right: 6px solid;
+}
+
+.tasks>div.low {
+    border-color: green;
+}
+
+.tasks>div.medium {
+    border-color: orange;
+}
+
+.tasks>div.high {
+    border-color: red;
+}
