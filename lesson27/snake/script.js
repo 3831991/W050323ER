@@ -1,6 +1,6 @@
 const height = 30;
 const width = 30;
-const snake = [3, 2, 1, 0];
+const snake = [10,9,8,7,6,5,4,3, 2, 1, 0];
 let head = snake[0];
 let direction = 'left';
 let interval;
@@ -59,26 +59,35 @@ function move(dir) {
         head -= width;
 
         if (!divs[head]) {
-            alert("ימעפאן כפול")
+            gameOver();
+            return;
         }
     } else if (dir === 'down') {
         head += width;
         
         if (!divs[head]) {
-            alert("ימעפאן כפול")
+            gameOver();
+            return;
         }
     } else if (dir === 'left') {
         head++;
 
         if (leftBoundaries.includes(head)) {
-            alert("ימעפאן")
+            gameOver();
+            return;
         }
     } else if (dir === 'right') {
         head--;
 
         if (rightBoundaries.includes(head)) {
-            alert("ימעפאן")
+            gameOver();
+            return;
         }
+    }
+
+    if (snake.includes(head)) {
+        gameOver();
+        return;
     }
 
     direction = dir;
@@ -86,6 +95,12 @@ function move(dir) {
     snake.pop();
     color();
     startAuto();
+}
+
+function gameOver() {
+    clearInterval(interval);
+    alert("מצטער מאוד, אך המשחק נפסל... 😒");
+    location.reload();
 }
 
 function startAuto() {
