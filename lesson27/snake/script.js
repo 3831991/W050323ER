@@ -1,6 +1,6 @@
-const height = 30;
+const height = 40;
 const width = 30;
-const snake = [10,9,8,7,6,5,4,3, 2, 1, 0];
+const snake = [3, 2, 1, 0];
 let head = snake[0];
 let direction = 'left';
 let interval;
@@ -24,7 +24,7 @@ board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 function createBoard() {
     for (let i = 0; i < height * width; i++) {
         const div = document.createElement('div');
-        div.innerHTML = i;
+        // div.innerHTML = i;
         board.appendChild(div);
     }
 
