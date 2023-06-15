@@ -1,6 +1,8 @@
 const height = 40;
 const width = 30;
-const snake = [10,9,8,7,6,5,4,3, 2, 1, 0];
+const length = 25;
+const snake = new Array(length).fill(null).map((n, i) => i);
+snake.reverse();
 let head = snake[0];
 let direction = 'left';
 let isGameOver = false;
@@ -45,43 +47,29 @@ function color() {
         elem.classList.remove('right');
         elem.classList.remove('down');
         elem.classList.remove('left');
-        // elem.classList.remove('topLeftRadius');
-        // elem.classList.remove('topRightRadius');
-        // elem.classList.remove('bottomRightRadius');
-        // elem.classList.remove('bottomLeftRadius');
+        elem.classList.remove('topLeftRadius');
+        elem.classList.remove('topRightRadius');
+        elem.classList.remove('bottomRightRadius');
+        elem.classList.remove('bottomLeftRadius');
     });
 
     // Add the class "Active" to the element of the snake.
     snake.forEach((num, i) => {
         divs[num].classList.add('active');
+        const prev = snake[i + 1];
+        const next = snake[i - 1];
 
-        // const prev = snake[i + 1];
-        // const next = snake[i - 1];
-
-        // const corners = {
-        //     [width + 1]: 'topLeftRadius',
-        //     [1 - width]: 'topRightRadius',
-        //     [-1 - width]: 'bottomRightRadius',
-        //     [width - 1]: 'bottomLeftRadius',
-        // };
-
-        // if (prev && next) {
-        //     const diffrence = next - prev;
-
-        //     if (corners[diffrence]) {
-        //         divs[num].classList.add(corners[diffrence]);
-        //     }
-        // }
-
-        // if (true) {
-        //     divs[num].classList.add('topLeftRadius');
-        // } else if (true) {
-        //     divs[num].classList.add('topRightRadius');
-        // } else if (true) {
-        //     divs[num].classList.add('bottomRightRadius');
-        // } else if (true) {
-        //     divs[num].classList.add('bottomLeftRadius');
-        // }
+        if (prev && next) {
+            if ((next == num - 1 && prev == num + width) || (next == num + width && prev == num - 1)) {
+                divs[num].classList.add('topLeftRadius');
+            } else if ((next == num + width && prev == num + 1) || (prev == num + width && next == num + 1)) {
+                divs[num].classList.add('topRightRadius');
+            } else if ((next == num + 1 && prev == num - width) || (prev == num + 1 && next == num - width)) {
+                divs[num].classList.add('bottomRightRadius');
+            } else if ((next == num - 1 && prev == num - width) || (prev == num - 1 && next == num - width)) {
+                divs[num].classList.add('bottomLeftRadius');
+            }
+        }
     });
 
     divs[head].classList.add('head');
@@ -165,6 +153,7 @@ function move(dir) {
 function gameOver() {
     isGameOver = true;
     clearInterval(interval);
+
     const audio = document.createElement('audio');
     audio.src = "Country_Blues.ogg";
     audio.play();

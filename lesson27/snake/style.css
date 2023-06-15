@@ -61,12 +61,14 @@ button:hover {
 .board div {
     width: 10px;
     height: 10px;
-    font-size: 9px;
 }
 
 .active {
-    background-color: #4CAF50;
-    background-size: cover;
+    background-image: radial-gradient(#212121 20%, transparent 20%),
+    radial-gradient(#fafafa 20%, transparent 20%);
+    background-color: #44e535;
+    background-position: 0 0, 50px 50px;
+    background-size: 9px 9px;
 }
 
 .head.up {
@@ -85,7 +87,7 @@ button:hover {
     border-radius: 12px 0 0 12px;
 }
 
-/* .topLeftRadius {
+.topLeftRadius {
     border-radius: 12px 0 0 0;
 }
 
@@ -99,12 +101,12 @@ button:hover {
 
 .bottomLeftRadius {
     border-radius: 0 0 0 12px;
-} */
+}
 
 .apple::after {
     content: "🍎";
     position: relative;
-    top: -4px;
+    top: -7px;
     right: -3px;
     font-size: 11px;
 }
