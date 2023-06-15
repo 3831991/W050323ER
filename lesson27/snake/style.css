@@ -61,11 +61,11 @@ button:hover {
 .board div {
     width: 10px;
     height: 10px;
-    font-size: 12px;
+    font-size: 9px;
 }
 
 .active {
-    background-color: cadetblue;
+    background-color: #4CAF50;
     background-size: cover;
 }
 
@@ -84,6 +84,22 @@ button:hover {
 .head.left {
     border-radius: 12px 0 0 12px;
 }
+
+/* .topLeftRadius {
+    border-radius: 12px 0 0 0;
+}
+
+.topRightRadius {
+    border-radius: 0 12px 0 0;
+}
+
+.bottomRightRadius {
+    border-radius: 0 0 12px 0;
+}
+
+.bottomLeftRadius {
+    border-radius: 0 0 0 12px;
+} */
 
 .apple::after {
     content: "🍎";

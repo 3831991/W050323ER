@@ -1,6 +1,6 @@
 const height = 40;
 const width = 30;
-const snake = [3, 2, 1, 0];
+const snake = [10,9,8,7,6,5,4,3, 2, 1, 0];
 let head = snake[0];
 let direction = 'left';
 let isGameOver = false;
@@ -26,7 +26,6 @@ board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 function createBoard() {
     for (let i = 0; i < height * width; i++) {
         const div = document.createElement('div');
-        // div.innerHTML = i;
         board.appendChild(div);
     }
 
@@ -46,10 +45,44 @@ function color() {
         elem.classList.remove('right');
         elem.classList.remove('down');
         elem.classList.remove('left');
+        // elem.classList.remove('topLeftRadius');
+        // elem.classList.remove('topRightRadius');
+        // elem.classList.remove('bottomRightRadius');
+        // elem.classList.remove('bottomLeftRadius');
     });
 
     // Add the class "Active" to the element of the snake.
-    snake.forEach(num => divs[num].classList.add('active'));
+    snake.forEach((num, i) => {
+        divs[num].classList.add('active');
+
+        // const prev = snake[i + 1];
+        // const next = snake[i - 1];
+
+        // const corners = {
+        //     [width + 1]: 'topLeftRadius',
+        //     [1 - width]: 'topRightRadius',
+        //     [-1 - width]: 'bottomRightRadius',
+        //     [width - 1]: 'bottomLeftRadius',
+        // };
+
+        // if (prev && next) {
+        //     const diffrence = next - prev;
+
+        //     if (corners[diffrence]) {
+        //         divs[num].classList.add(corners[diffrence]);
+        //     }
+        // }
+
+        // if (true) {
+        //     divs[num].classList.add('topLeftRadius');
+        // } else if (true) {
+        //     divs[num].classList.add('topRightRadius');
+        // } else if (true) {
+        //     divs[num].classList.add('bottomRightRadius');
+        // } else if (true) {
+        //     divs[num].classList.add('bottomLeftRadius');
+        // }
+    });
 
     divs[head].classList.add('head');
     divs[head].classList.add(direction);
@@ -63,6 +96,10 @@ function move(dir) {
     const divs = document.querySelectorAll('.board div');
 
     if (dir === 'up') {
+        if (direction === 'down') {
+            return;
+        }
+
         head -= width;
 
         if (!divs[head]) {
@@ -70,13 +107,21 @@ function move(dir) {
             return;
         }
     } else if (dir === 'down') {
+        if (direction === 'up') {
+            return;
+        }
+
         head += width;
-        
+
         if (!divs[head]) {
             gameOver();
             return;
         }
     } else if (dir === 'left') {
+        if (direction === 'right') {
+            return;
+        }
+
         head++;
 
         if (leftBoundaries.includes(head)) {
@@ -84,6 +129,10 @@ function move(dir) {
             return;
         }
     } else if (dir === 'right') {
+        if (direction === 'left') {
+            return;
+        }
+
         head--;
 
         if (rightBoundaries.includes(head)) {
