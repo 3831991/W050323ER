@@ -1,6 +1,6 @@
 const height = 40;
 const width = 30;
-const length = 25;
+const length = 10;
 const snake = new Array(length).fill(null).map((n, i) => i);
 snake.reverse();
 let head = snake[0];
