@@ -3,6 +3,8 @@ const width = 30;
 const snake = [3, 2, 1, 0];
 let head = snake[0];
 let direction = 'left';
+let isGameOver = false;
+let random;
 let interval;
 
 const rightBoundaries = [];
@@ -29,6 +31,7 @@ function createBoard() {
     }
 
     color();
+    setApple();
 }
 
 function color() {
@@ -53,6 +56,10 @@ function color() {
 }
 
 function move(dir) {
+    if (isGameOver) {
+        return;
+    }
+
     const divs = document.querySelectorAll('.board div');
 
     if (dir === 'up') {
@@ -92,15 +99,43 @@ function move(dir) {
 
     direction = dir;
     snake.unshift(head);
-    snake.pop();
+
+    if (head === random) {
+        const audio = document.createElement('audio');
+        audio.src = "Pebble.ogg";
+        audio.play();
+        setApple();
+    } else {
+        snake.pop();
+    }
+
     color();
     startAuto();
 }
 
 function gameOver() {
+    isGameOver = true;
     clearInterval(interval);
-    alert("מצטער מאוד, אך המשחק נפסל... 😒");
-    location.reload();
+    const audio = document.createElement('audio');
+    audio.src = "Country_Blues.ogg";
+    audio.play();
+    
+    setTimeout(() => {
+        alert("מצטער מאוד, אך המשחק נפסל... 😒");
+        location.reload();
+    }, 50);
+}
+
+function setApple() {
+    const divs = document.querySelectorAll('.board div');
+    random = Math.floor(Math.random() * divs.length);
+
+    if (snake.includes(random)) {
+        setApple();
+    } else {
+        divs.forEach(elem => elem.classList.remove('apple'));
+        divs[random].classList.add('apple');
+    }
 }
 
 function startAuto() {
@@ -117,5 +152,6 @@ window.addEventListener('keydown', ev => {
         case 'ArrowRight': move('right'); break;
         case 'ArrowDown': move('down'); break;
         case 'ArrowLeft': move('left'); break;
+        case 'Escape': clearInterval(interval); break;
     }
 });

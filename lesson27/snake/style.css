@@ -87,4 +87,8 @@ button:hover {
 
 .apple::after {
     content: "🍎";
+    position: relative;
+    top: -4px;
+    right: -3px;
+    font-size: 11px;
 }
