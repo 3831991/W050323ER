@@ -135,7 +135,7 @@ function gameOver() {
 
     document.body.appendChild(winner);
 
-    setTimeout(function() {
+    setTimeout(() => {
         location.reload();
     }, 5 * 1000);
 }

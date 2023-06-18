@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
+
+html {
+    min-height: 100%;
+}
+
+body {
+    direction: rtl;
+    padding-bottom: 200px;
+    background: #333;
+}
+
+* {
+    font-family: 'Rubik', sans-serif !important;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin: 16px;
+}
+
+.frame {
+    text-align: center;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 0;
+    margin: 0px;
+}
+
+button {
+    background-color: #8bc34a;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+}
+
+button:hover {
+    background-color: #a4d967;
+}
+
+.board {
+    display: inline-grid;
+    overflow: hidden;
+    background-color: #e4e4e4;
+    gap: 6px;
+    padding: 6px;
+    border-radius: 12px;
+    direction: ltr;
+}
+
+.board div {
+    width: 90px;
+    height: 90px;
+    background-color: #3bbed5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+    border-radius: 12px;
+    transition: 0.3s;
+    box-shadow: inset 0px 0px 8px black;
+}
+
+.board div span {
+    display: none;
+    pointer-events: none;
+}
+
+.board div.showing {
+    background: #e26000;
+    transform: matrix3d(1, 0, 4, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1);
+}
+
+.board div.showing span {
+    display: initial;
+}
+
+.active {
+    background-color: #5919c7 !important;
+}
+
+@keyframes zoom-in {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1.4);
+    }
+}
+
+.winner {
+    font-size: 80px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: zoom-in 2s;
+}
