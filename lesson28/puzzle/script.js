@@ -128,7 +128,7 @@ function gameOver() {
 }
 
 // אם לוחצים 3 פעמים על המקש "ב" במקלדת, זה מפעיל את הפונקציה שמרמה
-let conunter = 0;
+let keyConunter = 0;
 
 window.addEventListener("keyup", ev => {
     if (isGameOver) {
@@ -136,14 +136,14 @@ window.addEventListener("keyup", ev => {
     }
 
     if (ev.key == "c" || ev.key == "ב") {
-        conunter++;
+        keyConunter++;
 
-        if (conunter >= 3) {
+        if (keyConunter >= 3) {
             cheat();
         }
 
         setTimeout(() => {
-            conunter = 0;
+            keyConunter = 0;
         }, 1500);
     }
 })
