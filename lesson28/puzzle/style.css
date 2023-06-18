@@ -102,3 +102,12 @@ button:hover {
 .bg {
     background-color: #a4d967;
 }
+
+p {
+    text-align: center;
+    color: white;
+}
+
+p .margin {
+    margin: 0 12px;
+}

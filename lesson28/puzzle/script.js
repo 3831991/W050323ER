@@ -4,6 +4,7 @@ const length = width * height;
 const divs = [];
 let isGameOver = false;
 let options = [];
+let counter = 0;
 const board = document.querySelector(".board");
 board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 
@@ -57,6 +58,7 @@ function createBoard() {
                 empty.classList.remove('active');
                 empty.innerHTML = elem.innerHTML;
                 elem.innerHTML = "";
+                document.querySelector(".counter").innerHTML = ++counter;
                 checkAllOptions();
             }
         });
