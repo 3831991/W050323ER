@@ -55,7 +55,7 @@ button:hover {
 .board div {
     width: 90px;
     height: 90px;
-    background: #733bd5;
+    background-color: #733bd5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,4 +63,13 @@ button:hover {
     font-weight: bold;
     color: white;
     border-radius: 12px;
+    cursor: pointer;
+}
+
+.board div:hover {
+    background-color: #5919c7;
+}
+
+.active {
+    background-color: coral !important;
 }

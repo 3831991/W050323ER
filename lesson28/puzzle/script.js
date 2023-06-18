@@ -2,6 +2,7 @@ const width = 4;
 const height = 4;
 const length = width * height;
 const divs = [];
+let options = [];
 const board = document.querySelector(".board");
 board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 
@@ -21,13 +22,28 @@ function createBoard() {
         numbers.splice(rand, 1);
         board.appendChild(div);
         divs.push(div);
+
+        div.addEventListener("mouseover", ev => {
+            const empty = divs.find(el => el.innerHTML == '');
+            empty.classList.remove('active');
+
+            if (options.includes(i)) {
+                empty.classList.add('active');
+            }
+        });
+
+        div.addEventListener("mouseout", ev => {
+            const empty = divs.find(el => el.innerHTML == '');
+            empty.classList.remove('active');
+        });
     }
+
+    checkAllOptions();
 }
 
 function checkAllOptions() {
     const emptyIndex = divs.findIndex(div => div.innerHTML == '');
-    const options = [];
-
+    options = [];
     const top = emptyIndex - width;
     const bottom = emptyIndex + width;
     const right = emptyIndex - 1;
@@ -48,6 +64,4 @@ function checkAllOptions() {
     if (emptyIndex % width != width - 1) {
         options.push(left);
     }
-
-    console.log(options)
 }
