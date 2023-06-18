@@ -23,6 +23,7 @@ function createBoard() {
         board.appendChild(div);
         divs.push(div);
 
+        // אירוע המופעל במעבר עכבר
         div.addEventListener("mouseover", ev => {
             const empty = divs.find(el => el.innerHTML == '');
             empty.classList.remove('active');
@@ -32,9 +33,23 @@ function createBoard() {
             }
         });
 
+        // אירוע המופעל בעזיבת העכבר
         div.addEventListener("mouseout", ev => {
             const empty = divs.find(el => el.innerHTML == '');
             empty.classList.remove('active');
+        });
+
+        // אירוע המופעל בלחיצה על
+        div.addEventListener("click", ev => {
+            const elem = ev.target;
+
+            if (options.includes(i)) {
+                const empty = divs.find(el => el.innerHTML == '');
+                empty.classList.remove('active');
+                empty.innerHTML = elem.innerHTML;
+                elem.innerHTML = "";
+                checkAllOptions();
+            }
         });
     }
 
