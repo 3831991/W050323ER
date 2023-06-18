@@ -96,24 +96,7 @@ function checkAllOptions() {
     isGameOver = divs.slice(0, -1).every((el, i) => el.innerHTML == i + 1);
 
     if (isGameOver) {
-        board.classList.add('game-over');
-
-        confetti({
-            particleCount: 100,
-            spread: 70,
-            decay: 0.9,
-            origin: { y: 0.6 }
-        });
-
-        const winner = document.createElement("div");
-        winner.classList.add("winner");
-        winner.innerHTML = "ניצחת";
-
-        document.body.appendChild(winner);
-
-        setTimeout(function() {
-            location.reload();
-        }, 5 * 1000);
+        gameOver();
     }
 }
 
@@ -121,4 +104,25 @@ function cheat() {
     divs.forEach((elem, i) => elem.innerHTML = i + 1);
     divs[divs.length - 1].innerHTML = '';
     checkAllOptions();
+}
+
+function gameOver() {
+    board.classList.add('game-over');
+
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        decay: 0.9,
+        origin: { y: 0.6 }
+    });
+
+    const winner = document.createElement("div");
+    winner.classList.add("winner");
+    winner.innerHTML = "ניצחת";
+
+    document.body.appendChild(winner);
+
+    setTimeout(function() {
+        location.reload();
+    }, 5 * 1000);
 }
