@@ -2,6 +2,7 @@ const width = 4;
 const height = 4;
 const length = width * height;
 const divs = [];
+let isGameOver = false;
 let options = [];
 const board = document.querySelector(".board");
 board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
@@ -25,6 +26,10 @@ function createBoard() {
 
         // אירוע המופעל במעבר עכבר
         div.addEventListener("mouseover", ev => {
+            if (isGameOver) {
+                return;
+            }
+
             const empty = divs.find(el => el.innerHTML == '');
             empty.classList.remove('active');
 
@@ -41,6 +46,10 @@ function createBoard() {
 
         // אירוע המופעל בלחיצה על
         div.addEventListener("click", ev => {
+            if (isGameOver) {
+                return;
+            }
+
             const elem = ev.target;
 
             if (options.includes(i)) {
@@ -57,12 +66,13 @@ function createBoard() {
 }
 
 function checkAllOptions() {
+    divs.forEach(el => el.classList.remove('empty', 'option'));
     const emptyIndex = divs.findIndex(div => div.innerHTML == '');
     options = [];
     const top = emptyIndex - width;
     const bottom = emptyIndex + width;
-    const right = emptyIndex - 1;
-    const left = emptyIndex + 1;
+    const right = emptyIndex + 1;
+    const left = emptyIndex - 1;
 
     if (top >= 0) {
         options.push(top);
@@ -73,10 +83,20 @@ function checkAllOptions() {
     }
 
     if (emptyIndex % width != 0) {
+        options.push(left);
+    }
+    
+    if (emptyIndex % width != width - 1) {
         options.push(right);
     }
 
-    if (emptyIndex % width != width - 1) {
-        options.push(left);
+    divs[emptyIndex].classList.add('empty');
+    options.forEach(index => divs[index].classList.add('option'));
+
+    isGameOver = divs.slice(0, -1).every((el, i) => el.innerHTML == i + 1);
+
+    if (isGameOver) {
+        board.classList.add('game-over');
+        console.log('Game Over')
     }
 }

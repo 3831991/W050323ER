@@ -50,6 +50,7 @@ button:hover {
     gap: 6px;
     padding: 6px;
     border-radius: 12px;
+    direction: ltr;
 }
 
 .board div {
@@ -63,13 +64,14 @@ button:hover {
     font-weight: bold;
     color: white;
     border-radius: 12px;
+    transition: 0.3s;
+}
+
+.board div.option:not(.game-over div):hover {
+    scale: 1.05;
     cursor: pointer;
 }
 
-.board div:hover {
-    background-color: #5919c7;
-}
-
 .active {
-    background-color: coral !important;
+    background-color: #5919c7 !important;
 }
