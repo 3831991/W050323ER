@@ -44,7 +44,7 @@ function createBoard() {
             empty.classList.remove('active');
         });
 
-        // אירוע המופעל בלחיצה על
+        // אירוע המופעל בלחיצה על העכבר
         div.addEventListener("click", ev => {
             if (isGameOver) {
                 return;
@@ -126,3 +126,23 @@ function gameOver() {
         location.reload();
     }, 5 * 1000);
 }
+
+let conunter = 0;
+
+window.addEventListener("keyup", ev => {
+    if (isGameOver) {
+        return;
+    }
+
+    if (ev.key == "c" || ev.key == "ב") {
+        conunter++;
+
+        if (conunter >= 3) {
+            cheat();
+        }
+
+        setTimeout(() => {
+            conunter = 0;
+        }, 1500);
+    }
+})
