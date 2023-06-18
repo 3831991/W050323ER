@@ -1,5 +1,5 @@
 const height = 40;
-const width = 30;
+const width = screen.width < 400 ? 30 : 50;
 const length = 10;
 const snake = new Array(length).fill(null).map((n, i) => i);
 snake.reverse();
@@ -8,6 +8,8 @@ let direction = 'left';
 let isGameOver = false;
 let random;
 let interval;
+// כל האלמנטים של הלוח
+const divs = [];
 
 const rightBoundaries = [];
 const leftBoundaries = [];
@@ -29,6 +31,7 @@ function createBoard() {
     for (let i = 0; i < height * width; i++) {
         const div = document.createElement('div');
         board.appendChild(div);
+        divs.push(div);
     }
 
     color();
@@ -36,21 +39,9 @@ function createBoard() {
 }
 
 function color() {
-    // Get all board elements.
-    const divs = document.querySelectorAll('.board div');
-
     // Remove all classes.
     divs.forEach(elem => {
-        elem.classList.remove('active');
-        elem.classList.remove('head');
-        elem.classList.remove('up');
-        elem.classList.remove('right');
-        elem.classList.remove('down');
-        elem.classList.remove('left');
-        elem.classList.remove('topLeftRadius');
-        elem.classList.remove('topRightRadius');
-        elem.classList.remove('bottomRightRadius');
-        elem.classList.remove('bottomLeftRadius');
+        elem.classList.remove('active', 'head', 'up', 'right', 'down', 'left', 'topLeftRadius', 'topRightRadius', 'bottomRightRadius', 'bottomLeftRadius');
     });
 
     // Add the class "Active" to the element of the snake.
@@ -72,16 +63,14 @@ function color() {
         }
     });
 
-    divs[head].classList.add('head');
-    divs[head].classList.add(direction);
+    // הוספנו 2 קלאסים לראש הנחש
+    divs[head].classList.add('head', direction);
 }
 
 function move(dir) {
     if (isGameOver) {
         return;
     }
-
-    const divs = document.querySelectorAll('.board div');
 
     if (dir === 'up') {
         if (direction === 'down') {
@@ -165,7 +154,6 @@ function gameOver() {
 }
 
 function setApple() {
-    const divs = document.querySelectorAll('.board div');
     random = Math.floor(Math.random() * divs.length);
 
     if (snake.includes(random)) {
