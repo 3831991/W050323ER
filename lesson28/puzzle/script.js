@@ -5,6 +5,8 @@ const divs = [];
 let isGameOver = false;
 let options = [];
 let counter = 0;
+let timer = 0;
+let timerInterval;
 const board = document.querySelector(".board");
 board.style.gridTemplateColumns = `repeat(${width}, 1fr)`;
 
@@ -65,6 +67,14 @@ function createBoard() {
     }
 
     checkAllOptions();
+
+    timerInterval = setInterval(() => {
+        const date = new Date(timer * 1000);
+        const s = date.getSeconds();
+        const m = date.getMinutes();
+        document.querySelector(".timer").innerHTML = `${m < 10 ? '0' + m : m}:${s < 10 ? '0' + s : s}`;
+        timer++;
+    }, 1000);
 }
 
 function checkAllOptions() {
@@ -109,6 +119,7 @@ function cheat() {
 }
 
 function gameOver() {
+    clearInterval(timerInterval);
     board.classList.add('game-over');
 
     confetti({
