@@ -127,6 +127,7 @@ function gameOver() {
     }, 5 * 1000);
 }
 
+// אם לוחצים 3 פעמים על המקש "ב" במקלדת, זה מפעיל את הפונקציה שמרמה
 let conunter = 0;
 
 window.addEventListener("keyup", ev => {
