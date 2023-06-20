@@ -47,3 +47,52 @@ document.querySelectorAll("nav a").forEach(a => {
         document.querySelector(ev.target.id).style.display = 'block';
     });
 });
+
+function addElement() {
+    const type = elementType.value;
+
+    let tagName = type;
+
+    if (type == "title") {
+        tagName = document.querySelector("#headerType").value;
+    }
+    
+    const newElem = document.createElement(tagName);
+
+    const value = document.querySelector("#value").value;
+
+    if (type == 'input') {
+        newElem.type = document.querySelector("#inputType").value;
+        newElem.value = value;
+    } else {
+        newElem.innerHTML = value;
+    }
+
+    const fontSize = document.querySelector(`.${type} #fontSize`);
+    const padding = document.querySelector(`.${type} #padding`);
+    const border = document.querySelector(`.${type} #border`);
+    const color = document.querySelector(`.${type} #color`);
+    const bg = document.querySelector(`.${type} #bg`);
+
+    if (fontSize) {
+        newElem.style.fontSize = fontSize.value + 'px';
+    }
+
+    if (padding) {
+        newElem.style.padding = padding.value + 'px';
+    }
+    
+    if (border) {
+        newElem.style.border = border.value + 'px solid';
+    }
+    
+    if (color) {
+        newElem.style.color = color.value;
+    }
+    
+    if (bg) {
+        newElem.style.backgroundColor = bg.value;
+    }
+
+    document.querySelector(".page").appendChild(newElem);
+}

@@ -73,7 +73,7 @@
                     <select class="elementType">
                         <option></option>
                         <option value="title">כותרת</option>
-                        <option value="text">תיבת טקסט</option>
+                        <option value="p">פסקה</option>
                         <option value="input">תיבת קלט</option>
                         <option value="button">לחצן</option>
                     </select>
@@ -81,7 +81,7 @@
 
                 <section class="title">
                     <label>גודל הכותרת</label>
-                    <select>
+                    <select id="headerType">
                         <option>h1</option>
                         <option>h2</option>
                         <option>h3</option>
@@ -93,45 +93,50 @@
 
                 <section class="input">
                     <label>סוג קלט</label>
-                    <select>
-                        <option type="text">טקסט</option>
-                        <option type="number">מספר</option>
-                        <option type="date">תאריך</option>
-                        <option type="time">שעה</option>
+                    <select id="inputType">
+                        <option value="text">טקסט</option>
+                        <option value="number">מספר</option>
+                        <option value="date">תאריך</option>
+                        <option value="time">שעה</option>
                     </select>
                 </section>
 
-                <section class="title text input button">
+                <section class="title p input button">
                     <label>גודל טקסט</label>
-                    <input type="number" min="5" max="90">
+                    <input type="number" min="5" max="90" id="fontSize">
                 </section>
 
-                <section class="title text input button">
+                <section class="title p input button">
                     <label>ריווח</label>
-                    <input type="number" min="0" max="20">
+                    <input type="number" min="0" max="20" id="padding">
                 </section>
 
                 <section class="input">
                     <label>עובי מסגרת</label>
-                    <input type="number" min="0" max="10">
+                    <input type="number" min="0" max="10" id="border">
                 </section>
 
                 <section class="input button">
                     <label>צבע הרקע</label>
-                    <input type="color">
+                    <input type="color" id="bg">
                 </section>
 
-                <section class="title text input button">
+                <section class="title p input button">
                     <label>צבע הטקסט</label>
-                    <input type="color">
+                    <input type="color" id="color">
                 </section>
+
+                <section class="title p input button">
+                    <label>תוכן</label>
+                    <input type="text" id="value">
+                </section>
+
+                <button onclick="addElement()">+ הוסף</button>
             </div>
         </div>
 
         <div class="pageSide">
-            <div class="page" contenteditable="true">
-                
-            </div>
+            <div class="page" contenteditable="true"></div>
         </div>
     </div>
 </body>
