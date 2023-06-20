@@ -17,3 +17,15 @@ function changeStyle(key, value) {
     styling[key] = value;
     syncStyle();
 }
+
+document.querySelectorAll("nav a").forEach(a => {
+    a.addEventListener('click', ev => {
+        document.querySelectorAll("nav a").forEach(el => {
+            el.classList.remove('active');
+            document.querySelector(el.id).style.display = 'none';
+        });
+
+        ev.target.classList.add('active');
+        document.querySelector(ev.target.id).style.display = 'block';
+    });
+});

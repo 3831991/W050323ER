@@ -97,3 +97,26 @@ input, select {
     border-radius: 5px;
     margin-top: 3px;
 }
+
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1px;
+}
+
+nav a {
+    background: antiquewhite;
+    padding: 8px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+
+nav a:hover {
+    background: #fecd8d;
+}
+
+.active {
+    background: #fac27a;
+}
