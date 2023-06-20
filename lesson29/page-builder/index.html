@@ -21,12 +21,43 @@
 
             <section>
                 <label>רקע</label>
-                <input type="color" onchange="changeStyle('backgroundColor', this.value)">
+                <input type="color" oninput="changeStyle('backgroundColor', this.value)">
             </section>
 
             <section>
                 <label>גודל טקסט</label>
                 <input type="number" oninput="changeStyle('fontSize', this.value + 'px')">
+            </section>
+
+            <section>
+                <label>גובה הדף (בפיקסלים)</label>
+                <input type="number" oninput="changeStyle('minHeight', this.value + 'px')">
+            </section>
+
+            <section>
+                <label>רוחב הדף</label>
+                <input type="number" oninput="changeStyle('minWidth', this.value + 'px')">
+            </section>
+
+            <section>
+                <label>ריווח פנימי של הדף</label>
+                <input type="number" oninput="changeStyle('padding', this.value + 'px')">
+            </section>
+
+            <section>
+                <label>צבע הטקסט</label>
+                <input type="color" oninput="changeStyle('color', this.value)">
+            </section>
+
+            <section>
+                <label>סוג גופן</label>
+                <select oninput="changeStyle('fontFamily', this.value)">
+                    <option selected disabled value="">בחר גופן</option>
+                    <option value="'Courier New', Courier, monospace">Courier</option>
+                    <option value="'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Arial</option>
+                    <option value="'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Gill</option>
+                    <option value="'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">Lucida</option>
+                </select>
             </section>
         </div>
 
