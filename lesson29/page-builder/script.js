@@ -1,3 +1,5 @@
+//#region עיצוב כללי 
+/****************************************************/
 const styling = {
     backgroundColor: 'white',
     fontSize: '30px',
@@ -19,7 +21,11 @@ function changeStyle(key, value) {
     styling[key] = value;
     syncStyle();
 }
+/*****************************************************************/
+//#endregion
 
+//#region שינוי תפריט 
+/****************************************************/
 const elementType = document.querySelector('.elementType');
 
 // הצגת האופציות בהתאם לבחירת סוג האלמנט
@@ -47,7 +53,10 @@ document.querySelectorAll("nav a").forEach(a => {
         document.querySelector(ev.target.id).style.display = 'block';
     });
 });
+/****************************************************/
+//#endregion
 
+//#region יצירת האלמנט
 function addElement() {
     const type = elementType.value;
 
@@ -96,3 +105,4 @@ function addElement() {
 
     document.querySelector(".page").appendChild(newElem);
 }
+//#endregion
