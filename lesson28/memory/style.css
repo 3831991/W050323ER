@@ -78,6 +78,11 @@ button:hover {
     transform: matrix3d(1, 0, 4, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1);
 }
 
+.board div.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .board div.showing span {
     display: initial;
 }
@@ -107,4 +112,17 @@ button:hover {
     align-items: center;
     justify-content: center;
     animation: zoom-in 2s;
+}
+
+p {
+    text-align: center;
+    color: white;
+}
+
+p .margin {
+    margin: 0 12px;
+}
+
+.cheat {
+    filter: brightness(0.7);
 }
