@@ -1,8 +1,8 @@
 const styling = {
     backgroundColor: 'white',
-    fontSize: '120px',
+    fontSize: '30px',
     padding: '16px',
-    color: 'white',
+    color: 'black',
 };
 
 function syncStyle() {
