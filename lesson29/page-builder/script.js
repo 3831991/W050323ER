@@ -58,6 +58,7 @@ document.querySelectorAll("nav a").forEach(a => {
 
 //#region יצירת האלמנט
 function addElement() {
+    // סוג האלמנט (לפי ה-HTML)
     const type = elementType.value;
 
     let tagName = type;
@@ -66,8 +67,10 @@ function addElement() {
         tagName = document.querySelector("#headerType").value;
     }
     
+    // האלמנט החדש
     const newElem = document.createElement(tagName);
 
+    // התוכן שיוצג בתוך האלמנט
     const value = document.querySelector("#value").value;
 
     if (type == 'input') {
