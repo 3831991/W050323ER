@@ -120,3 +120,11 @@ nav a:hover {
 .active {
     background: #fac27a;
 }
+
+.elements {
+    display: none;
+}
+
+.elements section:not(section:first-child) {
+    display: none;
+}

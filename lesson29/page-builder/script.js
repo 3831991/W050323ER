@@ -5,6 +5,42 @@ const styling = {
     color: 'black',
 };
 
+const elementStructures = [
+    {
+        id: 'title',
+        title: 'כותרת',
+    },
+    {
+        id: 'text',
+        title: 'תיבת טקסט',
+    },
+    {
+        id: 'input',
+        title: 'תיבת קלט',
+    },
+    {
+        id: 'button',
+        title: 'לחצן',
+    },
+];
+
+const elementType = document.querySelector('.elementType');
+
+elementStructures.forEach(item => {
+    const options = document.createElement('option');
+    options.innerHTML = item.title;
+    options.value = item.id;
+    elementType.appendChild(options)
+});
+
+elementType.addEventListener('change', ev => {
+    const type = ev.target.value;
+
+    document.querySelectorAll(".elements section:not(section:first-child)").forEach(el => {
+        el.style.display = el.classList.contains(type) ? 'block' : 'none';
+    });
+});
+
 function syncStyle() {
     const page = document.querySelector(".page");
 
