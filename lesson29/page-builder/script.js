@@ -5,42 +5,7 @@ const styling = {
     color: 'black',
 };
 
-const elementStructures = [
-    {
-        id: 'title',
-        title: 'כותרת',
-    },
-    {
-        id: 'text',
-        title: 'תיבת טקסט',
-    },
-    {
-        id: 'input',
-        title: 'תיבת קלט',
-    },
-    {
-        id: 'button',
-        title: 'לחצן',
-    },
-];
-
-const elementType = document.querySelector('.elementType');
-
-elementStructures.forEach(item => {
-    const options = document.createElement('option');
-    options.innerHTML = item.title;
-    options.value = item.id;
-    elementType.appendChild(options)
-});
-
-elementType.addEventListener('change', ev => {
-    const type = ev.target.value;
-
-    document.querySelectorAll(".elements section:not(section:first-child)").forEach(el => {
-        el.style.display = el.classList.contains(type) ? 'block' : 'none';
-    });
-});
-
+// פונקציה שמגדירה את העיצוב הכללי של האתר
 function syncStyle() {
     const page = document.querySelector(".page");
 
@@ -49,11 +14,24 @@ function syncStyle() {
     }
 }
 
+// פונקציה שמשנה את האובייקט של העיצוב ישירות מהאלמנטים
 function changeStyle(key, value) {
     styling[key] = value;
     syncStyle();
 }
 
+const elementType = document.querySelector('.elementType');
+
+// הצגת האופציות בהתאם לבחירת סוג האלמנט
+elementType.addEventListener('change', ev => {
+    const type = ev.target.value;
+
+    document.querySelectorAll(".elements section:not(section:first-child)").forEach(el => {
+        el.style.display = el.classList.contains(type) ? 'block' : 'none';
+    });
+});
+
+// שינוי התצוגה בהתאם לתפריט העליון
 document.querySelectorAll("nav a").forEach(a => {
     // הוספת אירוע לחיצה על התפריט
     a.addEventListener('click', ev => {
