@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>בונה מסכים</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body onload="syncStyle()">
+    <div class="mobileAlert">
+        <p>האתר לא זמין בנייד</p>
+    </div>
+
+    <div class="frame">
+        <div class="panelSide">
+            <h1>בונה מסכים</h1>
+
+            <section>
+                <label>רקע</label>
+                <input type="color" onchange="changeStyle('backgroundColor', this.value)">
+            </section>
+
+            <section>
+                <label>גודל טקסט</label>
+                <input type="number" oninput="changeStyle('fontSize', this.value)">
+            </section>
+        </div>
+
+        <div class="pageSide">
+            <div class="page">
+                dsfdsfds
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
