@@ -77,3 +77,15 @@ h2 {
 .add:hover {
     background-color: #a4d967;
 }
+
+.tasksFrame.complete button.complete {
+    display: none;
+}
+
+.undo {
+    display: none;
+}
+
+.tasksFrame.complete .undo {
+    display: block;
+}
