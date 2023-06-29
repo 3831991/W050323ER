@@ -1,6 +1,6 @@
 let i = 1;
 
-function addTask() {
+function addTask(parentDiv = null) {
     const div = document.createElement('div');
     div.className = "task";
 
@@ -8,6 +8,24 @@ function addTask() {
     p.innerHTML = `Task ${i++}`;
     p.contentEditable = true;
     div.appendChild(p);
+
+    p.addEventListener("keydown", ev => {
+        if (ev.key == 'Enter' && !ev.shiftKey) {
+            ev.preventDefault();
+        }
+    });
+
+    p.addEventListener("keyup", ev => {
+        const task = ev.target.parentElement;
+
+        if (ev.key == 'ArrowDown' && task.nextSibling) {
+            task.nextSibling.querySelector("p").focus();
+        } else if (ev.key == 'ArrowUp' && task.previousSibling) {
+            task.previousSibling.querySelector("p").focus();
+        } else if (ev.key == 'Enter' && !ev.shiftKey) {
+            addTask(task);
+        }
+    });
 
     // כפתור מחיקה
     const btnFrame = document.createElement("div");
@@ -40,7 +58,11 @@ function addTask() {
     btnFrame3.appendChild(btnUndo);
     div.appendChild(btnFrame3);
 
-    document.querySelector('.taskList').appendChild(div);
+    if (parentDiv) {
+        document.querySelector('.taskList').insertBefore(div, parentDiv.nextSibling);
+    } else {
+        document.querySelector('.taskList').appendChild(div);
+    }
 
     p.focus();
 }
