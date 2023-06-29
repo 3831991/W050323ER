@@ -27,7 +27,6 @@ function addTask() {
     btnFrame2.appendChild(btnComplete);
     div.appendChild(btnFrame2);
 
-
     document.querySelector('.taskList').appendChild(div);
 
     p.focus();
