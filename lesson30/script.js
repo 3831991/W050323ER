@@ -1,8 +1,10 @@
 /**
  * פונקיצה להוספת משימה
+ * @param content טקסט ברירת מחדל שיופיע במשימה (אופציונלי)
  * @param parentDiv אלמנט שרוצים להוסיף אחריו את המשימה (אופציונלי)
+ * @param target לאיזו רשימה להוסיף את המשימה (אופציונלי)
  */
-function addTask(parentDiv = null) {
+function addTask(content = "", parentDiv = null, target = "open") {
     const div = document.createElement('div');
     div.className = "task";
 
@@ -10,6 +12,7 @@ function addTask(parentDiv = null) {
     const p = document.createElement('p');
     // מאפשר לערוך את הפסקה
     p.contentEditable = true;
+    p.innerHTML = content;
     div.appendChild(p);
 
     // לצורך ביטול השורה כשלוחצים על אנטר
@@ -32,7 +35,7 @@ function addTask(parentDiv = null) {
             task.previousSibling.querySelector("p").focus();
         // אם לוחצים על אנטר *ללא* שיפט, אך הוא מוסיף משימה חדשה
         } else if (ev.key == 'Enter' && !ev.shiftKey) {
-            addTask(task);
+            addTask("", task);
         }
     });
 
@@ -62,26 +65,46 @@ function addTask(parentDiv = null) {
     btnUndo.className = "undo";
     btnUndo.innerHTML = "🙈";
     btnUndo.addEventListener("click", () => {
-        document.querySelector('.taskList').appendChild(div);
+        document.querySelector('.open .taskList').appendChild(div);
     });
     btnFrame3.appendChild(btnUndo);
     div.appendChild(btnFrame3);
 
     // אם קיבלנו אלמנט כפרמטר, משמע שאנחנו רוצים להוסיף אחריו משימה
     if (parentDiv) {
-        document.querySelector('.taskList').insertBefore(div, parentDiv.nextSibling);
+        document.querySelector('.open .taskList').insertBefore(div, parentDiv.nextSibling);
     // אחרת אנחנו מוסיפים משימה בסוף
     } else {
-        document.querySelector('.taskList').appendChild(div);
+        document.querySelector(`.${target} .taskList`).appendChild(div);
     }
 
     // שם את הסמן בתוך התיבה
     p.focus();
 }
 
+if (localStorage.open) {
+    const open = JSON.parse(localStorage.open);
+
+    open.forEach(str => {
+        addTask(str);
+    });
+}
+
+if (localStorage.complete) {
+    const complete = JSON.parse(localStorage.complete);
+
+    complete.forEach(str => {
+        addTask(str, null, 'complete');
+    });
+}
+
 // הוספת משימה ראשונית
 addTask();
 
 function save() {
-    
+    const open = [...document.querySelectorAll(".open .task p")].map(el => el.innerText).filter(x => x);
+    const complete = [...document.querySelectorAll(".complete .task p")].map(el => el.innerText);
+
+    localStorage.open = JSON.stringify(open);
+    localStorage.complete = JSON.stringify(complete);
 }
