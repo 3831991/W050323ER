@@ -7,21 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do list</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
     <h1>To-Do list</h1>
 
     <div class="tasksFrame">
-        <div class="task">
-            <p contenteditable="true">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi minus magni, consequuntur.</p>
-            <div>
-                <button class="remove">x</button>
-            </div>
-        </div>
+        <h2>Open</h2>
 
-        <button class="add">+ New task</button>
+        <div class="taskList"></div>
+
+        <button class="add" onclick="addTask()">+ New task</button>
+    </div>
+
+    <div class="tasksFrame complete">
+        <h2>Complete</h2>
+
+        <!-- <div class="taskList"></div> -->
     </div>
 </body>
 
