@@ -49,6 +49,7 @@ function getProducts() {
     .then(data => {
         document.querySelector(".products").style.display = "block";
         const tbody = document.querySelector(".products tbody");
+        tbody.innerHTML = '';
 
         data.forEach((p, i) => {
             const tr = document.createElement("tr");
@@ -63,6 +64,27 @@ function getProducts() {
 
             tbody.appendChild(tr);
         });
+    });
+}
+
+function addProduct() {
+    const obj = {
+        name: document.querySelector('#name').value,
+        price: +document.querySelector('#price').value,
+        discount: +document.querySelector('#discount').value,
+    };
+
+    fetch("https://api.shipap.co.il/products", {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj),
+    })
+    .then(res => res.json())
+    .then(data => {
+        getProducts();
     });
 }
 
