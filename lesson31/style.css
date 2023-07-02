@@ -63,60 +63,30 @@ select {
     margin-top: 3px;
 }
 
-img {
+.login, .user, .products {
+    display: none;
+}
+
+table {
     width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
 }
 
-p {
-    margin: 8px 0;
+tr {
+    background-color: white;
 }
 
-.alert {
-    padding: 8px 12px;
-    margin: 0 -16px;
-    text-align: center;
-    border: 1px dashed;
-    border-right: 0;
-    border-left: 0;
-    font-size: 20px;
-    background-color: gray;
-    margin-bottom: 12px;
+thead tr {
+    background-color: #3dbf23;
     color: white;
 }
 
-#gallery {
-    position: relative;
+tr:nth-child(even) {
+    background-color: #d9d9d9;
 }
 
-#gallery button {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 70px;
-    background-color: #00000091;
-    font-size: 22px;
-    display: none;
-}
-
-#gallery button:hover {
-    background-color: black;
-}
-
-#gallery:hover button {
-    display: block;
-}
-
-#right {
-    right: 0;
-    border-radius: 20px 0 0 20px;
-}
-
-#left {
-    left: 0;
-    border-radius: 0 20px 20px 0;
-}
-
-.login, .user {
-    display: none;
+th, td {
+    padding: 6px;
+    text-align: center;
 }
