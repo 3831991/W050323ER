@@ -116,3 +116,7 @@ p {
     left: 0;
     border-radius: 0 20px 20px 0;
 }
+
+.login, .user {
+    display: none;
+}

@@ -4,7 +4,7 @@ function login() {
         password: document.querySelector("input[type=password]").value,
     };
 
-    fetch("http://api.shipap.co.il/login", {
+    fetch("https://api.shipap.co.il/login", {
         method: 'POST',
         credentials: 'include',
         headers: {
@@ -15,7 +15,7 @@ function login() {
     .then(res => res.json())
     .then(data => {
         if (data.status == 'success') {
-            // לכתוב הודעת ברוכים הבאים ליוזר
+            setUser(data.user);
         } else {
             alert(data.message);
         }
@@ -23,9 +23,29 @@ function login() {
 }
 
 function loginStatus() {
-    fetch("http://api.shipap.co.il/login", {
+    fetch("https://api.shipap.co.il/login", {
         credentials: 'include',
     })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => {
+        if (data.status == 'success') {
+            setUser(data.user);
+        } else {
+            setUser();
+        }
+    });
+}
+
+function setUser(user) {
+    const divLogin = document.querySelector(".login");
+    const divUser = document.querySelector(".user");
+
+    if (user) {
+        divLogin.style.display = 'none';
+        divUser.style.display = 'block';
+        divUser.innerHTML = `${user.fullName} מחובר!`;
+    } else {
+        divLogin.style.display = 'block';
+        divUser.style.display = 'none';
+    }
 }
