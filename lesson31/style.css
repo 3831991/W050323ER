@@ -48,6 +48,7 @@ button {
     padding: 8px 12px;
     border-radius: 6px;
     border: none;
+    margin-right: 8px;
 }
 
 button:hover {
