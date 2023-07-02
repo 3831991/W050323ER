@@ -68,11 +68,19 @@ function getProducts() {
 }
 
 function addProduct() {
+    const name = document.querySelector('#name');
+    const price = document.querySelector('#price');
+    const discount = document.querySelector('#discount');
+
     const obj = {
-        name: document.querySelector('#name').value,
-        price: +document.querySelector('#price').value,
-        discount: +document.querySelector('#discount').value,
+        name: name.value,
+        price: +price.value,
+        discount: +discount.value,
     };
+
+    name.value = '';
+    price.value = '';
+    discount.value = '';
 
     fetch("https://api.shipap.co.il/products", {
         method: 'POST',
