@@ -78,17 +78,23 @@ function saveProduct(id, btnElem) {
     const tr = btnElem.closest('tr');
 
     const obj = {
-        name: '',
-        price: '',
-        discount: '',
+        name: tr.querySelector('.name').innerText,
+        price: tr.querySelector('.price').innerText,
+        discount: tr.querySelector('.discount').innerText,
     };
 
-    // לקבל את כל הנתונים של השורה ב- innerText
-    // לשלוח את הנתונים לשרת
-    // להסתיר את לחצן השמירה
+    fetch(`https://api.shipap.co.il/products/${id}`, {
+        method: 'PUT',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(obj),
+    })
+    .then(() => {
+        tr.querySelector('.save').style.visibility = 'hidden';
+    });
 
-    // בונוס
-    // במחיקה, לעדכן את כל המספור
     // כל פנייה לשרת זה יציג ספינר עד לסיום ההתקשרות
 }
 
@@ -130,7 +136,11 @@ function removeProduct(id, btnElem) {
         method: 'DELETE',
         credentials: 'include',
     })
-    .then(() => btnElem.closest('tr').remove());
+    .then(() => {
+        btnElem.closest('tr').remove();
+        const trs = document.querySelectorAll('tbody tr');
+        trs.forEach((tr, i) => tr.querySelector('td').innerHTML = i + 1);
+    });
 }
 
 // פונקציה האחראית לשים את שם המשתמש בהודעה או לאפשר התחברות

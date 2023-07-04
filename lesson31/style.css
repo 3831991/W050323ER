@@ -63,7 +63,9 @@ select {
     margin-top: 3px;
 }
 
-.login, .user, .products {
+.login,
+.user,
+.products {
     display: none;
 }
 
@@ -86,18 +88,21 @@ tr:nth-child(even) {
     background-color: #d9d9d9;
 }
 
-th, td {
+th,
+td {
     padding: 6px;
     text-align: center;
 }
 
-.remove, .save {
+.remove,
+.save {
     margin: 0;
     transition: 0.3s;
     cursor: pointer;
 }
 
-.remove:hover, .save:hover {
+.remove:hover,
+.save:hover {
     scale: 1.5;
 }
 
@@ -108,4 +113,48 @@ th, td {
 .save {
     background: none;
     visibility: hidden;
+}
+
+.loaderFrame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #000000a3;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 8px solid gray;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 1s linear infinite;
+    /* Safari */
+    animation: spin 1s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
