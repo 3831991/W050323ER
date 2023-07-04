@@ -56,15 +56,33 @@ function getProducts() {
 
             tr.innerHTML = `
                 <td>${i + 1}</td>
-                <td>${p.name}</td>
-                <td>${p.price}</td>
-                <td>${p.discount}</td>
-                <td><button class="remove" onclick="removeProduct(${p.id}, this)">x</button></td>
+                <td contenteditable="true" oninput="contentChange(this)" class="name">${p.name}</td>
+                <td contenteditable="true" oninput="contentChange(this)" class="price">${p.price}</td>
+                <td contenteditable="true" oninput="contentChange(this)" class="discount">${p.discount}</td>
+                <td>
+                    <button class="save" onclick="saveProduct(${p.id}, this)">💾</button>
+                    <button class="remove" onclick="removeProduct(${p.id}, this)">❌</button>
+                </td>
             `;
 
             tbody.appendChild(tr);
         });
     });
+}
+
+function contentChange(tdElem) {
+    tdElem.closest('tr').querySelector('.save').style.visibility = 'visible';
+}
+
+function saveProduct(id, btnElem) {
+    const tr = btnElem.closest('tr');
+    // לקבל את כל הנתונים של השורה ב- innerText
+    // לשלוח את הנתונים לשרת
+    // להסתיר את לחצן השמירה
+
+    // בונוס
+    // במחיקה, לעדכן את כל המספור
+    // כל פנייה לשרת זה יציג ספינר עד לסיום ההתקשרות
 }
 
 function addProduct() {
