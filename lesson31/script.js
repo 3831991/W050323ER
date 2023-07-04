@@ -15,19 +15,20 @@ function login() {
         },
         body: JSON.stringify(obj), // תוכן הקריאה לשרת
     })
-    // קבלה מהשרת
-    // *המרת התוכן לפי הצורך*
-    .then(res => res.json())
-    // התוכן שהתקבל מהשרת (לאחר טיפול של הפונקציה הקודמת)
-    .then(data => {
-        if (data.status == 'success') {
-            setUser(data.user);
-        } else {
-            alert(data.message);
-            loader(false);
+        // קבלה מהשרת
+        // *המרת התוכן לפי הצורך*
+        .then(res => res.json())
+        // התוכן שהתקבל מהשרת (לאחר טיפול של הפונקציה הקודמת)
+        .then(data => {
+            if (data.status == 'success') {
+                setUser(data.user);
+                snackbar("המשתמש התחבר בהצלחה");
+            } else {
+                alert(data.message);
+                loader(false);
 
-        }
-    });
+            }
+        });
 }
 
 // פונקציה הרצה בהפעלת האתר ובודקת האם היוזר מחובר
@@ -37,34 +38,35 @@ function loginStatus() {
     fetch("https://api.shipap.co.il/login", {
         credentials: 'include',
     })
-    .then(res => res.json())
-    .then(data => {
-        if (data.status == 'success') {
-            setUser(data.user);
-        } else {
-            setUser();
-        }
+        .then(res => res.json())
+        .then(data => {
+            if (data.status == 'success') {
+                setUser(data.user);
+                snackbar("המשתמש מחובר");
+            } else {
+                setUser();
+            }
 
-        loader(false);
-    });
+            loader(false);
+        });
 }
 
 function getProducts() {
     loader(true);
-    
+
     fetch("https://api.shipap.co.il/products", {
         credentials: 'include',
     })
-    .then(res => res.json())
-    .then(data => {
-        document.querySelector(".products").style.display = "block";
-        const tbody = document.querySelector(".products tbody");
-        tbody.innerHTML = '';
+        .then(res => res.json())
+        .then(data => {
+            document.querySelector(".products").style.display = "block";
+            const tbody = document.querySelector(".products tbody");
+            tbody.innerHTML = '';
 
-        data.forEach((p, i) => {
-            const tr = document.createElement("tr");
+            data.forEach((p, i) => {
+                const tr = document.createElement("tr");
 
-            tr.innerHTML = `
+                tr.innerHTML = `
                 <td>${i + 1}</td>
                 <td contenteditable="true" oninput="contentChange(this)" class="name">${p.name}</td>
                 <td contenteditable="true" oninput="contentChange(this)" class="price">${p.price}</td>
@@ -75,11 +77,11 @@ function getProducts() {
                 </td>
             `;
 
-            tbody.appendChild(tr);
-        });
+                tbody.appendChild(tr);
+            });
 
-        loader(false);
-    });
+            loader(false);
+        });
 }
 
 function contentChange(tdElem) {
@@ -105,10 +107,11 @@ function saveProduct(id, btnElem) {
         },
         body: JSON.stringify(obj),
     })
-    .then(() => {
-        tr.querySelector('.save').style.visibility = 'hidden';
-        loader(false);
-    });
+        .then(() => {
+            tr.querySelector('.save').style.visibility = 'hidden';
+            loader(false);
+            snackbar("המוצר נשמר בהצלחה");
+        });
 }
 
 function addProduct() {
@@ -136,10 +139,11 @@ function addProduct() {
         },
         body: JSON.stringify(obj),
     })
-    .then(res => res.json())
-    .then(data => {
-        getProducts();
-    });
+        .then(res => res.json())
+        .then(data => {
+            getProducts();
+            snackbar("המוצר נוסף בהצלחה");
+        });
 }
 
 function removeProduct(id, btnElem) {
@@ -153,12 +157,13 @@ function removeProduct(id, btnElem) {
         method: 'DELETE',
         credentials: 'include',
     })
-    .then(() => {
-        btnElem.closest('tr').remove();
-        const trs = document.querySelectorAll('tbody tr');
-        trs.forEach((tr, i) => tr.querySelector('td').innerHTML = i + 1);
-        loader(false);
-    });
+        .then(() => {
+            btnElem.closest('tr').remove();
+            const trs = document.querySelectorAll('tbody tr');
+            trs.forEach((tr, i) => tr.querySelector('td').innerHTML = i + 1);
+            loader(false);
+            snackbar("המוצר נמחק בהצלחה");
+        });
 }
 
 // פונקציה האחראית לשים את שם המשתמש בהודעה או לאפשר התחברות
@@ -188,4 +193,11 @@ function loader(isShowing = false) {
     } else {
         loaderFrame.style.display = 'none';
     }
+}
+
+function snackbar(message) {
+    const elem = document.getElementById("snackbar");
+    elem.innerHTML = message;
+    elem.classList.add("show");
+    setTimeout(() => elem.classList.remove("show"), 3000);
 }
