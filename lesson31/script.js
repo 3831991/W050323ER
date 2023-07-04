@@ -59,7 +59,7 @@ function getProducts() {
                 <td>${p.name}</td>
                 <td>${p.price}</td>
                 <td>${p.discount}</td>
-                <td></td>
+                <td><button class="remove" onclick="removeProduct(${p.id})">x</button></td>
             `;
 
             tbody.appendChild(tr);
@@ -94,6 +94,14 @@ function addProduct() {
     .then(data => {
         getProducts();
     });
+}
+
+function removeProduct(id) {
+    if (!confirm('האם אתה בטוח כי ברצונך למחוק את הפריט המדובר?')) {
+        return;
+    }
+
+
 }
 
 // פונקציה האחראית לשים את שם המשתמש בהודעה או לאפשר התחברות
