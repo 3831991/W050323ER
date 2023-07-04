@@ -4,6 +4,8 @@ function login() {
         password: document.querySelector("input[type=password]").value,
     };
 
+    loader(true);
+
     // שליחה לשרת
     fetch("https://api.shipap.co.il/login", {
         method: 'POST',
@@ -22,12 +24,16 @@ function login() {
             setUser(data.user);
         } else {
             alert(data.message);
+            loader(false);
+
         }
     });
 }
 
 // פונקציה הרצה בהפעלת האתר ובודקת האם היוזר מחובר
 function loginStatus() {
+    loader(true);
+
     fetch("https://api.shipap.co.il/login", {
         credentials: 'include',
     })
@@ -38,10 +44,14 @@ function loginStatus() {
         } else {
             setUser();
         }
+
+        loader(false);
     });
 }
 
 function getProducts() {
+    loader(true);
+    
     fetch("https://api.shipap.co.il/products", {
         credentials: 'include',
     })
@@ -67,6 +77,8 @@ function getProducts() {
 
             tbody.appendChild(tr);
         });
+
+        loader(false);
     });
 }
 
@@ -83,6 +95,8 @@ function saveProduct(id, btnElem) {
         discount: tr.querySelector('.discount').innerText,
     };
 
+    loader(true);
+
     fetch(`https://api.shipap.co.il/products/${id}`, {
         method: 'PUT',
         credentials: 'include',
@@ -93,9 +107,8 @@ function saveProduct(id, btnElem) {
     })
     .then(() => {
         tr.querySelector('.save').style.visibility = 'hidden';
+        loader(false);
     });
-
-    // כל פנייה לשרת זה יציג ספינר עד לסיום ההתקשרות
 }
 
 function addProduct() {
@@ -112,6 +125,8 @@ function addProduct() {
     name.value = '';
     price.value = '';
     discount.value = '';
+
+    loader(true);
 
     fetch("https://api.shipap.co.il/products", {
         method: 'POST',
@@ -132,6 +147,8 @@ function removeProduct(id, btnElem) {
         return;
     }
 
+    loader(true);
+
     fetch(`https://api.shipap.co.il/products/${id}`, {
         method: 'DELETE',
         credentials: 'include',
@@ -140,6 +157,7 @@ function removeProduct(id, btnElem) {
         btnElem.closest('tr').remove();
         const trs = document.querySelectorAll('tbody tr');
         trs.forEach((tr, i) => tr.querySelector('td').innerHTML = i + 1);
+        loader(false);
     });
 }
 
@@ -158,5 +176,16 @@ function setUser(user = null) {
         // אם אין יוזר, מציגה את תיבת ההתחברות
         divLogin.style.display = 'block';
         divUser.style.display = 'none';
+        loader(false);
+    }
+}
+
+function loader(isShowing = false) {
+    const loaderFrame = document.querySelector('.loaderFrame');
+
+    if (isShowing) {
+        loaderFrame.style.display = 'flex';
+    } else {
+        loaderFrame.style.display = 'none';
     }
 }
