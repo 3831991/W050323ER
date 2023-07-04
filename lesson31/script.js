@@ -101,7 +101,7 @@ function removeProduct(id) {
         return;
     }
 
-
+    console.log(id);
 }
 
 // פונקציה האחראית לשים את שם המשתמש בהודעה או לאפשר התחברות
