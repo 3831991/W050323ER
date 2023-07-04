@@ -59,7 +59,7 @@ function getProducts() {
                 <td>${p.name}</td>
                 <td>${p.price}</td>
                 <td>${p.discount}</td>
-                <td><button class="remove" onclick="removeProduct(${p.id})">x</button></td>
+                <td><button class="remove" onclick="removeProduct(${p.id}, this)">x</button></td>
             `;
 
             tbody.appendChild(tr);
@@ -96,12 +96,16 @@ function addProduct() {
     });
 }
 
-function removeProduct(id) {
+function removeProduct(id, btnElem) {
     if (!confirm('האם אתה בטוח כי ברצונך למחוק את הפריט המדובר?')) {
         return;
     }
 
-    console.log(id);
+    fetch(`https://api.shipap.co.il/products/${id}`, {
+        method: 'DELETE',
+        credentials: 'include',
+    })
+    .then(() => btnElem.closest('tr').remove());
 }
 
 // פונקציה האחראית לשים את שם המשתמש בהודעה או לאפשר התחברות
