@@ -76,6 +76,13 @@ function contentChange(tdElem) {
 
 function saveProduct(id, btnElem) {
     const tr = btnElem.closest('tr');
+
+    const obj = {
+        name: '',
+        price: '',
+        discount: '',
+    };
+
     // לקבל את כל הנתונים של השורה ב- innerText
     // לשלוח את הנתונים לשרת
     // להסתיר את לחצן השמירה
