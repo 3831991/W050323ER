@@ -38,17 +38,30 @@ function loginStatus() {
     fetch("https://api.shipap.co.il/login", {
         credentials: 'include',
     })
-        .then(res => res.json())
-        .then(data => {
-            if (data.status == 'success') {
-                setUser(data.user);
-                snackbar("המשתמש מחובר");
-            } else {
-                setUser();
-            }
+    .then(res => res.json())
+    .then(data => {
+        if (data.status == 'success') {
+            setUser(data.user);
+            snackbar("המשתמש מחובר");
+        } else {
+            setUser();
+        }
 
-            loader(false);
-        });
+        loader(false);
+    });
+}
+
+function logout() {
+    loader(true);
+
+    fetch("https://api.shipap.co.il/logout", {
+        credentials: 'include',
+    })
+    .then(() => {
+        setUser();
+        snackbar("המשתמש התנתק בהצלחה");
+        loader(false);
+    });
 }
 
 function getProducts() {
@@ -170,17 +183,19 @@ function removeProduct(id, btnElem) {
 function setUser(user = null) {
     const divLogin = document.querySelector(".login");
     const divUser = document.querySelector(".user");
+    const divProduct = document.querySelector(".products");
 
     // אם יש יוזר, מציגה את שם היוזר ומסתירה את תיבת ההתחברות 
     if (user) {
         divLogin.style.display = 'none';
         divUser.style.display = 'block';
-        divUser.innerHTML = `${user.fullName} מחובר!`;
+        divUser.querySelector('.userName').innerHTML = `${user.fullName} מחובר!`;
         getProducts();
     } else {
         // אם אין יוזר, מציגה את תיבת ההתחברות
         divLogin.style.display = 'block';
         divUser.style.display = 'none';
+        divProduct.style.display = 'none';
         loader(false);
     }
 }

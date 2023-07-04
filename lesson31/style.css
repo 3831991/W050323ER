@@ -69,6 +69,10 @@ select {
     display: none;
 }
 
+.logout {
+    background-color: gray;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
