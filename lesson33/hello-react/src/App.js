@@ -1,5 +1,5 @@
 import './App.css';
-import Counter from './components/Counter'
+import Home from './components/Home';
 import Navbar from './components/Navbar';
 
 function App() {  
@@ -9,7 +9,7 @@ function App() {
       
       <div className="frame">
         <Navbar />
-        <Counter />
+        <Home />
       </div>
     </div>
   );

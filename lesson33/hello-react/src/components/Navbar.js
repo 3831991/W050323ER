@@ -5,7 +5,7 @@ function Navbar() {
         <nav>
             <ul>
                 <li><a href="#">בית</a></li>
-                <li><a href="#">אודות</a></li>
+                <li><a href="#">מונה</a></li>
                 <li><a href="#">גלריה</a></li>
                 <li><a href="#">צור קשר</a></li>
             </ul>
