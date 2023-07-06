@@ -55,6 +55,11 @@ button:hover {
     filter: brightness(1.2);
 }
 
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 input,
 select {
     border: 1px solid black;
