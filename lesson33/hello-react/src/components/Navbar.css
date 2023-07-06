@@ -1,0 +1,29 @@
+nav {
+    background-color: #e91eb3;
+    margin: -8px -16px 16px;
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: inherit;
+}
+
+nav ul li {
+    display: inline;
+    background-color: inherit;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    background-color: inherit;
+}
+
+nav ul li a:hover {
+    filter: brightness(1.2);
+}
