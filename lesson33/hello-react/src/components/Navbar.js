@@ -4,10 +4,10 @@ function Navbar() {
     return (
         <nav>
             <ul>
-                <li><a href="#">בית</a></li>
-                <li><a href="#">מונה</a></li>
-                <li><a href="#">גלריה</a></li>
-                <li><a href="#">צור קשר</a></li>
+                <li><a href="/">בית</a></li>
+                <li><a href="/counter">מונה</a></li>
+                <li><a href="/gallery">גלריה</a></li>
+                <li><a href="/contact">צור קשר</a></li>
             </ul>
         </nav>
     )

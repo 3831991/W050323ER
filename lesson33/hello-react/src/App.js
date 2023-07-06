@@ -1,6 +1,7 @@
 import './App.css';
-import Home from './components/Home';
+import { BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Router from './components/Router';
 
 function App() {  
   return (
@@ -9,7 +10,9 @@ function App() {
       
       <div className="frame">
         <Navbar />
-        <Home />
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
       </div>
     </div>
   );
