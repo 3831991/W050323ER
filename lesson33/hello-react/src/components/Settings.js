@@ -6,7 +6,7 @@ function Settings() {
 
     function changeBrightness(val) {
         setBrightness(val);
-        document.body.style.filter = `brightness(${val}%)`;
+        document.querySelector('html').style.filter = `brightness(${val}%)`;
     }
 
     return (
