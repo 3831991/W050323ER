@@ -20,7 +20,7 @@ function Gallery() {
     const [currentImage, setCurrentImage] = useState(0);
 
     const nextImage = () => {
-        if (currentImage == images.length - 1) {
+        if (currentImage === images.length - 1) {
             setCurrentImage(0);
         } else {
             setCurrentImage(currentImage + 1);
@@ -28,7 +28,7 @@ function Gallery() {
     }
 
     const prevImage = () => {
-        if (currentImage == 0) {
+        if (currentImage === 0) {
             setCurrentImage(images.length - 1);
         } else {
             setCurrentImage(currentImage - 1);
