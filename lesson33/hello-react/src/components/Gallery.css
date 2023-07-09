@@ -1,3 +1,41 @@
+.gallery {
+    position: relative;
+}
+
 .gallery img {
     width: 100%;
+}
+
+.gallery button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 60px;
+    font-size: 35px;
+    background: none;
+    padding: 0px;
+    opacity: 0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery:hover button {
+    opacity: 1;
+}
+
+.gallery button:hover {
+    scale: 1.4;
+}
+
+.gallery button:active {
+    scale: 3;
+}
+
+.gallery button.right {
+    right: 0;
+}
+
+.gallery button.left {
+    left: 0;
 }

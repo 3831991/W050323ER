@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './Gallery.css';
 
 function Gallery() {
@@ -20,16 +20,35 @@ function Gallery() {
     const [currentImage, setCurrentImage] = useState(0);
 
     const nextImage = () => {
-        if (currentImage + 1 >= images.length) {
+        if (currentImage == images.length - 1) {
             setCurrentImage(0);
         } else {
             setCurrentImage(currentImage + 1);
         }
     }
 
+    const prevImage = () => {
+        if (currentImage == 0) {
+            setCurrentImage(images.length - 1);
+        } else {
+            setCurrentImage(currentImage - 1);
+        }
+    }
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            nextImage();
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, [currentImage]);
+
     return (
         <div className="gallery">
-            <img src={images[currentImage]} onClick={() => nextImage()} />
+            <img src={images[currentImage]} />
+
+            <button className="right" onClick={prevImage}>⏩</button>
+            <button className="left" onClick={nextImage}>⏪</button>
         </div>
     );
 }
