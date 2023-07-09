@@ -13,8 +13,8 @@ function Settings() {
         <>
             <div className="card">
                 <b>רמת בהירות:</b>
-                <input type="range" min="0" max="100" value={brightness} onChange={ev => changeBrightness(ev.target.value)} />
-                <input type="number" min="0" max="100" value={brightness} onChange={ev => changeBrightness(ev.target.value)} />
+                <input type="range" min="10" max="100" value={brightness} onChange={ev => changeBrightness(ev.target.value)} />
+                <input type="number" min="10" max="100" value={brightness} onChange={ev => changeBrightness(ev.target.value)} />
             </div>
 
             <div className="card">
