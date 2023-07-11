@@ -1,0 +1,33 @@
+.range>b {
+    display: block;
+}
+
+.range input[type=range] {
+    padding: 0;
+    position: relative;
+    top: 8px;
+    margin-left: 12px;
+}
+
+.range input[type="number"] {
+    background: none;
+    border: 0;
+    border-radius: 0;
+    padding: 6px 0;
+    text-align: center;
+    border-bottom: 3px solid #9f9f9f;
+    outline: 0;
+    transition: 0.3s;
+}
+
+.range input[type="number"]:focus {
+    border-color: #0075ff;
+}
+
+.range input::-webkit-outer-spin-button,
+.range input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}

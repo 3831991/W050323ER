@@ -1,31 +1,3 @@
-.card input[type=range] {
-    padding: 0;
-    position: relative;
-    top: 4px;
-    margin: 0 12px;
-}
-
-.card input[type="number"] {
-    background: none;
-    border: 0;
-    border-radius: 0;
-    padding: 6px 0;
-    text-align: center;
-    border-bottom: 3px solid #9f9f9f;
-    outline: 0;
-    transition: 0.3s;
-}
-
-.card input[type="number"]:focus {
-    border-color: #0075ff;
-    rotate: 360deg;
-
-}
-
-.card input::-webkit-outer-spin-button,
-.card input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0;
-    /* <-- Apparently some margin are still there even though it's hidden */
+.card {
+    margin-bottom: 8px;
 }
