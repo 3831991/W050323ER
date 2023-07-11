@@ -21,17 +21,17 @@ function Settings() {
 
     function changeFontSize(val) {
         setFontSize(val);
-
+        document.body.style.fontSize = `${val}px`;
     }
 
     function changePadding(val) {
         setPadding(val);
-
+        document.body.style.padding = `${val}px`;
     }
 
     function changeInvertColor(val) {
         setInvertColor(val);
-
+        document.querySelector('html').style.filter = `invert(${val}%)`;
     }
 
     return (
@@ -81,7 +81,7 @@ function Settings() {
                     title="היפוך צבעים"
                     value={invertColor}
                     min={0}
-                    max={60}
+                    max={100}
                     change={val => changeInvertColor(val)}
                 />
             </div>
