@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
     <title>Portfolio</title>
 </head>
 
@@ -140,18 +141,18 @@
             <h2>צור קשר</h2>
             <p>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית סחטיר בלובק. תצטנפל בלינדו למרקל אס לכימפו, דול, צוט ומעיוט לפתיעם ברשג. </p>
 
-            <form>
+            <form onsubmit="send(event)">
                 <label class="form-label">שם:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="name" name="name">
 
                 <label class="form-label">אימייל:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="email" name="email">
 
                 <label class="form-label">טלפון:</label>
-                <input class="form-control" type="name">
+                <input class="form-control" type="tel" name="phone">
 
                 <label class="form-label">הודעה:</label>
-                <textarea class="form-control" cols="30" rows="10"></textarea>
+                <textarea class="form-control" cols="30" rows="10" name="message"></textarea>
 
                 <button class="btn btn-info">שליחה</button>
             </form>
