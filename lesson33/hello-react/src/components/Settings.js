@@ -11,27 +11,27 @@ function Settings() {
 
     function changeBrightness(val) {
         setBrightness(val);
-        document.querySelector('html').style.filter = `brightness(${val}%)`;
+        document.querySelector('html').style.filter = `brightness(${brightness}%) invert(${invertColor}%)`;
     }
 
     function changeLetterSpacing(val) {
         setLetterSpacing(val);
-        document.body.style.letterSpacing = `${val}px`;
+        document.body.style.letterSpacing = `${letterSpacing}px`;
     }
 
     function changeFontSize(val) {
         setFontSize(val);
-        document.body.style.fontSize = `${val}px`;
+        document.body.style.fontSize = `${fontSize}px`;
     }
 
     function changePadding(val) {
         setPadding(val);
-        document.body.style.padding = `${val}px`;
+        document.body.style.padding = `${padding}px`;
     }
 
     function changeInvertColor(val) {
         setInvertColor(val);
-        document.querySelector('html').style.filter = `invert(${val}%)`;
+        document.querySelector('html').style.filter = `brightness(${brightness}%) invert(${invertColor}%)`;
     }
 
     return (
