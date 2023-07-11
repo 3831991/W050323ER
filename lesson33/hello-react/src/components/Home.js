@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
+import Date from "./Date";
 import Numbers from "./Numbers";
 import Square from "./Square";
-import moment from 'moment-with-locales-es6';
 
 function Home() {
-    const [time, setTime] = useState('');
-    moment.locale('he');
-
-    useEffect(() => {
-        setInterval(() => {
-            setTime(moment().format('LLLL'));
-        }, 1000);
-    }, []);
-
     return (
         <>
-            <p style={{ textAlign: 'left' }}>{time}</p>
+            <p style={{ textAlign: 'left' }}>
+                <Date format="LLLL" />
+            </p>
+
             <h2>ברוכים הבאים!</h2>
             <Numbers min={10} max={50} />
             <Numbers min={30} max={75} />
