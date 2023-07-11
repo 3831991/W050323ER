@@ -16,7 +16,7 @@ function Settings() {
 
     function changeLetterSpacing(val) {
         setLetterSpacing(val);
-        
+        document.body.style.letterSpacing = `${val}px`;
     }
 
     function changeFontSize(val) {
@@ -50,8 +50,8 @@ function Settings() {
                 <Range 
                     title="ריווח בין תווים"
                     value={letterSpacing}
-                    min={10}
-                    max={50}
+                    min={0}
+                    max={10}
                     change={val => changeLetterSpacing(val)}
                 />
             </div>

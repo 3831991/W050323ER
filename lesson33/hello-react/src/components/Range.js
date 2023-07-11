@@ -6,6 +6,10 @@ function Range({ title, value, min, max, change }) {
 
     function changeVal(val) {
         setNum(val);
+
+        if (typeof change === 'function') {
+            change(val);
+        }
     }
 
     return (
