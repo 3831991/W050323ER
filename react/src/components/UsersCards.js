@@ -19,7 +19,7 @@ export default function UsersCards() {
             (
                 <>
                     {
-                        data.map((user, i) => {
+                        data.map(user => {
                             return (
                                 <div key={user.id} className='card'>
                                     <h3>{user.firstName} {user.lastName}</h3>
