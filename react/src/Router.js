@@ -15,7 +15,6 @@ function Router() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/users" element={<Users />} />
-            <Route path="/users-cards" element={<UsersCards />} />
             <Route path="*" element={<ErrorPage />} />
         </Routes>
     )
