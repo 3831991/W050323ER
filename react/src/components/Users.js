@@ -15,6 +15,7 @@ export default function Users() {
                     <th>אימייל</th>
                     <th>טלפון</th>
                     <th>תאריך לידה</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,6 +28,9 @@ export default function Users() {
                             <td>{user.email}</td>
                             <td>{user.phone}</td>
                             <td>{moment(user.birthday).format('DD/MM/yyy')}</td>
+                            <td>
+                                <button class="remove">❌</button>
+                            </td>
                         </tr>
                     )
                 })
