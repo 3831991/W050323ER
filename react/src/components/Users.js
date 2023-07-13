@@ -6,6 +6,14 @@ export default function Users() {
     const [data, setData] = useState(users);
 
     return (
-        <p></p>
+        <>
+            {
+                data.map(user => {
+                    return (
+                        <p>{user.firstName} {user.lastName}</p>
+                    )
+                })
+            }
+        </>
     );
 }
