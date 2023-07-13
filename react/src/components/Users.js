@@ -9,9 +9,9 @@ export default function Users() {
     return (
         <>
             <div style={{ textAlign: 'center' }}>
-                <button onClick={() => setDisplay('table')} className={display == 'table' ? 'active' : ''}>טבלה</button>
-                <button onClick={() => setDisplay('cards')} className={display == 'cards' ? 'active' : ''}>כרטיסים</button>
-                <button onClick={() => setDisplay('list')} className={display == 'list' ? 'active' : ''}>רשימה</button>
+                <button onClick={() => setDisplay('table')} className={display === 'table' ? 'active' : ''}>טבלה</button>
+                <button onClick={() => setDisplay('cards')} className={display === 'cards' ? 'active' : ''}>כרטיסים</button>
+                <button onClick={() => setDisplay('list')} className={display === 'list' ? 'active' : ''}>רשימה</button>
             </div>
 
             {
