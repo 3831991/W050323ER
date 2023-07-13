@@ -50,3 +50,21 @@ td {
     color: gray;
     text-align: center;
 }
+
+.cardFrame {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.cardFrame .card {
+    background: white;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: 0 0 4px #00000036;
+    margin: 0;
+}
+
+.cardFrame .card p {
+    margin: 0;
+}

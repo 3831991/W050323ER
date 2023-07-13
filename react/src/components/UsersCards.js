@@ -17,7 +17,7 @@ export default function UsersCards() {
         {
             data.length ?
             (
-                <>
+                <div className='cardFrame'>
                     {
                         data.map(user => {
                             return (
@@ -31,7 +31,7 @@ export default function UsersCards() {
                             )
                         })
                     }
-                </>
+                </div>
             ) :
             <p className='noData'>אין נתונים</p>
         }
