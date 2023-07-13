@@ -44,3 +44,9 @@ td {
     background: none;
     visibility: hidden;
 }
+
+.noData {
+    font-size: 2em;
+    color: gray;
+    text-align: center;
+}
