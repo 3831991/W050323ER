@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from './Home';
-import Counter from './Counter';
-import Gallery from './Gallery';
-import Settings from './Settings';
+import Home from './components/Home';
+import Counter from './components/Counter';
+import Gallery from './components/Gallery';
+import Settings from './components/Settings';
 
 function Router() {
     return (
