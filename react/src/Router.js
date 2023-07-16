@@ -6,6 +6,7 @@ import Settings from './components/Settings';
 import ErrorPage from './components/ErrorPage';
 import Users from './components/Users';
 import Clients from './components/Clients';
+import Contact from './components/Contact';
 
 function Router() {
     return (
@@ -16,6 +17,7 @@ function Router() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/users" element={<Users />} />
             <Route path="/clients" element={<Clients />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<ErrorPage />} />
         </Routes>
     )
