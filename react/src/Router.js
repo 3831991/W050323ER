@@ -7,6 +7,7 @@ import ErrorPage from './components/ErrorPage';
 import Users from './components/Users';
 import Clients from './components/Clients';
 import Contact from './components/Contact';
+import Tickets from './components/Tickets';
 
 function Router() {
     return (
@@ -18,6 +19,7 @@ function Router() {
             <Route path="/users" element={<Users />} />
             <Route path="/clients" element={<Clients />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/tickets" element={<Tickets />} />
             <Route path="*" element={<ErrorPage />} />
         </Routes>
     )

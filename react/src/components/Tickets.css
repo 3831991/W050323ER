@@ -1,0 +1,70 @@
+.Tickets {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    direction: ltr;
+    gap: 10px;
+}
+
+.Tickets .card p {
+    margin: 6px 0;
+}
+
+.Tickets .card {
+    background-color: white;
+    padding: 12px;
+    border-radius: 5px;
+    margin: 0;
+    box-shadow: 0 0 3px #0000003b;
+}
+
+.Tickets .card.loader {
+    background-color: #ececec;
+    height: 150px;
+    position: relative;
+    overflow: hidden;
+}
+
+.Tickets .card.loader::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: calc(200% + 200px);
+    background-image: linear-gradient(90deg, #dcdcdc calc(50% - 100px), transparent 50%, transparent calc(50% + 100px));
+
+    animation: wave 2s infinite;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(-40%);
+        opacity: 0;
+    }
+
+    20% {
+        transform: translateX(0);
+    }
+
+    40% {
+        transform: translateX(20%);
+    }
+
+    60% {
+        transform: translateX(40%);
+        opacity: 1;
+    }
+
+    80% {
+        transform: translateX(60%);
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 0.3;
+    }
+}
+
+
+

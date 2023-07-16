@@ -59,7 +59,6 @@ export default function Contact() {
                     <button>שלח</button>
                 </form>
             }
-            
         </div>
     )
 }
