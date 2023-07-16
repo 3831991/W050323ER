@@ -1,5 +1,4 @@
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Router from './Router';
 
@@ -10,9 +9,7 @@ function App() {
       
       <div className="frame">
         <Navbar />
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
+        <Router />
       </div>
     </div>
   );

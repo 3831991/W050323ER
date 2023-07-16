@@ -1,0 +1,8 @@
+.Clients p {
+    transition: 0.3s;
+}
+
+.Clients p.active {
+    color: #106969;
+    font-size: 3em;
+}

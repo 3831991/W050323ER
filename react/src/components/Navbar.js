@@ -1,16 +1,17 @@
 import './Navbar.css';
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return (
         <nav>
             <ul>
-                <li><a href="/">בית</a></li>
-                <li><a href="/counter">מונה</a></li>
-                <li><a href="/gallery">גלריה</a></li>
-                <li><a href="/users">משתמשים</a></li>
-                <li><a href="/clients">לקוחות</a></li>
-                <li><a href="/settings">הגדרות</a></li>
-                <li><a href="/contact">צור קשר</a></li>
+                <li><Link to="/">בית</Link></li>
+                <li><Link to="/counter">מונה</Link></li>
+                <li><Link to="/gallery">גלריה</Link></li>
+                <li><Link to="/users">משתמשים</Link></li>
+                <li><Link to="/clients">לקוחות</Link></li>
+                <li><Link to="/settings">הגדרות</Link></li>
+                <li><Link to="/contact">צור קשר</Link></li>
             </ul>
         </nav>
     )

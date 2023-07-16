@@ -12,17 +12,26 @@ export default function Clients() {
         return () => console.log('WillUnmount');
     }, []);
 
+    function toggle(clientId) {
+        const list = [...clients];
+        const client = list.find(x => x.id === clientId);
+        
+        client.isActive = !client.isActive;
+        
+        setClients(list);
+    }
+
     return (
-        <>
+        <div className="Clients">
             {
-                clients.map((client) => {
+                clients.map(c => {
                     return (
-                        <div key={client.id}>
-                            <p>{client.firstName} {client.lastName}</p>
+                        <div key={c.id}>
+                            <p onClick={() => toggle(c.id)} className={c.isActive ? 'active' : ''}>{c.firstName} {c.lastName}</p>
                         </div>
                     )
                 })
             }
-        </>
+        </div>
     )
 }
