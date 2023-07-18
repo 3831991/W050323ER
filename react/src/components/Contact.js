@@ -1,6 +1,7 @@
 import './Contact.css';
 import { useState } from 'react';
 import { ContactSchema } from './Contact.joi';
+import { JOI_HEBREW } from './joi-hebrew';
 
 export default function Contact() {
     const [sent, setSent] = useState(false);
@@ -38,7 +39,7 @@ export default function Contact() {
         obj.email = email.value;
         obj.message = message.value;
 
-        const schema = ContactSchema.validate(obj, { abortEarly: false });
+        const schema = ContactSchema.validate(obj, { abortEarly: false, errors: { language: 'he' }, messages: { he: JOI_HEBREW } });
         const errors = {};
 
         if (schema.error) {

@@ -6,14 +6,12 @@ export const ContactSchema = Joi.object({
         .max(30)
         .required(),
     phone: Joi.string()
-        .alphanum()
         .min(3)
         .max(30)
         .required(),
     email: Joi.string()
         .required(),
     message: Joi.string()
-        .alphanum()
         .min(3)
         .max(500)
         .required(),
