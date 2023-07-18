@@ -39,7 +39,7 @@ export default function Contact() {
         obj.email = email.value;
         obj.message = message.value;
 
-        const schema = ContactSchema.validate(obj, { abortEarly: false, errors: { language: 'he' }, messages: { he: JOI_HEBREW } });
+        const schema = ContactSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
         const errors = {};
 
         if (schema.error) {
