@@ -8,6 +8,7 @@ import Users from './components/Users';
 import Clients from './components/Clients';
 import Contact from './components/Contact';
 import Tickets from './components/Tickets';
+import Login from './components/Login';
 
 function Router() {
     return (
@@ -20,6 +21,7 @@ function Router() {
             <Route path="/clients" element={<Clients />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/tickets" element={<Tickets />} />
+            <Route path="/login" element={<Login />} />
             <Route path="*" element={<ErrorPage />} />
         </Routes>
     )

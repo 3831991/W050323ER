@@ -13,6 +13,7 @@ function Navbar() {
                 <li><Link to="/settings">הגדרות</Link></li>
                 <li><Link to="/contact">צור קשר</Link></li>
                 <li><Link to="/tickets">פניות</Link></li>
+                <li><Link to="/login">התחברות</Link></li>
             </ul>
         </nav>
     )
