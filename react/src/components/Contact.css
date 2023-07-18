@@ -40,7 +40,7 @@ div.fieldError {
     margin: -8px 0px 6px 0;
 }
 
-input.fieldError {
+input.fieldError, textarea.fieldError {
     border-color: red;
     outline-color: red;
 }

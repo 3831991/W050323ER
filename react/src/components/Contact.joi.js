@@ -10,7 +10,8 @@ export const ContactSchema = Joi.object({
         .min(3)
         .max(30)
         .required(),
-    email: Joi.string(),
+    email: Joi.string()
+        .required(),
     message: Joi.string()
         .alphanum()
         .min(3)

@@ -5,6 +5,7 @@ import { ContactSchema } from './Contact.joi';
 export default function Contact() {
     const [sent, setSent] = useState(false);
     const [errors, setErrors] = useState({});
+    const [isValid, setIsValid] = useState(false);
 
     const obj = {
         fullName: '',
@@ -40,8 +41,14 @@ export default function Contact() {
         const schema = ContactSchema.validate(obj, { abortEarly: false });
         const errors = {};
 
-        for (const e of schema.error.details) {
-            errors[e.context.key] = e.message;
+        if (schema.error) {
+            for (const e of schema.error.details) {
+                errors[e.context.key] = e.message;
+            }
+
+            setIsValid(false);
+        } else {
+            setIsValid(true);
         }
 
         setErrors(errors);
@@ -64,20 +71,26 @@ export default function Contact() {
 
                     <label>
                         טלפון:
-                        <input type="tel" id="phone" onChange={handleError} />
+                        <input type="tel" id="phone" className={errors.phone ? 'fieldError' : ''} onChange={handleError} />
                     </label>
+
+                    { errors.phone ? <div className='fieldError'>{errors.phone}</div> : '' }
 
                     <label>
                         אימייל:
-                        <input type="email" id="email" onChange={handleError} />
+                        <input type="email" id="email" className={errors.email ? 'fieldError' : ''} onChange={handleError} />
                     </label>
+                    
+                    { errors.email ? <div className='fieldError'>{errors.email}</div> : '' }
 
                     <label>
                         הודעה:
-                        <textarea id="message" onChange={handleError}></textarea>
+                        <textarea id="message" className={errors.message ? 'fieldError' : ''} onChange={handleError}></textarea>
                     </label>
 
-                    <button>שלח</button>
+                    { errors.message ? <div className='fieldError'>{errors.message}</div> : '' }
+
+                    <button disabled={!isValid}>שלח</button>
                 </form>
             }
         </div>
