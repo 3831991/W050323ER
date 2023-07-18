@@ -6,7 +6,7 @@ export const JOI_HEBREW = {
     'string.dataUri': 'חייבת להיות מחרוזת dataUri חוקית',
     'string.domain': 'חייב להכיל שם דומיין חוקי',
     'string.email': 'חייב להיות דוא"ל חוקי',
-    'string.empty': 'צריך למלא את השדה',
+    'string.empty': 'יש למלא את השדה',
     'string.guid': 'חייב להיות GUID חוקי',
     'string.hex': 'חייב להכיל רק תווים הקסדצימליים',
     'string.hexAlign': 'ייצוג hex חייב להיות מיושר בתים',
