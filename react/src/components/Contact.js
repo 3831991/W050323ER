@@ -1,12 +1,19 @@
 import './Contact.css';
-import { useEffect, useState } from 'react';
-import { ContactSchema } from './Contact.joi';
+import { useState } from 'react';
 import { JOI_HEBREW } from './joi-hebrew';
+import Joi from 'joi';
 
 export default function Contact() {
     const [sent, setSent] = useState(false);
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
+
+    const contactSchema = Joi.object({
+        fullName: Joi.string().min(3).max(30).required(),
+        phone: Joi.string().min(3).max(30).required(),
+        email: Joi.string().required(),
+        message: Joi.string().min(3).max(500).required(),
+    });
 
     function getObj(form) {
         const { fullName, phone, email, message } = form.elements;
@@ -30,14 +37,14 @@ export default function Contact() {
             body: JSON.stringify(getObj(ev.target)),
         })
         .then(res => res.json())
-        .then(data => {
+        .then(() => {
             setSent(true);
         });
     }
 
     const handleError = (ev) => {
-        const obj = getObj(ev.target.closest('form'))
-        const schema = ContactSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
+        const obj = getObj(ev.target.closest('form'));
+        const schema = contactSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
         const errors = {};
 
         if (schema.error) {
