@@ -14,7 +14,24 @@ export default function Login() {
     });
 
     function login(ev) {
+        ev.preventDefault();
         
+        fetch("https://api.shipap.co.il/login", {
+            credentials: 'include',
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({ userName, password }),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status == 'success') {
+                alert("המשתמש התחבר בהצלחה");
+            } else {
+                alert(data.message);
+            }
+        });
     }
 
     const handleError = (ev) => {
