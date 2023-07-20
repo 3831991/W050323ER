@@ -29,7 +29,18 @@ function App() {
 
             <div className="frame">
                 {
-                    (isLogged === undefined) ? (<p className='loader'>טוען...</p>) : (isLogged ? <Products /> : <Login />)
+                    isLogged ?
+                    <p className='user'>{user.fullName} מחובר!</p> :
+                    ''
+                }
+                {
+                    (isLogged === undefined) ?
+                    (<p className='loader'>טוען...</p>) :
+                    (
+                        isLogged ?
+                        <Products /> :
+                        <Login success={user => { setUser(user); setIsLogged(true) }} />
+                    )
                 }
             </div>
         </div>

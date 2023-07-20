@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { JOI_HEBREW } from './joi-hebrew';
 import Joi from 'joi';
 
-export default function Login() {
+export default function Login({ success }) {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [loginError, setLoginError] = useState('');
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
 
@@ -27,9 +28,9 @@ export default function Login() {
         .then(res => res.json())
         .then(data => {
             if (data.status == 'success') {
-                alert("המשתמש התחבר בהצלחה");
+                success(data.user);
             } else {
-                alert(data.message);
+                setLoginError(data.message);
             }
         });
     }
@@ -83,6 +84,8 @@ export default function Login() {
                 { errors.password ? <div className='fieldError'>{errors.password}</div> : '' }
 
                 <button disabled={!isValid}>שלח</button>
+
+                { loginError ? <div className='fieldError'>{loginError}</div> : '' }
             </form>
         </div>
     )
