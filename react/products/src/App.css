@@ -71,3 +71,54 @@ input.fieldError, textarea.fieldError {
 .user {
     margin: 0;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 6px #979797;
+}
+
+.grid div {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.grid div:nth-last-child(-n +5) {
+    border-bottom: none;
+}
+
+.grid div:nth-child(10n+1),
+.grid div:nth-child(10n+2),
+.grid div:nth-child(10n+3),
+.grid div:nth-child(10n+4),
+.grid div:nth-child(10n+5) {
+    background-color: #dcdcdc;
+}
+
+.grid div:nth-child(-n +5) {
+    background-color: #61dafb;
+    font-weight: bold;
+}
+
+.remove,
+.save {
+    margin: 0;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.remove:hover,
+.save:hover {
+    scale: 1.5;
+}
+
+.remove {
+    background: none;
+}
