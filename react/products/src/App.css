@@ -13,3 +13,49 @@ h1 {
     padding: 8px 16px;
     border-radius: 6px;
 }
+
+/* {
+    width: 400px;
+    margin: 16px auto;
+    padding-bottom: 30px;
+} */
+
+h2 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, textarea {
+    display: block;
+    border: 1px solid black;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 3px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button {
+    margin: 24px 0 8px 0;
+    background-color: #009d00;
+    display: block;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+div.fieldError {
+    background-color: #ffdcdc;
+    padding: 6px;
+    border-radius: 4px;
+    margin: -8px 0px 6px 0;
+}
+
+input.fieldError, textarea.fieldError {
+    border-color: red;
+    outline-color: red;
+}
