@@ -14,19 +14,3 @@ body {
 * {
   font-family: 'Rubik', sans-serif !important;
 }
-
-h1 {
-  color: #61dafb;
-  text-align: center;
-  font-size: 2.5em;
-}
-
-.frame {
-  width: 80%;
-  max-width: 900px;
-  min-height: 300px;
-  background-color: #ffffffc9;
-  margin: auto;
-  padding: 8px 16px;
-  border-radius: 6px;
-}
