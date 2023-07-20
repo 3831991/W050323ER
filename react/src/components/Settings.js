@@ -3,15 +3,16 @@ import './Settings.css';
 import Range from "./Range";
 
 function Settings() {
-    const [brightness, setBrightness] = useState(30);
-    const [letterSpacing, setLetterSpacing] = useState(10);
+    const [brightness, setBrightness] = useState(100);
+    const [letterSpacing, setLetterSpacing] = useState(0);
     const [fontSize, setFontSize] = useState(20);
     const [padding, setPadding] = useState(5);
-    const [invertColor, setInvertColor] = useState(5);
+    const [invertColor, setInvertColor] = useState(0);
+    const [blur, setBlur] = useState(0);
 
     function changeBrightness(val) {
         setBrightness(val);
-        document.querySelector('html').style.filter = `brightness(${brightness}%) invert(${invertColor}%)`;
+        document.querySelector('html').style.filter = `brightness(${val}%) invert(${invertColor}%) blur(${blur}px)`;
     }
 
     function changeLetterSpacing(val) {
@@ -31,7 +32,12 @@ function Settings() {
 
     function changeInvertColor(val) {
         setInvertColor(val);
-        document.querySelector('html').style.filter = `brightness(${brightness}%) invert(${invertColor}%)`;
+        document.querySelector('html').style.filter = `brightness(${brightness}%) invert(${val}%) blur(${blur}px)`;
+    }
+
+    function changeBlur(val) {
+        setBlur(val);
+        document.querySelector('html').style.filter = `brightness(${brightness}%) invert(${invertColor}%) blur(${val}px)`;
     }
 
     return (
@@ -83,6 +89,16 @@ function Settings() {
                     min={0}
                     max={100}
                     change={val => changeInvertColor(val)}
+                />
+            </div>
+
+            <div className="card">
+                <Range 
+                    title="טשטוש"
+                    value={blur}
+                    min={0}
+                    max={10}
+                    change={val => changeBlur(val)}
                 />
             </div>
         </>
