@@ -29,7 +29,7 @@ function App() {
 
             <div className="frame">
                 {
-                    isLogged === undefined ? <p>טוען...</p> : isLogged ? <Products /> : <Login />
+                    (isLogged === undefined) ? (<p>טוען...</p>) : (isLogged ? <Products /> : <Login />)
                 }
             </div>
         </div>
