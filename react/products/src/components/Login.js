@@ -20,14 +20,16 @@ export default function Login() {
     const handleError = (ev) => {
         const val = ev.target.value;
         const id = ev.target.id;
+        const obj = { userName, password };
 
         if (id === 'userName') {
             setUserName(val);
+            obj.userName = val;
         } else if (id === 'password') {
             setPassword(val);
+            obj.password = val;
         }
-
-        const obj = { userName, password };
+        
         const schema = loginSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
         const errors = {};
 
@@ -45,7 +47,7 @@ export default function Login() {
     }
 
     return (
-        <div className="Login">
+        <div className="Login smallFrame">
             <h2>התחברות</h2>
             
             <form onSubmit={login}>
