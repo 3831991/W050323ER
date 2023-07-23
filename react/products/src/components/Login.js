@@ -83,7 +83,7 @@ export default function Login({ success }) {
 
                 { errors.password ? <div className='fieldError'>{errors.password}</div> : '' }
 
-                <button disabled={!isValid}>שלח</button>
+                <button disabled={!isValid}>התחבר</button>
 
                 { loginError ? <div className='fieldError'>{loginError}</div> : '' }
             </form>

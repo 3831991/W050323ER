@@ -122,3 +122,22 @@ input.fieldError, textarea.fieldError {
 .remove {
     background: none;
 }
+
+button.logout {
+    display: inline;
+    width: initial;
+    margin: 0 3px;
+    font-size: 12px;
+    padding: 4px 8px;
+    background-color: gray;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button.logout:hover {
+    background-color: red;
+}
+
+button.logout:active {
+    scale: 1.2;
+}
