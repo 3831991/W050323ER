@@ -141,3 +141,12 @@ button.logout:hover {
 button.logout:active {
     scale: 1.2;
 }
+
+.signup {
+    cursor: pointer;
+    text-align: center;
+}
+
+.signup:hover {
+    text-decoration: underline;
+}
