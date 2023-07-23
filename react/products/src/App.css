@@ -33,7 +33,8 @@ label {
     margin-bottom: 8px;
 }
 
-input, textarea {
+input,
+textarea {
     display: block;
     border: 1px solid black;
     padding: 8px 12px;
@@ -58,7 +59,8 @@ div.fieldError {
     margin: -8px 0px 6px 0;
 }
 
-input.fieldError, textarea.fieldError {
+input.fieldError,
+textarea.fieldError {
     border-color: red;
     outline-color: red;
 }
@@ -156,4 +158,64 @@ button.logout:active {
     font-size: 3em;
     margin: 0.2em;
     font-weight: normal;
+}
+
+.modal-frame {
+    background-color: #00000098;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.modal {
+    position: relative;
+    width: 80%;
+    max-width: 400px;
+    min-height: 300px;
+    background-color: white;
+    box-shadow: 0 0 6px black;
+    border-radius: 5px;
+    margin: auto;
+    animation: slide-bottom 0.555s cubic-bezier(.25,.46,.45,.94) both;
+}
+
+.modal h2 {
+    color: #282c34;
+}
+
+.modal .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 3px;
+    width: initial;
+    background: none;
+    color: #373737;
+    font-size: 22px;
+    padding: 8px 16px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.modal .close:hover {
+    background-color: #af0000;
+    color: white;
+    border-radius: 50%;
+    rotate: 360deg;
+}
+
+.modal form {
+    padding: 24px;
+}
+
+@keyframes slide-bottom {
+    0% {
+        transform: translateY(-200px);
+    }
+
+    100% {
+        transform: translateY(100px);
+    }
 }
