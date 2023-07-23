@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import AddProduct from './AddProduct';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
@@ -29,6 +30,7 @@ export default function Products() {
 
     return (
         <div className="Products">
+            <AddProduct />
             <h2>מוצרים</h2>
             
             {
