@@ -30,7 +30,7 @@ export default function Products() {
 
     return (
         <div className="Products">
-            <AddProduct />
+            <AddProduct addedProduct={item => setProducts([...products, item])} />
             <h2>מוצרים</h2>
             
             {

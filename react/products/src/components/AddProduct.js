@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { JOI_HEBREW } from './joi-hebrew';
 import Joi from "joi";
 
-export default function AddProduct() {
+export default function AddProduct({ addedProduct }) {
     const [formData, setFormData] = useState({
         name: '',
         price: 0,
@@ -57,12 +57,9 @@ export default function AddProduct() {
             body: JSON.stringify(formData),
         })
         .then(res => res.json())
-        .then(data => {
-            if (data.status === 'success') {
-                
-            } else {
-                alert(data.message);
-            }
+        .then(item => {
+            addedProduct(item);
+            setIsModal(false);
         });
     }
     
@@ -107,7 +104,6 @@ export default function AddProduct() {
                 </div> :
                 ''
             }
-            
         </>
     )
 }
