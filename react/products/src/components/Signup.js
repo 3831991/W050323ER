@@ -16,13 +16,13 @@ export default function Signup({ onSignup }) {
 
     const loginSchema = Joi.object({
         userName: Joi.string().min(3).max(10).required(),
-        password: Joi.string().required(),
-        email: Joi.string().required(),
-        fullName: Joi.string().required(),
+        password: Joi.string().min(3).required(),
+        email: Joi.string().min(3).required(),
+        fullName: Joi.string().min(3).required(),
     });
 
-    const handleInputChange = (event) => {
-        const { id, value } = event.target;
+    const handleInputChange = (ev) => {
+        const { id, value } = ev.target;
 
         const obj = {
             ...formData,
@@ -30,11 +30,13 @@ export default function Signup({ onSignup }) {
         };
 
         const schema = loginSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
-        const errors = {};
+        const err = { ...errors, [id]: undefined };
 
         if (schema.error) {
-            for (const e of schema.error.details) {
-                errors[e.context.key] = e.message;
+            const error = schema.error.details.find(e => e.context.key === id);
+
+            if (error) {
+                err[id] = error.message;
             }
 
             setIsValid(false);
@@ -43,7 +45,7 @@ export default function Signup({ onSignup }) {
         }
 
         setFormData(obj);
-        setErrors(errors);
+        setErrors(err);
     };
 
     function signup(ev) {
