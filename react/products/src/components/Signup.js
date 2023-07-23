@@ -3,10 +3,13 @@ import { JOI_HEBREW } from './joi-hebrew';
 import Joi from 'joi';
 
 export default function Signup({ onSignup }) {
-    const [userName, setUserName] = useState('');
-    const [password, setPassword] = useState('');
-    const [email, setEmail] = useState('');
-    const [fullName, setFullName] = useState('');
+    const [formData, setFormData] = useState({
+        userName: '',
+        password: '',
+        email: '',
+        fullName: '',
+    });
+
     const [loginError, setLoginError] = useState('');
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
@@ -18,46 +21,14 @@ export default function Signup({ onSignup }) {
         fullName: Joi.string().required(),
     });
 
-    function signup(ev) {
-        ev.preventDefault();
-        
-        fetch("https://api.shipap.co.il/signup", {
-            credentials: 'include',
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({ userName, password, email, fullName }),
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === 'success') {
-                onSignup(data.user);
-            } else {
-                setLoginError(data.message);
-            }
-        });
-    }
+    const handleInputChange = (event) => {
+        const { id, value } = event.target;
 
-    const handleError = (ev) => {
-        const val = ev.target.value;
-        const id = ev.target.id;
-        const obj = { userName, password, email, fullName };
+        const obj = {
+            ...formData,
+            [id]: value,
+        };
 
-        if (id === 'userName') {
-            setUserName(val);
-            obj.userName = val;
-        } else if (id === 'password') {
-            setPassword(val);
-            obj.password = val;
-        } else if (id === 'fullName') {
-            setFullName(val);
-            obj.fullName = val;
-        } else if (id === 'email') {
-            setEmail(val);
-            obj.email = val;
-        }
-        
         const schema = loginSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
         const errors = {};
 
@@ -71,45 +42,67 @@ export default function Signup({ onSignup }) {
             setIsValid(true);
         }
 
+        setFormData(obj);
         setErrors(errors);
+    };
+
+    function signup(ev) {
+        ev.preventDefault();
+
+        fetch("https://api.shipap.co.il/signup", {
+            credentials: 'include',
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                onSignup(data.user);
+            } else {
+                setLoginError(data.message);
+            }
+        });
     }
 
     return (
         <div className="Login smallFrame">
             <h2>יצירת משתמש</h2>
-            
+
             <form onSubmit={signup}>
                 <label>
                     שם מלא:
-                    <input type="text" id='fullName' className={errors.fullName ? 'fieldError' : ''} onChange={handleError} />
+                    <input type="text" id='fullName' className={errors.fullName ? 'fieldError' : ''} onChange={handleInputChange} />
                 </label>
 
-                { errors.fullName ? <div className='fieldError'>{errors.fullName}</div> : '' }
+                {errors.fullName ? <div className='fieldError'>{errors.fullName}</div> : ''}
 
                 <label>
                     אימייל:
-                    <input type="email" id='email' className={errors.email ? 'fieldError' : ''} onChange={handleError} />
+                    <input type="email" id='email' className={errors.email ? 'fieldError' : ''} onChange={handleInputChange} />
                 </label>
 
-                { errors.email ? <div className='fieldError'>{errors.email}</div> : '' }
+                {errors.email ? <div className='fieldError'>{errors.email}</div> : ''}
 
                 <label>
                     שם משתמש:
-                    <input type="text" id='userName' className={errors.userName ? 'fieldError' : ''} onChange={handleError} />
+                    <input type="text" id='userName' className={errors.userName ? 'fieldError' : ''} onChange={handleInputChange} />
                 </label>
 
-                { errors.userName ? <div className='fieldError'>{errors.userName}</div> : '' }
+                {errors.userName ? <div className='fieldError'>{errors.userName}</div> : ''}
 
                 <label>
                     סיסמה:
-                    <input type="password" id='password' className={errors.password ? 'fieldError' : ''} onChange={handleError} />
+                    <input type="password" id='password' className={errors.password ? 'fieldError' : ''} onChange={handleInputChange} />
                 </label>
 
-                { errors.password ? <div className='fieldError'>{errors.password}</div> : '' }
+                {errors.password ? <div className='fieldError'>{errors.password}</div> : ''}
 
                 <button disabled={!isValid}>הרשם</button>
 
-                { loginError ? <div className='fieldError'>{loginError}</div> : '' }
+                {loginError ? <div className='fieldError'>{loginError}</div> : ''}
             </form>
         </div>
     )
