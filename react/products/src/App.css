@@ -150,3 +150,10 @@ button.logout:active {
 .signup:hover {
     text-decoration: underline;
 }
+
+.noData {
+    color: gray;
+    font-size: 3em;
+    margin: 0.2em;
+    font-weight: normal;
+}
