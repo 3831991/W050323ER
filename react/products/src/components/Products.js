@@ -14,7 +14,7 @@ export default function Products() {
         .then(data => {
             setProducts(data);
         });
-    }, [])
+    }, []);
 
     const remove = (id) => {
         if (!window.confirm('האם אתה בטוח כי ברצונך למחוק את הפריט המדובר?')) {
@@ -37,7 +37,7 @@ export default function Products() {
             arr.splice(i, 1, product);
             setProducts(arr);
         }
-        
+
         setEditedItem();
     }
 
@@ -61,10 +61,10 @@ export default function Products() {
                         products.map((p, i) => {
                             return (
                                 <React.Fragment key={p.id}>
-                                    <div>{i + 1}</div>
-                                    <div>{p.name}</div>
-                                    <div>{p.price}</div>
-                                    <div>{p.discount}</div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{i + 1}</div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{p.name}</div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{p.price}</div>
+                                    <div onDoubleClick={() => setEditedItem(p)}>{p.discount}</div>
                                     <div>
                                         <button className="remove" onClick={() => setEditedItem(p)}>✏️</button>
                                         <button className="remove" onClick={() => remove(p.id)}>❌</button>
