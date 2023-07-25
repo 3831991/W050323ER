@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import AddProduct from './AddProduct';
+import EditProduct from './EditProduct';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
+    const [editedItem, setEditedItem] = useState();
 
     useEffect(() => {
         fetch("https://api.shipap.co.il/products", {
@@ -28,9 +30,22 @@ export default function Products() {
         });
     }
 
+    const update = (product) => {
+        if (product) {
+            const arr = [...products];
+            const i = arr.findIndex(p => p.id === product.id);
+            arr.splice(i, 1, product);
+            setProducts(arr);
+        }
+        
+        setEditedItem();
+    }
+
     return (
         <div className="Products">
             <AddProduct addedProduct={item => setProducts([...products, item])} />
+            <EditProduct item={editedItem} itemChange={update} />
+
             <h2>מוצרים</h2>
             
             {
@@ -50,7 +65,10 @@ export default function Products() {
                                     <div>{p.name}</div>
                                     <div>{p.price}</div>
                                     <div>{p.discount}</div>
-                                    <div><button className="remove" onClick={() => remove(p.id)}>❌</button></div>
+                                    <div>
+                                        <button className="remove" onClick={() => setEditedItem(p)}>✏️</button>
+                                        <button className="remove" onClick={() => remove(p.id)}>❌</button>
+                                    </div>
                                 </React.Fragment>
                             )
                         })
