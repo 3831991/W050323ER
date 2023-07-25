@@ -48,7 +48,7 @@ export default function EditProduct({ item, itemChange }) {
     function save(ev) {
         ev.preventDefault();
 
-        fetch("https://api.shipap.co.il/products", {
+        fetch(`https://api.shipap.co.il/products/${item.id}`, {
             credentials: 'include',
             method: "PUT",
             headers: {
