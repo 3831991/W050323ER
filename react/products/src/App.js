@@ -32,6 +32,7 @@ function App() {
                 <h1>ניהול מוצרים</h1>
 
                 <div className="frame">
+                    { isLogged ? <Logout /> : '' }
                     {
                         (isLogged === undefined) ?
                         (<p className='loader'>טוען...</p>) :
