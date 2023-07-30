@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './User.css';
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { JOI_HEBREW } from '../joi-hebrew';
 import Joi from 'joi';
+import { UserContext } from '../App';
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -16,9 +17,35 @@ export default function Login() {
         userName: Joi.string().min(3).max(10).required(),
         password: Joi.string().required(),
     });
+    const { setUser, isLogged, setIsLogged } = useContext(UserContext);
+    const navigate = useNavigate();
 
-    const login = () => {
+    useEffect(() => {
+        if (isLogged) {
+            navigate('/');
+        }
+    }, [isLogged])
 
+    const login = ev => {
+        ev.preventDefault();
+        
+        fetch("https://api.shipap.co.il/login", {
+            credentials: 'include',
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === 'success') {
+                setUser(data.user);
+                setIsLogged(true);
+            } else {
+                setLoginError(data.message);
+            }
+        });
     }
 
     const handleError = ev => {

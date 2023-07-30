@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Router from './Router';
-import Login from './user/Login';
+import Logout from './user/Logout';
+import RouterAuth from './RouterAuth';
+
+export const UserContext = React.createContext();
 
 function App() {
     const [user, setUser] = useState();
@@ -24,14 +27,16 @@ function App() {
     }, []);
 
     return (
-        <div className="App">
-            <h1>ניהול כתבות</h1>
+        <UserContext.Provider value={{ user, setUser, isLogged, setIsLogged }}>
+            <div className="App">
+                <h1>ניהול כתבות</h1>
 
-            <div className="frame">
-                <Router />
-                {/* {isLogged ? <Router /> : <Login />} */}
+                <div className="frame">
+                    { isLogged ? <Logout /> : '' }
+                    {isLogged ? <Router /> : <RouterAuth />}
+                </div>
             </div>
-        </div>
+        </UserContext.Provider>
     );
 }
 
