@@ -1,8 +1,10 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Products from './components/Products';
 import Login from './components/Login';
 import Logout from './components/Logout';
+
+export const UserContext = React.createContext();
 
 function App() {
     const [user, setUser] = useState();
@@ -25,29 +27,20 @@ function App() {
     }, []);
 
     return (
-        <div className="App">
-            <h1>ניהול מוצרים</h1>
+        <UserContext.Provider value={{ user, setUser, isLogged, setIsLogged }}>
+            <div className="App">
+                <h1>ניהול מוצרים</h1>
 
-            <div className="frame">
-                {
-                    isLogged ? 
-                    <p className='user'>
-                        {user.fullName} מחובר! 
-                        <Logout onLogout={() => { setUser(); setIsLogged(false) }} />
-                    </p> :
-                    ''
-                }
-                {
-                    (isLogged === undefined) ?
-                    (<p className='loader'>טוען...</p>) :
-                    (
-                        isLogged ?
-                        <Products /> :
-                        <Login success={user => { setUser(user); setIsLogged(true) }} />
-                    )
-                }
+                <div className="frame">
+                    { isLogged ? <Logout /> : '' }
+                    {
+                        (isLogged === undefined) ?
+                        (<p className='loader'>טוען...</p>) :
+                        ( isLogged ? <Products /> : <Login /> )
+                    }
+                </div>
             </div>
-        </div>
+        </UserContext.Provider>
     );
 }
 

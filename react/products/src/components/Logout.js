@@ -1,12 +1,23 @@
-export default function Logout({ onLogout }) {
+import { useContext } from "react";
+import { UserContext } from "../App";
+
+export default function Logout() {
+    const { user, setUser, setIsLogged } = useContext(UserContext);
+
     const logout = () => {
         fetch("https://api.shipap.co.il/logout", {
             credentials: 'include',
         })
         .then(() => {
-            onLogout();
+            setUser();
+            setIsLogged(false);
         });
     }
 
-    return <button className="logout" onClick={logout}>התנתק</button>
+    return (
+        <p className='user'>
+            {user.fullName} מחובר! 
+            <button className="logout" onClick={logout}>התנתק</button>
+        </p>
+    )
 }

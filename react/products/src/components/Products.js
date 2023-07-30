@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AddProduct from './AddProduct';
 import EditProduct from './EditProduct';
+import { UserContext } from '../App';
 
 export default function Products() {
     const [products, setProducts] = useState([]);
     const [editedItem, setEditedItem] = useState();
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
         fetch("https://api.shipap.co.il/products", {
@@ -46,7 +48,7 @@ export default function Products() {
             <AddProduct addedProduct={item => setProducts([...products, item])} />
             <EditProduct item={editedItem} itemChange={update} />
 
-            <h2>מוצרים</h2>
+            <h2>המוצרים של {user.fullName}</h2>
             
             {
                 products.length ?
