@@ -69,6 +69,7 @@ export default function Products() {
                                     <div onDoubleClick={() => setEditedItem(p)}>{p.discount}</div>
                                     <div>
                                         <button className="remove" onClick={() => setEditedItem(p)}>✏️</button>
+                                        <button className="remove">📑</button>
                                         <button className="remove" onClick={() => remove(p.id)}>❌</button>
                                     </div>
                                 </React.Fragment>
