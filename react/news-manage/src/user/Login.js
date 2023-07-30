@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import './User.css';
 import { useState } from 'react';
+import { JOI_HEBREW } from '../joi-hebrew';
+import Joi from 'joi';
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -10,13 +12,41 @@ export default function Login() {
     const [loginError, setLoginError] = useState('');
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
+    const loginSchema = Joi.object({
+        userName: Joi.string().min(3).max(10).required(),
+        password: Joi.string().required(),
+    });
 
     const login = () => {
 
     }
 
-    const handleError = () => {
-        
+    const handleError = ev => {
+        const { id, value } = ev.target;
+
+        const obj = {
+            ...formData,
+            [id]: value,
+        };
+
+        setFormData(obj);
+
+        const schema = loginSchema.validate(obj, { abortEarly: false, messages: { he: JOI_HEBREW }, errors: { language: 'he' } });
+        const errors = {};
+
+        if (schema.error) {
+            const error = schema.error.details.find(e => e.context.key === id);
+
+            if (error) {
+                errors[id] = error.message;
+            }
+
+            setIsValid(false);
+        } else {
+            setIsValid(true);
+        }
+
+        setErrors(errors);
     }
 
     return (
