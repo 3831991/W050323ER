@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { JOI_HEBREW } from './joi-hebrew';
 import Joi from "joi";
 
@@ -6,10 +6,9 @@ export default function AddProduct({ addedProduct, duplicateItem }) {
     const [formData, setFormData] = useState({
         name: '',
         price: 0,
-        discount: null,
+        discount: 0,
     });
     const [errors, setErrors] = useState({});
-    const [isValid, setIsValid] = useState(false);
     const [isModal, setIsModal] = useState(false);
 
     const productSchema = Joi.object({
@@ -17,6 +16,19 @@ export default function AddProduct({ addedProduct, duplicateItem }) {
         price: Joi.number().required(),
         discount: Joi.number().required(),
     });
+
+    useEffect(() => {
+        if (duplicateItem) {
+            setFormData(duplicateItem);
+            setIsModal(true);
+        } else {
+            setFormData({
+                name: '',
+                price: 0,
+                discount: 0,
+            });
+        }
+    }, [duplicateItem]);
 
     const handleInputChange = (ev) => {
         const { id, value } = ev.target;
@@ -35,10 +47,6 @@ export default function AddProduct({ addedProduct, duplicateItem }) {
             if (error) {
                 err[id] = error.message;
             }
-
-            setIsValid(false);
-        } else {
-            setIsValid(true);
         }
 
         setFormData(obj);
@@ -79,26 +87,26 @@ export default function AddProduct({ addedProduct, duplicateItem }) {
                         <form onSubmit={add}>
                             <label>
                                 שם המוצר:
-                                <input type="text" id='name' className={errors.name ? 'fieldError' : ''} onChange={handleInputChange} />
+                                <input type="text" value={formData.name} id='name' className={errors.name ? 'fieldError' : ''} onChange={handleInputChange} />
                             </label>
 
                             {errors.name ? <div className='fieldError'>{errors.name}</div> : ''}
 
                             <label>
                                 מחיר:
-                                <input type="number" id='price' className={errors.price ? 'fieldError' : ''} onChange={handleInputChange} />
+                                <input type="number" value={formData.price} id='price' className={errors.price ? 'fieldError' : ''} onChange={handleInputChange} />
                             </label>
 
                             {errors.price ? <div className='fieldError'>{errors.price}</div> : ''}
 
                             <label>
                                 הנחה:
-                                <input type="number" id='discount' className={errors.discount ? 'fieldError' : ''} onChange={handleInputChange} />
+                                <input type="number" value={formData.discount} id='discount' className={errors.discount ? 'fieldError' : ''} onChange={handleInputChange} />
                             </label>
 
                             {errors.discount ? <div className='fieldError'>{errors.discount}</div> : ''}
 
-                            <button disabled={!isValid}>הוסף</button>
+                            <button>הוסף</button>
                         </form>
                     </div>
                 </div> :

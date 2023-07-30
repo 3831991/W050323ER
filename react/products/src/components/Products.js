@@ -46,7 +46,7 @@ export default function Products() {
 
     return (
         <div className="Products">
-            <AddProduct addedProduct={item => setProducts([...products, item])} duplicateItem={duplicateItem} />
+            <AddProduct addedProduct={item => {setProducts([...products, item]); setDuplicateItem()}} duplicateItem={duplicateItem} />
             <EditProduct item={editedItem} itemChange={update} />
 
             <h2>המוצרים של {user.fullName}</h2>
