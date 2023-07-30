@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { JOI_HEBREW } from './joi-hebrew';
 import Joi from "joi";
 
-export default function AddProduct({ addedProduct }) {
+export default function AddProduct({ addedProduct, duplicateItem }) {
     const [formData, setFormData] = useState({
         name: '',
         price: 0,

@@ -6,6 +6,7 @@ import { UserContext } from '../App';
 export default function Products() {
     const [products, setProducts] = useState([]);
     const [editedItem, setEditedItem] = useState();
+    const [duplicateItem, setDuplicateItem] = useState();
     const { user } = useContext(UserContext);
 
     useEffect(() => {
@@ -45,7 +46,7 @@ export default function Products() {
 
     return (
         <div className="Products">
-            <AddProduct addedProduct={item => setProducts([...products, item])} />
+            <AddProduct addedProduct={item => setProducts([...products, item])} duplicateItem={duplicateItem} />
             <EditProduct item={editedItem} itemChange={update} />
 
             <h2>המוצרים של {user.fullName}</h2>
@@ -69,7 +70,7 @@ export default function Products() {
                                     <div onDoubleClick={() => setEditedItem(p)}>{p.discount}</div>
                                     <div>
                                         <button className="remove" onClick={() => setEditedItem(p)}>✏️</button>
-                                        <button className="remove">📑</button>
+                                        <button className="remove" onClick={() => setDuplicateItem(p)}>📑</button>
                                         <button className="remove" onClick={() => remove(p.id)}>❌</button>
                                     </div>
                                 </React.Fragment>
