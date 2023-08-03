@@ -32,7 +32,7 @@ function App() {
                 <h1>ניהול כתבות</h1>
 
                 <div className="frame">
-                    { isLogged ? <Logout /> : '' }
+                    {isLogged && <Logout />}
                     {isLogged ? <Router /> : <RouterAuth />}
                 </div>
             </div>
