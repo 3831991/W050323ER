@@ -9,8 +9,8 @@ tr {
 }
 
 thead tr {
-    background-color: #3dbf23;
-    color: white;
+    background-color: #282c34;
+    color: #61dafb;
 }
 
 tr:nth-child(even) {

@@ -1,16 +1,18 @@
 import { useEffect, useState } from 'react';
 import './Articles.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineRight } from 'react-icons/ai';
+import moment from 'moment';
 
 export default function ArticlesEdit() {
     const { id } = useParams();
     const [item, setItem] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (id == 'new') {
             setItem({
-                publishDate: '',
+                publishDate: moment().format("YYYY-MM-DD"),
                 headline: '',
                 description: '',
                 content: '',
@@ -33,6 +35,20 @@ export default function ArticlesEdit() {
         });
     }
 
+    const updateArticle = ev => {
+        ev.preventDefault();
+
+        fetch("https://api.shipap.co.il/articles" + (item.id ? `/${id}` : ''), {
+            credentials: 'include',
+            method: item.id ? "PUT" : "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(item),
+        })
+        .then(() => navigate('/'));
+    }
+
     return (
         <div className='ArticlesEdit'>
             <button className='returnLink'>
@@ -44,11 +60,16 @@ export default function ArticlesEdit() {
                 <>
                     <h2>{item.id ? 'עריכת' : 'הוספת'} כתבה</h2>
 
-                    <form>
+                    <form onSubmit={updateArticle}>
                         <label>
                             כותרת:
                             <input type="text" name="headline" value={item.headline} onChange={handelInput} />
-                        </label>
+                        </label> 
+
+                        <label>
+                            תאריך פרסום:
+                            <input type="date" name="publishDate" value={item.publishDate} onChange={handelInput} />
+                        </label> 
 
                         <label>
                             תיאור:

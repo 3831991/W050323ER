@@ -47,10 +47,13 @@ textarea {
 
 button {
   margin: 24px 0 8px 0;
-  background-color: #009d00;
+  background-color: #282c34;
   display: block;
   width: 100%;
   font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+
 }
 
 div.fieldError {
