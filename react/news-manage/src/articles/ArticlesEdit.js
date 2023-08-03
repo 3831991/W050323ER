@@ -24,6 +24,15 @@ export default function ArticlesEdit() {
         }
     }, []);
 
+    const handelInput = ev => {
+        const { name, value } = ev.target;
+
+        setItem({
+            ...item,
+            [name]: value,
+        });
+    }
+
     return (
         <div className='ArticlesEdit'>
             <button className='returnLink'>
@@ -35,9 +44,24 @@ export default function ArticlesEdit() {
                 <>
                     <h2>{item.id ? 'עריכת' : 'הוספת'} כתבה</h2>
 
-                    <div>
+                    <form>
+                        <label>
+                            כותרת:
+                            <input type="text" name="headline" value={item.headline} onChange={handelInput} />
+                        </label>
 
-                    </div>
+                        <label>
+                            תיאור:
+                            <textarea name="description" cols="30" rows="5" value={item.description} onChange={handelInput}></textarea>
+                        </label>
+
+                        <label>
+                            תוכן:
+                            <textarea name="content" cols="30" rows="10" value={item.content} onChange={handelInput}></textarea>
+                        </label>
+
+                        <button>{item.id ? 'שמירה' : 'הוספה'}</button>
+                    </form>
                 </>
             }
         </div>

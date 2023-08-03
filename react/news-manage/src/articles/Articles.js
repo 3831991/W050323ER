@@ -3,10 +3,11 @@ import './Articles.css';
 import moment from 'moment';
 import { AiFillEdit } from 'react-icons/ai';
 import { BsFillTrash3Fill } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Articles() {
     const [articles, setArticles] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch("https://api.shipap.co.il/articles", {
@@ -36,7 +37,7 @@ export default function Articles() {
                 <tbody>
                 {
                     articles.map((art, i) => 
-                        <tr key={art.id}>
+                        <tr key={art.id} onDoubleClick={() => navigate(`/article/${art.id}`)}>
                             <td>{i + 1}</td>
                             <td>{moment(art.addedTime).format('DD/MM/YY')}</td>
                             <td>{moment(art.publishDate).format('DD/MM')}</td>
