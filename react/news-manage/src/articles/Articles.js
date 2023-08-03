@@ -16,6 +16,20 @@ export default function Articles() {
         .then(res => res.json())
         .then(data => setArticles(data));
     }, []);
+
+    const remove = id => {
+        if (!window.confirm("האם למחוק את הכתבה?")) {
+            return;
+        }
+
+        fetch(`https://api.shipap.co.il/articles/${id}`, {
+            credentials: 'include',
+            method: 'DELETE',
+        })
+        .then(() => {
+            setArticles(articles.filter(x => x.id != id));
+        });
+    }
     
     return (
         <>
@@ -45,7 +59,7 @@ export default function Articles() {
                             <td>{art.views}</td>
                             <td>
                                 <Link to={`/article/${art.id}`}><button className='green'><AiFillEdit /></button></Link>
-                                <button className='red'><BsFillTrash3Fill /></button>
+                                <button className='red' onClick={() => remove(art.id)}><BsFillTrash3Fill /></button>
                             </td>
                         </tr>
                     )
