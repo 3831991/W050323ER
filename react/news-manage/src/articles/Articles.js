@@ -12,6 +12,13 @@ export default function Articles() {
         .then(data => setArticles(data));
     }, []);
 
+    // id
+    // addedTime
+    // publishDate
+    // headline
+    // description
+    // views
+    
     return (
         <>
             {
