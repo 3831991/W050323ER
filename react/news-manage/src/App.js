@@ -31,8 +31,8 @@ function App() {
             <div className="App">
                 <h1>ניהול כתבות</h1>
 
+                {isLogged && <Logout />}
                 <div className="frame">
-                    {isLogged && <Logout />}
                     {isLogged ? <Router /> : <RouterAuth />}
                 </div>
             </div>

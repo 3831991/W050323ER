@@ -5,13 +5,14 @@ h1 {
 }
 
 .frame {
-  width: 80%;
+  width: 85%;
   max-width: 900px;
   min-height: 300px;
   background-color: #ffffffc9;
   margin: auto;
   padding: 8px 16px;
   border-radius: 6px;
+  box-sizing: border-box;
 }
 
 .smallFrame {
@@ -71,7 +72,11 @@ textarea.fieldError {
 }
 
 .user {
-  margin: 0;
+  margin: -16px auto 10px auto;
+  max-width: 85%;
+  color: white;
+  padding: 0 8px;
+  box-sizing: border-box;
 }
 
 .grid {

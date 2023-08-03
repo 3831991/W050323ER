@@ -56,3 +56,26 @@ td button:active {
 tr td:last-child {
     white-space: nowrap;
 }
+
+.returnLink a {
+    cursor: pointer;
+    text-decoration: none;
+    color: #61dafb;
+}
+
+button.returnLink {
+    margin: 10px 0 0 0;
+    width: initial;
+    font-size: 1em;
+    background: #282c34;
+}
+
+button.returnLink svg {
+    position: relative;
+    top: 3px;
+    right: -2px;
+}
+
+.returnLink:hover a {
+    text-decoration: underline;
+}
