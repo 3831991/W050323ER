@@ -41,9 +41,7 @@ export default function ArticlesEdit() {
         fetch("https://api.shipap.co.il/articles" + (item.id ? `/${id}` : ''), {
             credentials: 'include',
             method: item.id ? "PUT" : "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
+            headers: {'Content-type': 'application/json'},
             body: JSON.stringify(item),
         })
         .then(() => navigate('/'));
