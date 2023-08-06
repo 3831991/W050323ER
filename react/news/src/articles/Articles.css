@@ -49,10 +49,18 @@
 
 .article h3 {
     margin: 0;
-    padding: 6px;
+    padding: 10px;
 }
 
 .article p {
     margin: 0;
-    padding: 14px 6px;
+    padding: 14px 10px;
+}
+
+.card-img {
+    height: 250px;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

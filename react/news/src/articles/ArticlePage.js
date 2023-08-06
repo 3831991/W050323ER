@@ -1,15 +1,18 @@
 import { useState, useEffect } from 'react';
 import { TOKEN } from '../config';
 import { useParams } from 'react-router-dom';
+import ErrorPage from '../components/ErrorPage';
 
 export default function ArticlePage() {
     const [article, setArticle] = useState();
+    const [error, setError] = useState(false);
     const { id } = useParams();
     
     useEffect(() => {
         fetch(`https://api.shipap.co.il/articles/${id}?token=${TOKEN}`)
         .then(res => res.json())
-        .then(data => setArticle(data));
+        .then(data => setArticle(data))
+        .catch(() => setError(true));
     }, []);
 
     return (
@@ -22,7 +25,7 @@ export default function ArticlePage() {
                     <img src={article.imgUrl} width="100%" />
                     <p>{article.content}</p>
                 </div> : 
-                <p>טוען...</p>
+                (error ? <ErrorPage /> : <p className='article'>טוען...</p>)
             }
         </div>
     )
