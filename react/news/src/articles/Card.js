@@ -1,4 +1,4 @@
-export function Card({ article }) {
+export default function Card({ article }) {
     return (
         <div className='card'>
             <div className='card-body'>

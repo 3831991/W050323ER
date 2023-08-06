@@ -1,7 +1,7 @@
 import { TOKEN } from '../config';
 import './Articles.css';
 import { useState, useEffect } from 'react';
-import { Card } from './Card';
+import Card from './Card';
 
 export default function Articles() {
     const [articles, setArticles] = useState([]);
