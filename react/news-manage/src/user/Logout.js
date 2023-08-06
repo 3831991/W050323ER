@@ -4,7 +4,7 @@ import './User.css';
 import { useNavigate } from 'react-router-dom';
 
 export default function Logout() {
-    const { user, setUser, setIsLogged, setLoading } = useContext(UserContext);
+    const { user, setUser, setIsLogged, setLoading, snackbar } = useContext(UserContext);
     const navigate = useNavigate();
 
     const logout = () => {
@@ -18,6 +18,7 @@ export default function Logout() {
             setIsLogged(false);
             navigate('/');
             setLoading(false);
+            snackbar('המשתמש התנתק בהצלחה');
         });
     }
 

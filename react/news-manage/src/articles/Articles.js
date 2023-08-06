@@ -9,7 +9,7 @@ import { UserContext } from '../App';
 export default function Articles() {
     const [articles, setArticles] = useState([]);
     const navigate = useNavigate();
-    const { setLoading } = useContext(UserContext);
+    const { setLoading, snackbar } = useContext(UserContext);
 
     useEffect(() => {
         setLoading(true);
@@ -36,7 +36,10 @@ export default function Articles() {
         .then(() => {
             setArticles(articles.filter(x => x.id !== id));
         })
-        .finally(() => setLoading(false));
+        .finally(() => {
+            setLoading(false);
+            snackbar('הכתבה נמחקה בהצלחה');
+        });
     }
     
     return (

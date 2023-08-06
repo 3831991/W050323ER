@@ -9,7 +9,7 @@ export default function ArticlesEdit() {
     const { id } = useParams();
     const [item, setItem] = useState();
     const navigate = useNavigate();
-    const { setLoading } = useContext(UserContext);
+    const { setLoading, snackbar } = useContext(UserContext);
 
     useEffect(() => {
         if (id === 'new') {
@@ -50,7 +50,15 @@ export default function ArticlesEdit() {
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(item),
         })
-        .then(() => navigate('/'))
+        .then(() => {
+            if (item.id) {
+                snackbar('הכתבה נשמרה בהצלחה');
+            } else {
+                snackbar('הכתבה נוספה בהצלחה');
+            }
+
+            navigate('/');
+        })
         .finally(() => setLoading(false));
     }
 
