@@ -1,16 +1,18 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Articles.css';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineRight } from 'react-icons/ai';
 import moment from 'moment';
+import { UserContext } from '../App';
 
 export default function ArticlesEdit() {
     const { id } = useParams();
     const [item, setItem] = useState();
     const navigate = useNavigate();
+    const { setLoading } = useContext(UserContext);
 
     useEffect(() => {
-        if (id == 'new') {
+        if (id === 'new') {
             setItem({
                 publishDate: moment().format("YYYY-MM-DD"),
                 headline: '',
@@ -18,13 +20,16 @@ export default function ArticlesEdit() {
                 content: '',
             });
         } else {
+            setLoading(true);
+
             fetch(`https://api.shipap.co.il/articles/${id}`, {
                 credentials: 'include',
             })
             .then(res => res.json())
-            .then(data => setItem(data));
+            .then(data => setItem(data))
+            .finally(() => setLoading(false));
         }
-    }, []);
+    }, [id, setLoading]);
 
     const handelInput = ev => {
         const { name, value } = ev.target;
@@ -37,6 +42,7 @@ export default function ArticlesEdit() {
 
     const updateArticle = ev => {
         ev.preventDefault();
+        setLoading(true);
 
         fetch("https://api.shipap.co.il/articles" + (item.id ? `/${id}` : ''), {
             credentials: 'include',
@@ -44,7 +50,8 @@ export default function ArticlesEdit() {
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(item),
         })
-        .then(() => navigate('/'));
+        .then(() => navigate('/'))
+        .finally(() => setLoading(false));
     }
 
     return (

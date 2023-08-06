@@ -1,34 +1,42 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import './Articles.css';
 import moment from 'moment';
 import { AiFillEdit } from 'react-icons/ai';
 import { BsFillTrash3Fill } from 'react-icons/bs';
 import { Link, useNavigate } from 'react-router-dom';
+import { UserContext } from '../App';
 
 export default function Articles() {
     const [articles, setArticles] = useState([]);
     const navigate = useNavigate();
+    const { setLoading } = useContext(UserContext);
 
     useEffect(() => {
+        setLoading(true);
+
         fetch("https://api.shipap.co.il/articles", {
             credentials: 'include',
         })
         .then(res => res.json())
-        .then(data => setArticles(data));
-    }, []);
+        .then(data => setArticles(data))
+        .finally(() => setLoading(false));
+    }, [setLoading]);
 
     const remove = id => {
         if (!window.confirm("האם למחוק את הכתבה?")) {
             return;
         }
 
+        setLoading(true);
+
         fetch(`https://api.shipap.co.il/articles/${id}`, {
             credentials: 'include',
             method: 'DELETE',
         })
         .then(() => {
-            setArticles(articles.filter(x => x.id != id));
-        });
+            setArticles(articles.filter(x => x.id !== id));
+        })
+        .finally(() => setLoading(false));
     }
     
     return (

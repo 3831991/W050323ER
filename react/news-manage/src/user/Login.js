@@ -17,17 +17,18 @@ export default function Login() {
         userName: Joi.string().min(3).max(10).required(),
         password: Joi.string().required(),
     });
-    const { setUser, isLogged, setIsLogged } = useContext(UserContext);
+    const { setUser, isLogged, setIsLogged, setLoading } = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isLogged) {
             navigate('/');
         }
-    }, [isLogged])
+    }, [isLogged, navigate])
 
     const login = ev => {
         ev.preventDefault();
+        setLoading(true);
         
         fetch("https://api.shipap.co.il/login", {
             credentials: 'include',
@@ -45,6 +46,8 @@ export default function Login() {
             } else {
                 setLoginError(data.message);
             }
+
+            setLoading(false);
         });
     }
 
