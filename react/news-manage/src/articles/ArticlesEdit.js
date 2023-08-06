@@ -18,6 +18,7 @@ export default function ArticlesEdit() {
                 headline: '',
                 description: '',
                 content: '',
+                imgUrl: '',
             });
         } else {
             setLoading(true);
@@ -77,6 +78,11 @@ export default function ArticlesEdit() {
                         <label>
                             כותרת:
                             <input type="text" name="headline" value={item.headline} onChange={handelInput} />
+                        </label> 
+
+                        <label>
+                            קישור לתמונה:
+                            <input type="text" name="imgUrl" value={item.imgUrl} onChange={handelInput} />
                         </label> 
 
                         <label>
