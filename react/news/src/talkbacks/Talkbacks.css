@@ -1,0 +1,31 @@
+.Talkbacks .talkbackContainer {
+    box-shadow: 0 0 4px #7e7e7e;
+    margin: 12px;
+    padding: 12px 8px;
+    border-radius: 6px;
+}
+
+.Talkbacks .talkbackContainer .grid {
+    display: grid;
+    grid-template-columns: 50px 3fr 80px;
+    gap: 5px;
+}
+
+.Talkbacks .grid div:first-child {
+    grid-row: 2 span;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Talkbacks .btnFrame {
+    display: flex;
+    align-items: center;
+    grid-row: 2 span;
+    justify-self: end;
+    padding-left: 4px;
+}
+
+.Talkbacks .content {
+    font-size: 1.2em;
+}
