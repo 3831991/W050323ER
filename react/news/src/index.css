@@ -1,13 +1,64 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700;900&display=swap');
+
+html {
+  min-height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  direction: rtl;
+  padding-bottom: 200px;
+  background-color: #333;
+}
+
+* {
+  font-family: 'Rubik', sans-serif !important;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin: 16px;
+}
+
+.frame {
+  width: 80%;
+  max-width: 900px;
+  min-height: 300px;
+  background-color: #ffffffc9;
+  margin: auto;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px 0;
+  margin: 0px;
+}
+
+button {
+  background-color: #d2009e;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  margin-right: 8px;
+}
+
+button:hover {
+  filter: brightness(1.2);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input,
+select {
+  border: 1px solid black;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 3px;
 }
