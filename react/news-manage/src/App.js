@@ -3,6 +3,7 @@ import './App.css';
 import Router from './Router';
 import Logout from './user/Logout';
 import RouterAuth from './RouterAuth';
+import Loader from './components/Loader';
 
 export const UserContext = React.createContext();
 
@@ -36,6 +37,8 @@ function App() {
                     {isLogged ? <Router /> : <RouterAuth />}
                 </div>
             </div>
+
+            <Loader />
         </UserContext.Provider>
     );
 }
