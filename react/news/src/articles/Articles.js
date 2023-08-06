@@ -1,4 +1,4 @@
-import { TOKEN } from '../App';
+import { TOKEN } from '../config';
 import './Articles.css';
 import { useState, useEffect } from 'react';
 
@@ -16,7 +16,13 @@ export default function Articles() {
             {
                 articles.map(art => 
                     <div key={art.id} className='card'>
-                        {art.headline}
+                        <div className='card-body'>
+                            <img src={art.imgUrl} />
+                        </div>
+
+                        <header>{art.headline}</header>
+
+                        <footer>{art.description}</footer>
                     </div>    
                 )
             }

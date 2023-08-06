@@ -6,4 +6,19 @@
 
 .Articles .card {
     background-color: white;
+    box-shadow: 0 0 3px black;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.Articles header {
+    font-weight: bold;
+}
+
+.Articles header, .Articles footer {
+    padding: 4px 8px;
+}
+
+.Articles img {
+    width: 100%;
 }
