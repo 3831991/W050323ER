@@ -14,6 +14,12 @@
     transition: 0.3s;
 }
 
+.Articles a {
+    color: black;
+    text-decoration: none;
+    display: inherit;
+}
+
 .Articles .card:hover {
     box-shadow: 0 0 15px;
 }
@@ -32,4 +38,21 @@
 
 .Articles img {
     width: 100%;
+}
+
+.article {
+    max-width: 700px;
+    margin: auto;
+    background-color: white;
+    padding: 1px 0px;
+}
+
+.article h3 {
+    margin: 0;
+    padding: 6px;
+}
+
+.article p {
+    margin: 0;
+    padding: 14px 6px;
 }

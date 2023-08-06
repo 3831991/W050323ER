@@ -14,7 +14,16 @@ export default function ArticlePage() {
 
     return (
         <div className="ArticlePage">
-
+            {
+                article ?
+                <div className='article'>
+                    <h3>{article.headline}</h3>
+                    <p>{article.description}</p>
+                    <img src={article.imgUrl} width="100%" />
+                    <p>{article.content}</p>
+                </div> : 
+                <p>טוען...</p>
+            }
         </div>
     )
 }
