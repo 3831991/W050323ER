@@ -1,12 +1,12 @@
 import './App.css';
-import Articles from './articles/Articles';
+import Router from './Router';
 
 function App() {
     return (
         <div className="App">
             <h1>אתר חדשות שלי</h1>
 
-            <Articles />
+            <Router />
         </div>
     );
 }

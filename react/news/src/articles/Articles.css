@@ -1,7 +1,8 @@
 .Articles {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 15px;
+    padding: 20px;
 }
 
 .Articles .card {
@@ -9,6 +10,16 @@
     box-shadow: 0 0 3px black;
     border-radius: 3px;
     overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Articles .card:hover {
+    box-shadow: 0 0 15px;
+}
+
+.Articles .card:active {
+    scale: 1.05;
 }
 
 .Articles header {
