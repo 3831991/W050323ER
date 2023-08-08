@@ -35,3 +35,16 @@
     font-size: 12px;
     font-style: normal;
 }
+
+.TalkbacksForm {
+    display: flex;
+    justify-content: end;
+}
+
+.TalkbacksForm form {
+    max-width: 400px;
+    padding: 12px;
+    border-radius: 3px;
+    border: 1px solid #d0d0d0;
+    margin: 18px 0 0 0;
+}

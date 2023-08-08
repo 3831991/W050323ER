@@ -13,6 +13,11 @@ export default function Talkbacks({ articleId }) {
         .then(data => setData(data));
     }, []);
 
+    const commentToggle = item => {
+        item.isShowComment = !item.isShowComment;
+        setData([...data]);
+    }
+
     return (
         <div className='Talkbacks'>
             <h3>תגובות</h3>
@@ -24,17 +29,17 @@ export default function Talkbacks({ articleId }) {
                     <TalkbacksForm articleId={articleId} />
                 </> :
                 data.map((t, i) => 
-                    <div className='talkbackContainer'>
+                    <div key={t.id} className='talkbackContainer'>
                         <div className='grid'>
                             <div>{i + 1}</div>
                             <div>{t.name} <i>({moment(t.time).format('DD/MM/Y H:mm')})</i></div>
                             <div className='btnFrame'>
-                                <button>הגב</button>
+                                <button onClick={() => commentToggle(t)}>הגב</button>
                             </div>
                             <div className='content'>{t.comment}</div>
                         </div>
 
-                        <TalkbacksForm articleId={articleId} parent={t.id} />
+                        {t.isShowComment && <TalkbacksForm articleId={articleId} parent={t.id} />}
                     </div>    
                 )
             }

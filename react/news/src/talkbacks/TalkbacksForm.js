@@ -27,7 +27,10 @@ export default function TalkbacksForm({ articleId, parent }) {
 
     return (
         <div className='TalkbacksForm'>
-
+            <form onSubmit={addComment}>
+                <input type="text" placeholder='שם מלא' />
+                <textarea placeholder='תגובה' cols="30" rows="10"></textarea>
+            </form>
         </div>
     )
 }
