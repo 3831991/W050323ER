@@ -58,6 +58,14 @@
     margin: 12px;
 }
 
-.TalkbacksForm.block form button {
+.TalkbacksForm form button {
     margin: 12px 0 0 0;
+}
+
+.circle {
+    background: gray;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
 }

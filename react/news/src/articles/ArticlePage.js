@@ -26,7 +26,7 @@ export default function ArticlePage() {
                     <img src={article.imgUrl} width="100%" />
                     <p>{article.content}</p>
 
-                    <Talkbacks articleId={article.id} />
+                    <Talkbacks articleId={article.id} level={0} />
                 </div> : 
                 (error ? <ErrorPage /> : <p className='article'>טוען...</p>)
             }

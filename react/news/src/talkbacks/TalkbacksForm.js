@@ -36,7 +36,7 @@ export default function TalkbacksForm({ articleId, parent, added }) {
     }
 
     return (
-        <div className={'TalkbacksForm' + (!parent && ' block')}>
+        <div className={'TalkbacksForm' + (!parent ? ' block' : '')}>
             <form onSubmit={addComment}>
                 <input type="text" placeholder='שם מלא' required name='name' onChange={inputHandle} />
                 <textarea placeholder='תגובה' cols="30" rows="10" required name='comment' onChange={inputHandle}></textarea>
