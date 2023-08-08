@@ -25,7 +25,6 @@ export default function Talkbacks({ articleId }) {
             {
                 !data.length ?
                 <>
-                    <p>היה הראשון להגיב..</p>
                     <TalkbacksForm articleId={articleId} />
                 </> :
                 data.map((t, i) => 
@@ -43,7 +42,6 @@ export default function Talkbacks({ articleId }) {
                     </div>    
                 )
             }
-            
         </div>
     )
 }
