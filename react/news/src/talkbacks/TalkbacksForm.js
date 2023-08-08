@@ -17,13 +17,13 @@ export default function TalkbacksForm({ articleId, parent }) {
         })
         .then(res => res.json())
         .then(data => {
-
+            
         });
     }
 
     return (
         <div className='TalkbacksForm'>
-            
+
         </div>
     )
 }
