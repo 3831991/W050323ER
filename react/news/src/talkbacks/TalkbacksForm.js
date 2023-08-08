@@ -4,7 +4,10 @@ import { useState } from 'react';
 
 export default function TalkbacksForm({ articleId, parent }) {
     const [data, setData] = useState([]);
-    const [comment, setComment] = useState('');
+    const [formData, setFormData] = useState({
+        name: '',
+        comment: '',
+    });
 
     const addComment = () => {
         fetch(`https://api.shipap.co.il/articles/${articleId}/talkbacks?token=${TOKEN}`, {
@@ -12,7 +15,7 @@ export default function TalkbacksForm({ articleId, parent }) {
             credentials: 'include',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                comment,
+                ...formData,
                 parent,
             }),
         })

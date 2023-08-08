@@ -29,3 +29,9 @@
 .Talkbacks .content {
     font-size: 1.2em;
 }
+
+.talkbackContainer i {
+    color: gray;
+    font-size: 12px;
+    font-style: normal;
+}
