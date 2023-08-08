@@ -1,10 +1,16 @@
 import './Talkbacks.css';
 import { useState, useEffect } from 'react';
 import TalkbacksForm from './TalkbacksForm';
+import { TOKEN } from '../config';
 
 export default function Talkbacks({ articleId }) {
     const [data, setData] = useState([]);
 
+    useEffect(() => {
+        fetch(`https://api.shipap.co.il/articles/${articleId}/talkbacks?token=${TOKEN}`)
+        .then(res => res.json())
+        .then(data => setData(data));
+    }, []);
 
     return (
         <div className='Talkbacks'>
