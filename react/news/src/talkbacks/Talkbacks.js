@@ -25,7 +25,7 @@ export default function Talkbacks({ articleId }) {
             {
                 !data.length ?
                 <>
-                    <TalkbacksForm articleId={articleId} />
+                    <TalkbacksForm articleId={articleId} added={item => setData([...data, item])} />
                 </> :
                 data.map((t, i) => 
                     <div key={t.id} className='talkbackContainer'>
@@ -39,7 +39,7 @@ export default function Talkbacks({ articleId }) {
                         </div>
 
                         {t.isShowComment && <TalkbacksForm articleId={articleId} parent={t.id} />}
-                    </div>    
+                    </div>
                 )
             }
         </div>

@@ -2,7 +2,7 @@ import { TOKEN } from '../config';
 import './Talkbacks.css';
 import { useState } from 'react';
 
-export default function TalkbacksForm({ articleId, parent }) {
+export default function TalkbacksForm({ articleId, parent, added }) {
     const [formData, setFormData] = useState({
         name: '',
         comment: '',
@@ -21,8 +21,8 @@ export default function TalkbacksForm({ articleId, parent }) {
             }),
         })
         .then(res => res.json())
-        .then(data => {
-
+        .then(t => {
+            added(t);
         });
     }
 
