@@ -23,18 +23,26 @@ function App() {
         fetch("https://api.shipap.co.il/login", {
             credentials: 'include',
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === 'success') {
-                setUser(data.user);
-                setIsLogged(true);
-                snackbar(`${data.user.fullName} מחובר!`);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
             } else {
-                setUser();
-                setIsLogged(false);
-                snackbar('משתמש לא מחובר');
+                return res.text().then(x => {
+                    throw new Error(x);
+                });
             }
-
+        })
+        .then(data => {
+            setUser(data);
+            setIsLogged(true);
+            snackbar(`${data.fullName} מחובר!`);
+        })
+        .catch(err => {
+            setUser();
+            setIsLogged(false);
+            snackbar(err.message);
+        })
+        .finally(() => {
             setLoading(false);
         });
     }, []);

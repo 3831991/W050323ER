@@ -61,11 +61,13 @@ export default function Signup({ onSignup }) {
         })
         .then(res => res.json())
         .then(data => {
-            if (data.status === 'success') {
-                onSignup(data.user);
-            } else {
-                setLoginError(data.message);
-            }
+            onSignup(data);
+        })
+        .catch(err => {
+            setLoginError(err.message);
+        })
+        .finally(() => {
+            setLoading(false);
         });
     }
 

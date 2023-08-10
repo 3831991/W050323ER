@@ -38,17 +38,25 @@ export default function Login() {
             },
             body: JSON.stringify(formData),
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === 'success') {
-                setUser(data.user);
-                setIsLogged(true);
-                snackbar(`${data.user.fullName} התחבר בהצלחה!`);
+        .then(res => {
+            if (res.ok) {
+                return res.json();
             } else {
-                setLoginError(data.message);
-                snackbar(data.message);
+                return res.text().then(x => {
+                    throw new Error(x);
+                });
             }
-
+        })
+        .then(data => {
+            setUser(data);
+            setIsLogged(true);
+            snackbar(`${data.fullName} התחבר בהצלחה!`);
+        })
+        .catch(err => {
+            setLoginError(err.message);
+            snackbar(err.message);
+        })
+        .finally(() => {
             setLoading(false);
         });
     }
