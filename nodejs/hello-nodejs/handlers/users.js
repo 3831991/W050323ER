@@ -5,7 +5,7 @@ function getUsers(req, res) {
         if (err) {
             throw err;
         }
-    
+
         res.send(result);
     });
 }
