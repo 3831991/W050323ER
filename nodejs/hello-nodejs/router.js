@@ -1,4 +1,5 @@
-module.exports = function(app){
+module.exports = (app) => {
+
     app.get('/', (req, res) => {
         res.send("ברוכים הבאים");
     });
@@ -6,4 +7,5 @@ module.exports = function(app){
     app.get('/test', (req, res) => {
         res.send("עבר בהצלחה");
     });
+
 }
