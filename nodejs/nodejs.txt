@@ -2,3 +2,5 @@ npm init -y
 npm install express --save
 npm i -g nodemon -D
 [npm i -g nodemon -D] **Mac only**
+npm i mysql2 --save
+npm i cors --save
