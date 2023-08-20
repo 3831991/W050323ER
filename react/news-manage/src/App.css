@@ -76,7 +76,8 @@ textarea.fieldError {
 
 .user {
   margin: -16px auto 10px auto;
-  max-width: 85%;
+  width: 85%;
+  max-width: 900px;
   color: white;
   padding: 0 8px;
   box-sizing: border-box;
