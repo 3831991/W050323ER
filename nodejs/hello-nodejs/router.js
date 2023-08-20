@@ -1,4 +1,5 @@
-const users = require('./handlers/users');
+const { getUsers, getUser } = require('./handlers/users');
+const { getClients, getClient } = require('./handlers/clients');
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
@@ -7,6 +8,8 @@ module.exports = (app) => {
         });
     });
 
-    app.get('/users', users.getUsers);
-    app.get('/users/:id', users.getUser);
+    app.get('/users', getUsers);
+    app.get('/users/:id', getUser);
+    app.get('/clients', getClients);
+    app.get('/clients/:id', getClient);
 }
