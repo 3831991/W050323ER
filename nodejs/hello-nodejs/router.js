@@ -1,7 +1,6 @@
 const users = require('./handlers/users');
 
 module.exports = (app) => {
-
     app.get('/', (req, res) => {
         res.send({
             message: 'ברוכים הבאים',
@@ -9,5 +8,5 @@ module.exports = (app) => {
     });
 
     app.get('/users', users.getUsers);
-
+    app.get('/users/:id', users.getUser);
 }
