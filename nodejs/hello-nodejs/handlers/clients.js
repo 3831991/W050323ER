@@ -16,7 +16,7 @@ function getClient(req, res) {
             throw err;
         }
         res.send(result.pop());
-    })
+    });
 }
 
 exports.getClients = getClients;
