@@ -17,22 +17,20 @@ export default function Users() {
     }, []);
 
     function like(user) {
+        user.likes++;
+        setUsers([...users]);
+
         fetch(`http://localhost:4000/users/${user.id}/like`, {
             method: 'POST',
-        })
-        .then(() => {
-            user.likes++;
-            setUsers([...users]);
         });
     }
 
     function dislike(user) {
+        user.dislikes++;
+        setUsers([...users]);
+
         fetch(`http://localhost:4000/users/${user.id}/dislike`, {
             method: 'POST',
-        })
-        .then(() => {
-            user.dislikes++;
-            setUsers([...users]);
         });
     }
 
@@ -62,9 +60,15 @@ export default function Users() {
                             <td>{u.lastName}</td>
                             <td>{u.email}</td>
                             <td>{u.phone}</td>
-                            <td>
-                                <span className='like'><AiFillLike onClick={() => like(u)} /> {u.likes || 0}</span> 
-                                <span className='dislike'><AiFillDislike onClick={() => dislike(u)} /> {u.dislikes || 0}</span>
+                            <td onMouseDown={ev => ev.preventDefault()}>
+                                <span className='like'>
+                                    <AiFillLike onClick={() => like(u)} />
+                                    <i> {u.likes || 0}</i>
+                                </span> 
+                                <span className='dislike'>
+                                    <AiFillDislike onClick={() => dislike(u)} />
+                                    <i> {u.dislikes || 0}</i>
+                                </span>
                             </td>
                         </tr>
                     )
