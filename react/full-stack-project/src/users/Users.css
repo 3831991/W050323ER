@@ -79,3 +79,24 @@ button.returnLink svg {
 .returnLink:hover a {
     text-decoration: underline;
 }
+
+.like, .dislike {
+    margin: 0 3px;
+}
+
+.like svg, .dislike svg {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.like svg:hover, .dislike svg:hover {
+    scale: 1.5;
+}
+
+.like {
+    color: #3dbf23;
+}
+
+.dislike {
+    color: #bf2323;
+}

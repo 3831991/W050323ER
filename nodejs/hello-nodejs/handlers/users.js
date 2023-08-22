@@ -20,5 +20,27 @@ function getUser(req, res) {
     });
 }
 
+function like(req, res) {
+    connection.query("INSERT INTO `users_rating`(`targetedUser`, `isLike`) VALUES (?, 1)", [req.params.targetedUser], (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send();
+    });
+}
+
+function dislike(req, res) {
+    connection.query("INSERT INTO `users_rating`(`targetedUser`, `isDislike`) VALUES (?, 1)", [req.params.targetedUser], (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send();
+    });
+}
+
 exports.getUsers = getUsers;
 exports.getUser = getUser;
+exports.like = like;
+exports.dislike = dislike;

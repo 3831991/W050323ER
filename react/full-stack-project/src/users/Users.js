@@ -1,15 +1,10 @@
 import './Users.css';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
+import { AiFillDislike, AiFillLike } from 'react-icons/ai';
 
 export default function Users() {
     const [users, setUsers] = useState([]);
-
-    // useEffect(() => {
-    //     fetch("http://localhost:4000/users")
-    //     .then(res => res.json())
-    //     .then(data => setUsers(data.slice(0, 50)));
-    // }, []);
 
     async function getUsers() {
         const res = await fetch("http://localhost:4000/users");
@@ -20,6 +15,24 @@ export default function Users() {
     useEffect(() => {
         getUsers();
     }, []);
+
+    function like(user) {
+        fetch(`http://localhost:4000/users/${user.id}/like`, {
+            method: 'POST',
+        })
+        .then(() => {
+            // user.like++;
+        });
+    }
+
+    function dislike(user) {
+        fetch(`http://localhost:4000/users/${user.id}/dislike`, {
+            method: 'POST',
+        })
+        .then(() => {
+            // user.dislike++;
+        });
+    }
 
     return (
         <div>
@@ -34,6 +47,7 @@ export default function Users() {
                         <th>שם משפחה</th>
                         <th>אימייל</th>
                         <th>טלפון</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +60,10 @@ export default function Users() {
                             <td>{u.lastName}</td>
                             <td>{u.email}</td>
                             <td>{u.phone}</td>
+                            <td>
+                                <span className='like'><AiFillLike onClick={() => like(u)} /> {u.like}</span> 
+                                <span className='dislike'><AiFillDislike onClick={() => dislike(u)} /> {u.dislike}</span>
+                            </td>
                         </tr>
                     )
                 }
