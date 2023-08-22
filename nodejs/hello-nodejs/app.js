@@ -1,7 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const app = express();
-require('./router')(app);
 require('./sqlConnection');
 
 app.use(cors({
@@ -16,3 +15,5 @@ app.use(express.json());
 app.listen(4000, () => {
     console.log("Listening to port 4000...");
 });
+
+require('./router')(app);
