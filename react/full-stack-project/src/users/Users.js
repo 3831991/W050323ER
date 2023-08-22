@@ -5,12 +5,22 @@ import moment from 'moment';
 export default function Users() {
     const [users, setUsers] = useState([]);
 
+    // useEffect(() => {
+    //     fetch("http://localhost:4000/users")
+    //     .then(res => res.json())
+    //     .then(data => setUsers(data.slice(0, 50)));
+    // }, []);
+
+    async function getUsers() {
+        const res = await fetch("http://localhost:4000/users");
+        const data = await res.json();
+        setUsers(data.slice(0, 50));
+    }
+
     useEffect(() => {
-        fetch("http://localhost:4000/users")
-        .then(res => res.json())
-        .then(data => setUsers(data.slice(0, 50)));
+        getUsers();
     }, []);
-    
+
     return (
         <div>
             <h2>משתמשים</h2>
