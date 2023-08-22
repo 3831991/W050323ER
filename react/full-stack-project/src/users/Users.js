@@ -21,7 +21,8 @@ export default function Users() {
             method: 'POST',
         })
         .then(() => {
-            // user.like++;
+            user.likes++;
+            setUsers([...users]);
         });
     }
 
@@ -30,7 +31,8 @@ export default function Users() {
             method: 'POST',
         })
         .then(() => {
-            // user.dislike++;
+            user.dislikes++;
+            setUsers([...users]);
         });
     }
 
@@ -61,8 +63,8 @@ export default function Users() {
                             <td>{u.email}</td>
                             <td>{u.phone}</td>
                             <td>
-                                <span className='like'><AiFillLike onClick={() => like(u)} /> {u.like}</span> 
-                                <span className='dislike'><AiFillDislike onClick={() => dislike(u)} /> {u.dislike}</span>
+                                <span className='like'><AiFillLike onClick={() => like(u)} /> {u.likes || 0}</span> 
+                                <span className='dislike'><AiFillDislike onClick={() => dislike(u)} /> {u.dislikes || 0}</span>
                             </td>
                         </tr>
                     )

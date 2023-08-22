@@ -1,7 +1,7 @@
 const connection = require('../sqlConnection').connection;
 
 function getUsers(req, res) {
-    connection.query("SELECT * FROM `users`", (err, result) => {
+    connection.query("SELECT `users`.*, SUM(`users_rating`.`isLike`) as 'likes', SUM(`users_rating`.`isDislike`) as 'dislikes' FROM `users` LEFT JOIN `users_rating` ON `users`.`id` = `users_rating`.`targetedUser` GROUP BY `users`.`id`", (err, result) => {
         if (err) {
             throw err;
         }
