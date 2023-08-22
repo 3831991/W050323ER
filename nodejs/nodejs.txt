@@ -4,5 +4,8 @@ npm i -g nodemon -D
 npm i mysql2 --save
 npm i cors --save
 
+// ליצור קובץ app.js
+// ליצור תיקייה handlers
+
 // לאנשי אפל
 npm i -g nodemon -D
