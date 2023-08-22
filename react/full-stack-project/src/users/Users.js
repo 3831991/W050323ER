@@ -29,7 +29,7 @@ export default function Users() {
                 <tbody>
                 {
                     users.map((u, i) => 
-                        <tr>
+                        <tr key={u.id}>
                             <td>{i + 1}</td>
                             <td>{moment(u.createdTime).format("DD/MM/YY")}</td>
                             <td>{u.firstName}</td>
