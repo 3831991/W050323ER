@@ -1,4 +1,4 @@
-const { getUsers, getUser, like, dislike } = require('./handlers/users');
+const { getUsers, getUser, like, dislike, removeUser } = require('./handlers/users');
 const { getClients, getClient } = require('./handlers/clients');
 
 module.exports = (app) => {
@@ -8,6 +8,7 @@ module.exports = (app) => {
     app.get('/users/:id', getUser);
     app.post('/users/:targetedUser/like', like);
     app.post('/users/:targetedUser/dislike', dislike);
+    app.delete("/users/:id", removeUser)
 
     app.get('/clients', getClients);
     app.get('/clients/:id', getClient);

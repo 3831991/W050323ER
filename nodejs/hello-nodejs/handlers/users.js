@@ -40,7 +40,18 @@ function dislike(req, res) {
     });
 }
 
+function removeUser(req, res) {
+    connection.query("DELETE FROM `users` WHERE `id` = ?", [req.params.id], (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send();
+    });
+}
+
 exports.getUsers = getUsers;
 exports.getUser = getUser;
 exports.like = like;
 exports.dislike = dislike;
+exports.removeUser = removeUser;

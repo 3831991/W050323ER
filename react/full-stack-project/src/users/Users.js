@@ -36,6 +36,19 @@ export default function Users() {
         });
     }
 
+    const remove = id => {
+        if (!window.confirm("האם למחוק את המשתמש?")) {
+            return;
+        }
+
+        fetch(`http://localhost:4000/users/${id}`, {
+            method: 'DELETE',
+        })
+        .then(() => {
+            setUsers(users.filter(x => x.id !== id));
+        });
+    }
+
     return (
         <div>
             <h2>משתמשים</h2>
@@ -76,7 +89,7 @@ export default function Users() {
                                 </span>
 
                                 <Link to={`/users/${u.id}`}><button className='green'><AiFillEdit /></button></Link>
-                                <button className='red'><BsFillTrash3Fill /></button>
+                                <button className='red' onClick={() => remove(u.id)}><BsFillTrash3Fill /></button>
                             </td>
                         </tr>
                     )
