@@ -15,6 +15,12 @@ export default function UsersEdit() {
         { name: 'password', type: 'password', label: 'סיסמה' },
     ];
 
+    async function getUser() {
+        const res = await fetch(`http://localhost:4000/users/${userId}`);
+        const data = await res.json();
+        setUser(data);
+    }
+
     useEffect(() => {
         if (userId === 'new') {
             setUser({
@@ -26,7 +32,7 @@ export default function UsersEdit() {
                 password: "",
             });
         } else {
-            
+            getUser();
         }
     }, [userId]);
     
