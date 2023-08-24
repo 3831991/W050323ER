@@ -66,15 +66,18 @@ function addUser(req, res) {
 }
 
 function updateUser(req, res) {
-    connection.query("", [], (err, result) => {
-        if (err) {
-            throw err;
+    connection.query(
+        "UPDATE `users` SET `firstName`=?, `lastName`=?, `phone`=?, `email`=?, `roleType`=? WHERE `id` = ?",
+        [req.body.firstName, req.body.lastName, req.body.phone, req.body.email, req.body.roleType, req.params.id],
+        (err, result) => {
+            if (err) {
+                throw err;
+            }
+
+            res.send();
         }
-
-        res.send();
-    });
+    );
 }
-
 
 function removeUser(req, res) {
     connection.query("DELETE FROM `users` WHERE `id` = ?", [req.params.id], (err, result) => {

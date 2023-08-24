@@ -55,8 +55,8 @@ export default function UsersEdit() {
             body: JSON.stringify(user)
         })
         .then(() => {
-            navigate('/users')
-        })
+            navigate('/users');
+        });
     }
 
     return (
