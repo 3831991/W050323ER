@@ -40,7 +40,7 @@ export default function Users() {
         <div>
             <h2>משתמשים</h2>
             <button className='returnLink'>
-                <Link to="/article/new">+ משתמש חדש</Link>
+                <Link to="/users/new">+ משתמש חדש</Link>
             </button>
 
             <table>
@@ -75,7 +75,7 @@ export default function Users() {
                                     <i> {u.dislikes || 0}</i>
                                 </span>
 
-                                <Link to={`/article/${u.id}`}><button className='green'><AiFillEdit /></button></Link>
+                                <Link to={`/users/${u.id}`}><button className='green'><AiFillEdit /></button></Link>
                                 <button className='red'><BsFillTrash3Fill /></button>
                             </td>
                         </tr>
