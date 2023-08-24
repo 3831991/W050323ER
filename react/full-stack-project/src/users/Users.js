@@ -1,13 +1,14 @@
 import './Users.css';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
-import { AiFillDislike, AiFillLike, AiFillEdit } from 'react-icons/ai';
+import { AiFillDislike, AiFillLike, AiFillEdit, AiOutlineRight, AiOutlineLeft, AiOutlineDoubleLeft, AiOutlineDoubleRight } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { BsFillTrash3Fill } from 'react-icons/bs';
 
 export default function Users() {
     const [users, setUsers] = useState([]);
     const [limit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
 
     async function getUsers() {
         const res = await fetch("http://localhost:4000/users");
@@ -50,6 +51,22 @@ export default function Users() {
         });
     }
 
+    const next = () => {
+        setPage(page + 1);
+    }
+    
+    const prev = () => {
+        setPage(page - 1);
+    }
+
+    const start = () => {
+        setPage(1);
+    }
+
+    const end = () => {
+        setPage(Math.ceil(users.length / limit));
+    }
+
     return (
         <div>
             <h2>משתמשים</h2>
@@ -65,6 +82,15 @@ export default function Users() {
                 {users.length >= 100 && <option>100</option>}
             </select>
 
+            
+            <div className='arrows'>
+                עמוד {page} מתוך {Math.ceil(users.length / limit)}
+                <button disabled={page >= Math.ceil(users.length / limit)} onClick={end}><AiOutlineDoubleRight /></button>
+                <button disabled={page >= Math.ceil(users.length / limit)} onClick={next}><AiOutlineRight /></button>
+                <button disabled={page <= 1} onClick={prev}><AiOutlineLeft /></button>
+                <button disabled={page <= 1} onClick={start}><AiOutlineDoubleLeft /></button>
+            </div>
+
             <table>
                 <thead>
                     <tr>
@@ -79,9 +105,9 @@ export default function Users() {
                 </thead>
                 <tbody>
                 {
-                    users.slice(0, limit).map((u, i) => 
+                    users.slice((page - 1) * limit, limit * page).map((u, i) => 
                         <tr key={u.id}>
-                            <td>{i + 1}</td>
+                            <td>{(page - 1) * limit + i + 1}</td>
                             <td>{moment(u.createdTime).format("DD/MM/YY")}</td>
                             <td>{u.firstName}</td>
                             <td>{u.lastName}</td>
