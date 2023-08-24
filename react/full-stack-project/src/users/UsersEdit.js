@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import { AiOutlineRight } from "react-icons/ai";
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 
 export default function UsersEdit() {
     const { userId } = useParams();
     const [user, setUser] = useState();
+    const navigate = useNavigate();
 
     const structure = [
         { name: 'firstName', type: 'text', label: 'שם פרטי' },
@@ -45,6 +46,19 @@ export default function UsersEdit() {
         });
     }
 
+    const save = ev => {
+        ev.preventDefault();
+
+        fetch("http://localhost:4000/users" + (user.id ? `/${user.id}` : ""), {
+            method: user.id ? 'PUT' : 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(user)
+        })
+        .then(() => {
+            navigate('/users')
+        })
+    }
+
     return (
         <>
             <button className='returnLink'>
@@ -52,7 +66,7 @@ export default function UsersEdit() {
             </button>
             {
                 user &&
-                <form className="smallFrame">
+                <form className="smallFrame" onSubmit={save}>
                     <h2>{user.id ? 'עריכת' : 'הוספת'} משתמש</h2>
 
                     {
