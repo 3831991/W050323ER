@@ -1,7 +1,9 @@
 import './Users.css';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
-import { AiFillDislike, AiFillLike } from 'react-icons/ai';
+import { AiFillDislike, AiFillLike, AiFillEdit } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import { BsFillTrash3Fill } from 'react-icons/bs';
 
 export default function Users() {
     const [users, setUsers] = useState([]);
@@ -37,6 +39,9 @@ export default function Users() {
     return (
         <div>
             <h2>משתמשים</h2>
+            <button className='returnLink'>
+                <Link to="/article/new">+ משתמש חדש</Link>
+            </button>
 
             <table>
                 <thead>
@@ -69,6 +74,9 @@ export default function Users() {
                                     <AiFillDislike onClick={() => dislike(u)} />
                                     <i> {u.dislikes || 0}</i>
                                 </span>
+
+                                <Link to={`/article/${u.id}`}><button className='green'><AiFillEdit /></button></Link>
+                                <button className='red'><BsFillTrash3Fill /></button>
                             </td>
                         </tr>
                     )
