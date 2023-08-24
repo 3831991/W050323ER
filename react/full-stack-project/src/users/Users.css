@@ -64,10 +64,11 @@ tr td:last-child {
 }
 
 button.returnLink {
-    margin: 10px 0 0 0;
+    margin: 10px 0 0 10px;
     width: initial;
     font-size: 1em;
     background: #282c34;
+    display: inline;
 }
 
 button.returnLink svg {

@@ -7,11 +7,12 @@ import { BsFillTrash3Fill } from 'react-icons/bs';
 
 export default function Users() {
     const [users, setUsers] = useState([]);
+    const [limit, setLimit] = useState(10);
 
     async function getUsers() {
         const res = await fetch("http://localhost:4000/users");
         const data = await res.json();
-        setUsers(data.slice(0, 50));
+        setUsers(data);
     }
 
     useEffect(() => {
@@ -56,6 +57,14 @@ export default function Users() {
                 <Link to="/users/new">+ משתמש חדש</Link>
             </button>
 
+            <select value={limit} onChange={ev => setLimit(ev.target.value)}>
+                <option>10</option>
+                {users.length >= 20 && <option>20</option>}
+                {users.length >= 30 && <option>30</option>}
+                {users.length >= 50 && <option>50</option>}
+                {users.length >= 100 && <option>100</option>}
+            </select>
+
             <table>
                 <thead>
                     <tr>
@@ -70,7 +79,7 @@ export default function Users() {
                 </thead>
                 <tbody>
                 {
-                    users.map((u, i) => 
+                    users.slice(0, limit).map((u, i) => 
                         <tr key={u.id}>
                             <td>{i + 1}</td>
                             <td>{moment(u.createdTime).format("DD/MM/YY")}</td>
