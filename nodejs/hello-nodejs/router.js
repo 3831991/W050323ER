@@ -1,5 +1,6 @@
 const { getUsers, getUser, like, dislike, removeUser, addUser, updateUser } = require('./handlers/users');
 const { getClients, getClient } = require('./handlers/clients');
+const { getGrades, addGrade, removeGrade } = require('./handlers/grades');
 
 module.exports = (app) => {
     app.get('/', (req, res) => res.send('ברוכים הבאים'));
@@ -14,4 +15,8 @@ module.exports = (app) => {
 
     app.get('/clients', getClients);
     app.get('/clients/:id', getClient);
+
+    app.get('/grades', getGrades);
+    app.post('/grades', addGrade);
+    app.delete('/grades/:id', removeGrade);
 }

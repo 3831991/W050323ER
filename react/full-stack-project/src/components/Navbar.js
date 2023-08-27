@@ -7,6 +7,7 @@ function Navbar() {
             <ul>
                 <li><Link to="/">בית</Link></li>
                 <li><Link to="/users">משתמשים</Link></li>
+                <li><Link to="/grades">ציונים</Link></li>
             </ul>
         </nav>
     )
