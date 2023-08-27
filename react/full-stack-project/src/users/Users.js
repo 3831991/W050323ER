@@ -84,9 +84,9 @@ export default function Users() {
 
             
             <div className='arrows'>
-                עמוד {page} מתוך {Math.ceil(users.length / limit)}
                 <button disabled={page >= Math.ceil(users.length / limit)} onClick={end}><AiOutlineDoubleRight /></button>
                 <button disabled={page >= Math.ceil(users.length / limit)} onClick={next}><AiOutlineRight /></button>
+                עמוד {page} מתוך {Math.ceil(users.length / limit)}
                 <button disabled={page <= 1} onClick={prev}><AiOutlineLeft /></button>
                 <button disabled={page <= 1} onClick={start}><AiOutlineDoubleLeft /></button>
             </div>
