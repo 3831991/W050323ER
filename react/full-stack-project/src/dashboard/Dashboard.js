@@ -55,7 +55,7 @@ export default function Dashboard() {
             {
                 dashboard &&
                 structure.map(s =>
-                    <div className='card'>
+                    <div className='card' key={s.name}>
                         <header>{s.title}</header>
                         <div style={{ color: s.color }}>{dashboard[s.name]}</div>
                     </div>
