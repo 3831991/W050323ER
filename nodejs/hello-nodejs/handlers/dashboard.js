@@ -17,7 +17,7 @@ function getAverageGrade(req, res) {
         }
 
         res.send({ average });
-     });
+    });
 }
 
 function getAmountOfGrades(req, res) {
@@ -33,7 +33,7 @@ function getAmountOfGrades(req, res) {
         }
 
         res.send({ amount });
-     });
+    });
 }
 
 function getDevOfGrades(req, res) {
@@ -49,7 +49,7 @@ function getDevOfGrades(req, res) {
         }
 
         res.send({ dev });
-     });
+    });
 }
 
 function getMaxGrade(req, res) {
@@ -65,7 +65,7 @@ function getMaxGrade(req, res) {
         }
 
         res.send({ max });
-     });
+    });
 }
 
 function getMinGrade(req, res) {
@@ -81,7 +81,34 @@ function getMinGrade(req, res) {
         }
 
         res.send({ min });
-     });
+    });
+}
+
+function getUserAmount(req, res) {
+    connection.query("", (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+    });
+}
+
+function getUserAmountFromYear(req, res) {
+    connection.query("", (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+    });
+}
+
+function getLastUsers(req, res) {
+    connection.query("", [req.params.amount], (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+    });
 }
 
 exports.getAverageGrade = getAverageGrade;
@@ -89,3 +116,6 @@ exports.getAmountOfGrades = getAmountOfGrades;
 exports.getDevOfGrades = getDevOfGrades;
 exports.getMaxGrade = getMaxGrade;
 exports.getMinGrade = getMinGrade;
+exports.getUserAmount = getUserAmount;
+exports.getUserAmountFromYear = getUserAmountFromYear;
+exports.getLastUsers = getLastUsers;
