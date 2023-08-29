@@ -16,7 +16,7 @@ function getAverageGrade(req, res) {
             average = Math.round(result[0].average);
         }
 
-        res.send({ average });
+        res.send({ res: average });
     });
 }
 
@@ -32,7 +32,7 @@ function getAmountOfGrades(req, res) {
             amount = result[0].amount;
         }
 
-        res.send({ amount });
+        res.send({ res: amount });
     });
 }
 
@@ -48,7 +48,7 @@ function getDevOfGrades(req, res) {
             dev = Math.round(result[0].dev);
         }
 
-        res.send({ dev });
+        res.send({ res: dev });
     });
 }
 
@@ -64,7 +64,7 @@ function getMaxGrade(req, res) {
             max = result[0].max;
         }
 
-        res.send({ max });
+        res.send({ res: max });
     });
 }
 
@@ -80,7 +80,7 @@ function getMinGrade(req, res) {
             min = result[0].min;
         }
 
-        res.send({ min });
+        res.send({ res: min });
     });
 }
 
@@ -96,7 +96,7 @@ function getUserAmount(req, res) {
             amount = result[0].amount;
         }
 
-        res.send({ amount });
+        res.send({ res: amount });
     });
 }
 
@@ -112,7 +112,7 @@ function getUsersAmountFromCurrentYear(req, res) {
             amount = result[0].amount;
         }
 
-        res.send({ amount });
+        res.send({ res: amount });
     });
 }
 
