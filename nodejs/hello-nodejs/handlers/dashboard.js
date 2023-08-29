@@ -16,8 +16,8 @@ function getAverageGrade(req, res) {
             average = Math.round(result[0].average);
         }
 
-        res.send({average});
-    });
+        res.send({ average });
+     });
 }
 
 function getAmountOfGrades(req, res) {
@@ -32,8 +32,8 @@ function getAmountOfGrades(req, res) {
             amount = result[0].amount;
         }
 
-        res.send({amount});
-    });
+        res.send({ amount });
+     });
 }
 
 function getDevOfGrades(req, res) {
@@ -48,8 +48,8 @@ function getDevOfGrades(req, res) {
             dev = Math.round(result[0].dev);
         }
 
-        res.send({dev});
-    });
+        res.send({ dev });
+     });
 }
 
 function getMaxGrade(req, res) {
@@ -64,8 +64,8 @@ function getMaxGrade(req, res) {
             max = result[0].max;
         }
 
-        res.send({max});
-    });
+        res.send({ max });
+     });
 }
 
 function getMinGrade(req, res) {
@@ -80,8 +80,8 @@ function getMinGrade(req, res) {
             min = result[0].min;
         }
 
-        res.send({min});
-    });
+        res.send({ min });
+     });
 }
 
 exports.getAverageGrade = getAverageGrade;
