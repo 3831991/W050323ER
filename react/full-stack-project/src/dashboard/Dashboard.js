@@ -70,7 +70,7 @@ export default function Dashboard() {
                 <p>
                     {
                         lastUsers.map((x, i, arr) => 
-                            <span>{x.firstName} {x.lastName}{i === arr.length - 1 ? '.' : ', '}</span>
+                            <span key={x.id}>{x.firstName} {x.lastName}{i === arr.length - 1 ? '.' : ', '}</span>
                         )
                     }
                 </p>
