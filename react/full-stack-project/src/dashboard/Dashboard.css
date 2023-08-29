@@ -21,3 +21,13 @@
 .Dashboard .card>div {
     font-size: 36px;
 }
+
+.Dashboard a {
+    text-decoration: none;
+    color: black;
+}
+
+.Dashboard a:hover {
+    text-decoration: underline;
+    color: blue;
+}

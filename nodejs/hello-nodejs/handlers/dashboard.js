@@ -116,6 +116,16 @@ function getUsersAmountFromCurrentYear(req, res) {
     });
 }
 
+function getUsersAmountByYear(req, res) {
+    connection.query("", (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(result);
+    });
+}
+
 function getLastUsers(req, res) {
     connection.query("SELECT * FROM users ORDER BY id DESC LIMIT ?", [+req.params.amount], (err, result) => {
         if (err) {
@@ -132,5 +142,6 @@ exports.getDevOfGrades = getDevOfGrades;
 exports.getMaxGrade = getMaxGrade;
 exports.getMinGrade = getMinGrade;
 exports.getUserAmount = getUserAmount;
+exports.getUsersAmountByYear = getUsersAmountByYear;
 exports.getUsersAmountFromCurrentYear = getUsersAmountFromCurrentYear;
 exports.getLastUsers = getLastUsers;

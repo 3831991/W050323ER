@@ -1,5 +1,11 @@
 import './Dashboard.css';
+import React from 'react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Doughnut } from "react-chartjs-2";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Dashboard() {
     const [dashboard, setDashboard] = useState();
@@ -69,11 +75,39 @@ export default function Dashboard() {
                 <header>10 משתמשים אחרונים</header>
                 <p>
                     {
-                        lastUsers.map((x, i, arr) => 
-                            <span key={x.id}>{x.firstName} {x.lastName}{i === arr.length - 1 ? '.' : ', '}</span>
+                        lastUsers.map((x, i, arr) =>
+                            <Link to={`users/${x.id}`} key={x.id}>{x.firstName} {x.lastName}{i === arr.length - 1 ? '.' : ', '}</Link>
                         )
                     }
                 </p>
+            </div>
+
+            <div className='card'>
+                <Doughnut data={{
+                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                    datasets: [
+                        {
+                            data: [10, 10, 10, 10, 10, 10],
+                            backgroundColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(255, 206, 86)',
+                                'rgb(75, 192, 192)',
+                                'rgb(153, 102, 255)',
+                                'rgb(255, 159, 64)',
+                            ],
+                            borderColor: [
+                                'rgb(255, 99, 132, 1)',
+                                'rgb(54, 162, 235, 1)',
+                                'rgb(255, 206, 86, 1)',
+                                'rgb(75, 192, 192, 1)',
+                                'rgb(153, 102, 255, 1)',
+                                'rgb(255, 159, 64, 1)',
+                            ],
+                            borderWidth: 1,
+                        },
+                    ],
+                }} />
             </div>
         </div>
     )
