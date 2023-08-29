@@ -85,29 +85,44 @@ function getMinGrade(req, res) {
 }
 
 function getUserAmount(req, res) {
-    connection.query("", (err, result) => {
+    connection.query("SELECT COUNT(*) amount FROM `users`", (err, result) => {
         if (err) {
             throw err;
         }
 
+        let amount = null;
+
+        if (result?.length) {
+            amount = result[0].amount;
+        }
+
+        res.send({ amount });
     });
 }
 
 function getUserAmountFromYear(req, res) {
-    connection.query("", (err, result) => {
+    connection.query("SELECT COUNT(*) amount FROM `users` WHERE YEAR(createdTime) = YEAR(CURRENT_DATE())", (err, result) => {
         if (err) {
             throw err;
         }
 
+        let amount = null;
+
+        if (result?.length) {
+            amount = result[0].amount;
+        }
+
+        res.send({ amount });
     });
 }
 
 function getLastUsers(req, res) {
-    connection.query("", [req.params.amount], (err, result) => {
+    connection.query("SELECT * FROM users ORDER BY id DESC LIMIT ?", [req.params.amount], (err, result) => {
         if (err) {
             throw err;
         }
 
+        res.send(result);
     });
 }
 
