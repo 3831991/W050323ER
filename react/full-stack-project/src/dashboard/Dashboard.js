@@ -99,7 +99,7 @@ export default function Dashboard() {
                                 data: usersAmountByYear.map(x => x.amount),
                                 backgroundColor: usersAmountByYear.map((x, i) => `hsl(${150 + i * 60} 82% 56%)`),
                                 // borderColor: usersAmountByYear.map((x, i) => `hsl(${150 + i * 60} 82% 56%)`),
-                                // borderWidth: 1,x
+                                // borderWidth: 1,
                             },
                         ],
                     }} />
