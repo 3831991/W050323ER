@@ -100,7 +100,7 @@ function getUserAmount(req, res) {
     });
 }
 
-function getUserAmountFromYear(req, res) {
+function getUsersAmountFromCurrentYear(req, res) {
     connection.query("SELECT COUNT(*) amount FROM `users` WHERE YEAR(createdTime) = YEAR(CURRENT_DATE())", (err, result) => {
         if (err) {
             throw err;
@@ -132,5 +132,5 @@ exports.getDevOfGrades = getDevOfGrades;
 exports.getMaxGrade = getMaxGrade;
 exports.getMinGrade = getMinGrade;
 exports.getUserAmount = getUserAmount;
-exports.getUserAmountFromYear = getUserAmountFromYear;
+exports.getUsersAmountFromCurrentYear = getUsersAmountFromCurrentYear;
 exports.getLastUsers = getLastUsers;
