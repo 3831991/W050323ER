@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function Dashboard() {
     const [dashboard, setDashboard] = useState();
+    const [lastUsers, setLastUsers] = useState([]);
 
     const structure = [
         { name: 'averageGrade', title: 'ממוצע ציונים' },
@@ -46,7 +47,9 @@ export default function Dashboard() {
                 minGrade: minGrade.res,
                 usersAmount: usersAmount.res,
                 usersAmountCurrentYear: usersAmountCurrentYear.res,
-            })
+            });
+
+            setLastUsers(last10Users);
         });
     }, []);
 
@@ -61,6 +64,17 @@ export default function Dashboard() {
                     </div>
                 )
             }
+
+            <div className='card'>
+                <header>10 משתמשים אחרונים</header>
+                <p>
+                    {
+                        lastUsers.map((x, i, arr) => 
+                            <span>{x.firstName} {x.lastName}{i === arr.length - 1 ? '.' : ', '}</span>
+                        )
+                    }
+                </p>
+            </div>
         </div>
     )
 }
