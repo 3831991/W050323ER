@@ -91,7 +91,10 @@ export default function Dashboard() {
 
             {
                 usersAmountByYear &&
-                <div className='card'>
+                <div className='card chart'>
+                    <header>כמות משתמשים לפי שנים</header>
+
+                    <div>
                     <Doughnut data={{
                         labels: usersAmountByYear.map(x => x.year),
                         datasets: [
@@ -103,6 +106,7 @@ export default function Dashboard() {
                             },
                         ],
                     }} />
+                    </div>
                 </div>
             }
         </div>

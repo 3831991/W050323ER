@@ -20,6 +20,7 @@
 
 .Dashboard .card>div {
     font-size: 36px;
+    font-weight: bold;
 }
 
 .Dashboard a {
@@ -30,4 +31,12 @@
 .Dashboard a:hover {
     text-decoration: underline;
     color: blue;
+}
+
+.Dashboard .card.chart {
+    grid-row: 1 / 5;
+    grid-column: 3;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
