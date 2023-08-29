@@ -7,9 +7,9 @@ export default function Dashboard() {
     const structure = [
         { name: 'averageGrade', title: 'ממוצע ציונים' },
         { name: 'gradesAmount', title: 'כמות ציונים' },
-        { name: 'gradesDev', title: 'סטיית התקן' },
-        { name: 'maxGrade', title: 'ציון גבוה' },
-        { name: 'minGrade', title: 'ציון נמוך' },
+        { name: 'gradesDev', title: 'סטיית התקן', color: 'orange' },
+        { name: 'maxGrade', title: 'ציון גבוה', color: 'green' },
+        { name: 'minGrade', title: 'ציון נמוך', color: 'red' },
         { name: 'usersAmount', title: 'כמות משתמשים' },
         { name: 'usersAmountCurrentYear', title: 'כמות משתמשים מהשנה הנוכחית' },
     ];
@@ -57,7 +57,7 @@ export default function Dashboard() {
                 structure.map(s =>
                     <div className='card'>
                         <header>{s.title}</header>
-                        <div>{dashboard[s.name]}</div>
+                        <div style={{ color: s.color }}>{dashboard[s.name]}</div>
                     </div>
                 )
             }
