@@ -1,8 +1,5 @@
 const connection = require('../sqlConnection').connection;
 
-// הציון הגבוה
-// הציון הנמוך
-
 // כמות משתמשים
 // כמות משתמשים מהשנה האחרונה
 // רשימה של 10 משתמשים אחרונים
@@ -13,29 +10,29 @@ function getAverageGrade(req, res) {
             throw err;
         }
 
-        let avg = null;
+        let average = null;
 
         if (result?.length) {
-            avg = result[0].average;
+            average = Math.round(result[0].average);
         }
 
-        res.send(avg);
+        res.send({average});
     });
 }
 
 function getAmountOfGrades(req, res) {
-    connection.query("SELECT COUNT(grade) count FROM `grades`", (err, result) => {
+    connection.query("SELECT COUNT(grade) amount FROM `grades`", (err, result) => {
         if (err) {
             throw err;
         }
 
-        let count = null;
+        let amount = null;
 
         if (result?.length) {
-            count = result[0].count;
+            amount = result[0].amount;
         }
 
-        res.send(count);
+        res.send({amount});
     });
 }
 
@@ -48,10 +45,10 @@ function getDevOfGrades(req, res) {
         let dev = null;
 
         if (result?.length) {
-            dev = result[0].dev;
+            dev = Math.round(result[0].dev);
         }
 
-        res.send(dev);
+        res.send({dev});
     });
 }
 
@@ -67,7 +64,7 @@ function getMaxGrade(req, res) {
             max = result[0].max;
         }
 
-        res.send(max);
+        res.send({max});
     });
 }
 
@@ -83,7 +80,7 @@ function getMinGrade(req, res) {
             min = result[0].min;
         }
 
-        res.send(min);
+        res.send({min});
     });
 }
 

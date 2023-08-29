@@ -22,7 +22,7 @@ module.exports = (app) => {
     app.delete('/grades/:id', removeGrade);
 
     app.get('/dashboard/grades/average', getAverageGrade);
-    app.get('/dashboard/grades/count', getAmountOfGrades);
+    app.get('/dashboard/grades/amount', getAmountOfGrades);
     app.get('/dashboard/grades/dev', getDevOfGrades);
     app.get('/dashboard/grades/max', getMaxGrade);
     app.get('/dashboard/grades/min', getMinGrade);
