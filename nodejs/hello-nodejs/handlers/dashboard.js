@@ -117,7 +117,7 @@ function getUsersAmountFromCurrentYear(req, res) {
 }
 
 function getLastUsers(req, res) {
-    connection.query("SELECT * FROM users ORDER BY id DESC LIMIT ?", [req.params.amount], (err, result) => {
+    connection.query("SELECT * FROM users ORDER BY id DESC LIMIT ?", [+req.params.amount], (err, result) => {
         if (err) {
             throw err;
         }
