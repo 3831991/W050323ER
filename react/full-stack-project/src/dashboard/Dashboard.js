@@ -1,3 +1,6 @@
+// https://www.chartjs.org
+// https://react-chartjs-2.js.org/
+
 import './Dashboard.css';
 import React from 'react';
 import { useEffect, useState } from 'react';
@@ -10,6 +13,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 export default function Dashboard() {
     const [dashboard, setDashboard] = useState();
     const [lastUsers, setLastUsers] = useState([]);
+    const [usersAmountByYear, setUsersAmountByYear] = useState();
 
     const structure = [
         { name: 'averageGrade', title: 'ממוצע ציונים' },
@@ -32,6 +36,7 @@ export default function Dashboard() {
             fetch(`${url}/grades/min`).then(res => res.json()),
             fetch(`${url}/users/amount`).then(res => res.json()),
             fetch(`${url}/users/amount-year`).then(res => res.json()),
+            fetch(`${url}/users/amount-by-year`).then(res => res.json()),
             fetch(`${url}/users/last/10`).then(res => res.json()),
         ]).then(data => {
             const [
@@ -42,6 +47,7 @@ export default function Dashboard() {
                 minGrade,
                 usersAmount,
                 usersAmountCurrentYear,
+                usersAmountByYear,
                 last10Users
             ] = data;
 
@@ -56,6 +62,7 @@ export default function Dashboard() {
             });
 
             setLastUsers(last10Users);
+            setUsersAmountByYear(usersAmountByYear);
         });
     }, []);
 
@@ -82,33 +89,22 @@ export default function Dashboard() {
                 </p>
             </div>
 
-            <div className='card'>
-                <Doughnut data={{
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [
-                        {
-                            data: [10, 10, 10, 10, 10, 10],
-                            backgroundColor: [
-                                'rgb(255, 99, 132)',
-                                'rgb(54, 162, 235)',
-                                'rgb(255, 206, 86)',
-                                'rgb(75, 192, 192)',
-                                'rgb(153, 102, 255)',
-                                'rgb(255, 159, 64)',
-                            ],
-                            borderColor: [
-                                'rgb(255, 99, 132, 1)',
-                                'rgb(54, 162, 235, 1)',
-                                'rgb(255, 206, 86, 1)',
-                                'rgb(75, 192, 192, 1)',
-                                'rgb(153, 102, 255, 1)',
-                                'rgb(255, 159, 64, 1)',
-                            ],
-                            borderWidth: 1,
-                        },
-                    ],
-                }} />
-            </div>
+            {
+                usersAmountByYear &&
+                <div className='card'>
+                    <Doughnut data={{
+                        labels: usersAmountByYear.map(x => x.year),
+                        datasets: [
+                            {
+                                data: usersAmountByYear.map(x => x.amount),
+                                backgroundColor: usersAmountByYear.map((x, i) => `hsl(${150 + i * 60} 82% 56%)`),
+                                // borderColor: usersAmountByYear.map((x, i) => `hsl(${150 + i * 60} 82% 56%)`),
+                                // borderWidth: 1,x
+                            },
+                        ],
+                    }} />
+                </div>
+            }
         </div>
     )
 }

@@ -117,7 +117,7 @@ function getUsersAmountFromCurrentYear(req, res) {
 }
 
 function getUsersAmountByYear(req, res) {
-    connection.query("", (err, result) => {
+    connection.query("SELECT YEAR(createdTime) year, COUNT(*) amount FROM `users` GROUP BY YEAR(createdTime)", (err, result) => {
         if (err) {
             throw err;
         }
