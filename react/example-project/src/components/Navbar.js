@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useResolvedPath } from 'react-router-dom';
 import { GeneralContext } from '../App';
 
 export const RoleTypes = {
@@ -44,6 +44,7 @@ export default function Navbar() {
     const [anchorElUser, setAnchorElUser] = useState(null);
     const { user, roleType, setUser, setRoleType, setLoader } = useContext(GeneralContext);
     const navigate = useNavigate();
+    const path = useResolvedPath().pathname;
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -163,7 +164,7 @@ export default function Navbar() {
                             <Link to={page.route} key={page.route} style={{ textDecoration: 'none', color: 'white' }}>
                                 <Button
                                     onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                    sx={{ my: 2, color: 'white', display: 'block', backgroundColor: page.route === path ? 'cornflowerblue' : '' }}
                                 >
                                     {page.title}
                                 </Button>
