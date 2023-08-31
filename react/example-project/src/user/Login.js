@@ -8,14 +8,17 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { GeneralContext } from '../App';
 import { useContext } from 'react';
+import { RoleTypes } from '../components/Navbar';
 
 const defaultTheme = createTheme();
 
 export default function Login() {
-    const { setUser, setLoader } = useContext(GeneralContext);
+    const { setUser, setLoader, setRoleType } = useContext(GeneralContext);
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
@@ -41,6 +44,15 @@ export default function Login() {
         })
         .then(data => {
             setUser(data);
+            setRoleType(RoleTypes.user);
+
+            if (data.business) {
+                setRoleType(RoleTypes.business);
+            } else if (data.admin) {
+                setRoleType(RoleTypes.admin);
+            }
+
+            navigate('/');
         })
         .catch(err => {
             alert(err.message);
