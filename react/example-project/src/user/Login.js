@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,13 +9,17 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
+import { GeneralContext } from '../App';
+import { useContext } from 'react';
 
 const defaultTheme = createTheme();
 
 export default function Login() {
+    const { setUser, setLoader } = useContext(GeneralContext);
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
+        setLoader(true);
 
         fetch(`https://api.shipap.co.il/clients/login?token=d2960d76-3431-11ee-b3e9-14dda9d4a5f0`, {
             credentials: 'include',
@@ -37,11 +40,12 @@ export default function Login() {
             }
         })
         .then(data => {
-            console.log(data);
+            setUser(data);
         })
         .catch(err => {
-            console.log(err.message);
-        });
+            alert(err.message);
+        })
+        .finally(() => setLoader(false));
     };
 
     return (
