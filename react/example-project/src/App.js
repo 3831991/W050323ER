@@ -1,11 +1,13 @@
 import './App.css';
-import TextField from '@mui/material/TextField';
+// import TextField from '@mui/material/TextField';
+import Navbar from './components/Navbar';
 
 function App() {
     return (
-        <div className="App">
-            <TextField id="outlined-basic" label="משהו אחר" variant="outlined" />
-        </div>
+        <Navbar />
+        // <div className="App">
+        //     <TextField id="outlined-basic" label="משהו אחר" variant="outlined" />
+        // </div>
     );
 }
 
