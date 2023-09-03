@@ -53,6 +53,13 @@ app.get('/table/:tableName', (req, res) => {
 
         res.writeHead(200, {'Content-Type': 'text/html'});
 
+        if (!result.length) {
+            res.end(`<h1>אין נתונים</h1>`);
+            return;
+        }
+
+        const keys = Object.keys(result[0]);
+
         res.end(`
             <!DOCTYPE html>
                 <html>
