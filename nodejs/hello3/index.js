@@ -100,3 +100,17 @@ app.get('/table/:tableName', (req, res) => {
         `);
     })
 });
+
+app.get('/login', (req, res) => {
+    if (!req.query.userName || !req.query.password) {
+        return res.send("שגיאה");
+    }
+
+    con.query("SELECT * FROM `users` WHERE `userName` = ? AND `password` = MD5(?)", [req.query.userName, req.query.password], (err, result) => {
+        if (!result.length) {
+            return res.send("שם משתמש או סיסמה לא נכונים");
+        } else {
+            return res.send(result[0]);
+        }
+    });
+});
