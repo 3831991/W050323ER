@@ -35,6 +35,12 @@ app.get('/number/:min/:max', (req, res) => {
 });
 
 app.get('/clients', (req, res) => {
-    
+    con.query("",(err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(result);
+    })
 });
 
