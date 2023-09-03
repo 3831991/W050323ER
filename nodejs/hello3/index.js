@@ -77,21 +77,15 @@ app.get('/table/:tableName', (req, res) => {
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                ${keys.map(k => `<th>${k}</th>`).join('')}
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Wheeler</td>
-                                <td>Guyonneau</td>
-                                <td>wguyonneau0@wufoo.com</td>
-                                <td>668-715-0256</td>
-                            </tr>
+                            ${result.map(item => `
+                                <tr>
+                                    
+                                </tr>
+                            `).join('')}
                         </tbody>
                     </table>
                 </body>
