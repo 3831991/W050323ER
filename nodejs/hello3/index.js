@@ -1,5 +1,6 @@
 const express = require('express');
 const con = require('./sqlConnection');
+const moment = require('moment');
 
 const app = express();
 
@@ -83,7 +84,7 @@ app.get('/table/:tableName', (req, res) => {
                         <tbody>
                             ${result.map(item => `
                                 <tr>
-                                    
+                                    ${Object.values(item).map(v => `<td>${v instanceof Date ? moment(v).format('DD/MM/YYYY') : v}</td>`).join('')}
                                 </tr>
                             `).join('')}
                         </tbody>
