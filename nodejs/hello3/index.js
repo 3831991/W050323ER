@@ -46,8 +46,14 @@ app.get('/clients', (req, res) => {
 });
 
 app.get('/table/:tableName', (req, res) => {
+
+    let sql = `SELECT * FROM (${req.params.tableName})`;
     
-    con.query(`SELECT * FROM ${req.params.tableName}`, (err, result) => {
+    if (req.query.limit) {
+        sql += ` LIMIT ${+req.query.limit}`;
+    }
+
+    con.query(sql, (err, result) => {
         if (err) {
             throw err;
         }
