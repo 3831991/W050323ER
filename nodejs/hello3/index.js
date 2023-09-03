@@ -35,7 +35,7 @@ app.get('/number/:min/:max', (req, res) => {
 });
 
 app.get('/clients', (req, res) => {
-    con.query("",(err, result) => {
+    con.query("SELECT * FROM `clients`", (err, result) => {
         if (err) {
             throw err;
         }
@@ -44,3 +44,51 @@ app.get('/clients', (req, res) => {
     })
 });
 
+app.get('/table/:tableName', (req, res) => {
+    
+    con.query(`SELECT * FROM ${req.params.tableName}`, (err, result) => {
+        if (err) {
+            throw err;
+        }
+
+        res.writeHead(200, {'Content-Type': 'text/html'});
+
+        res.end(`
+            <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+                    <title>Table ${req.params.tableName}</title>
+                </head>
+                <body>
+                    <h1>Table ${req.params.tableName}</h1>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Wheeler</td>
+                                <td>Guyonneau</td>
+                                <td>wguyonneau0@wufoo.com</td>
+                                <td>668-715-0256</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </body>
+            </html>
+        `);
+    })
+});
