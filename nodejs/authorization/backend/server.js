@@ -1,9 +1,17 @@
 const express = require('express');
 const cors = require('cors');
+const session = require('express-session');
 const con = require('./sqlConnection');
 const app = express();
 
 app.use(express.json());
+
+app.use(session({
+    secret: 'my-secret',
+    name: 'mySession',
+    resave: false,
+    saveUninitialized: true,
+}));
 
 app.use(cors({
     origin: true,
@@ -22,13 +30,8 @@ app.get('/', (req, res) => {
 
 // Login status
 app.get('/login', (req, res) => {
-    // לצורך דוגמא
-    const isLogged = false;
-
-    if (isLogged) {
-        res.send({
-            // פרמטרים של היוזר המחובר
-        });
+    if (req.session.user) {
+        res.send(req.session.user);
     } else {
         res.status(401).send('Not connected');
     }
@@ -48,6 +51,8 @@ app.post('/login', (req, res) => {
         }
 
         const user = result[0];
+
+        req.session.user = user;
 
         res.send(user);
     });
@@ -70,5 +75,20 @@ app.post('/signup', (req, res) => {
 
 // Logout
 app.get('/logout', (req, res) => {
+    delete req.session.user;
 
+    req.send();
+});
+
+// מונה לדוגמא - לצורך הבנת הסשיין
+app.get('/counter', (req, res) => {
+    if (!req.session.attempts) {
+        req.session.attempts = 0;
+    }
+
+    req.session.attempts++;
+
+    res.send({
+        attempts: req.session.attempts,
+    });
 });

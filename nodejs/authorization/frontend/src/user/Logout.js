@@ -24,7 +24,7 @@ export default function Logout() {
 
     return (
         <p className='user'>
-            {user.fullName} מחובר! 
+            {user.firstName} {user.lastName} מחובר! 
             <button className="logout" onClick={logout}>התנתק</button>
         </p>
     )
