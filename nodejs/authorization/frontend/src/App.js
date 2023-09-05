@@ -20,7 +20,7 @@ function App() {
     }
 
     useEffect(() => {
-        fetch("https://api.shipap.co.il/login", {
+        fetch("http://localhost:420/login", {
             credentials: 'include',
         })
             .then(res => {

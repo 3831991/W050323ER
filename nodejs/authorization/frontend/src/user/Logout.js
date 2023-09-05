@@ -10,7 +10,7 @@ export default function Logout() {
     const logout = () => {
         setLoading(true);
 
-        fetch("https://api.shipap.co.il/logout", {
+        fetch("http://localhost:420/logout", {
             credentials: 'include',
         })
         .then(() => {

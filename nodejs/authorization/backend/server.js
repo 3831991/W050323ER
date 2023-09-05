@@ -1,8 +1,16 @@
 const express = require('express');
+const cors = require('cors');
 const con = require('./sqlConnection');
 const app = express();
 
 app.use(express.json());
+
+app.use(cors({
+    origin: true,
+    methods: 'GET,PUT,POST,DELETE,OPTIONS',
+    credentials: true,
+    allowedHeaders: 'Content-Type, Accept',
+}));
 
 app.listen(420, () => {
     console.log("Server listening on port 420");
@@ -47,7 +55,17 @@ app.post('/login', (req, res) => {
 
 // Signup
 app.post('/signup', (req, res) => {
+    const { firstName, lastName, phone, email, userName, password } = req.body;
 
+    con.query("INSERT INTO `users`(`firstName`, `lastName`, `phone`, `email`, `userName`, `password`) VALUES (?, ?, ?, ?, ?, MD5(?))", [firstName, lastName, phone, email, userName, password], (err, result) => {
+        if (err) {
+            return res.status(403).send("שגיאה");
+        }
+
+        res.send({
+            message: "המשתמש נוסף בהצלחה",
+        });
+    });
 });
 
 // Logout

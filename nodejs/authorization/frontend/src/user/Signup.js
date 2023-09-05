@@ -6,11 +6,13 @@ export default function Signup() {
     const [formData, setFormData] = useState({
         userName: '',
         password: '',
+        phone: '',
         email: '',
-        fullName: '',
+        firstName: '',
+        lastName: '',
     });
 
-    const { snackbar, setIsLoader } = useContext(GeneralContext);
+    const { snackbar, setLoading } = useContext(GeneralContext);
     const navigate = useNavigate();
 
     const handelInput = ev => {
@@ -35,9 +37,9 @@ export default function Signup() {
             return;
         }
         
-        setIsLoader(true);
+        setLoading(true);
 
-        fetch(`https://api.shipap.co.il/signup`, {
+        fetch(`http://localhost:420/signup`, {
             credentials: 'include',
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
@@ -58,7 +60,7 @@ export default function Signup() {
         .catch(err => {
             snackbar(err.message);
         })
-        .finally(() => setIsLoader(false));
+        .finally(() => setLoading(false));
     }
 
     return (
@@ -68,8 +70,18 @@ export default function Signup() {
 
             <form onSubmit={signup}>
                 <label>
-                    שם מלא:
-                    <input type="text" name="fullName" value={formData.fullName} onChange={handelInput} />
+                    שם פרטי:
+                    <input type="text" name="firstName" value={formData.firstName} onChange={handelInput} />
+                </label>
+
+                <label>
+                    שם משפחה:
+                    <input type="text" name="lastName" value={formData.lastName} onChange={handelInput} />
+                </label>
+
+                <label>
+                    טלפון:
+                    <input type="text" name="phone" value={formData.phone} onChange={handelInput} />
                 </label>
 
                 <label>

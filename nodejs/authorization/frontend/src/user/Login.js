@@ -30,7 +30,7 @@ export default function Login() {
         ev.preventDefault();
         setLoading(true);
         
-        fetch("https://api.shipap.co.il/login", {
+        fetch("http://localhost:420/login", {
             credentials: 'include',
             method: "POST",
             headers: {
