@@ -2,12 +2,15 @@ const express = require('express');
 const con = require('./sqlConnection');
 const moment = require('moment');
 
+// הפעלת הספרייה של אקפרס
 const app = express();
 
 app.use(express.json());
 
+// הפעלת השרת והאזנה לפורט שבוחרים
 app.listen(7777);
 
+// Middleware
 app.use((req, res, next) => {
     console.log(req.method, req.url);
 
