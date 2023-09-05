@@ -55,6 +55,7 @@ export default function Signup() {
             }
         })
         .then(() => {
+            sessionStorage.userName = formData.userName;
             navigate('/');
         })
         .catch(err => {

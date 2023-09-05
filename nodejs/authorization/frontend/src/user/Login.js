@@ -24,6 +24,13 @@ export default function Login() {
         if (isLogged) {
             navigate('/');
         }
+
+        if (sessionStorage.userName) {
+            formData.userName = sessionStorage.userName;
+            setFormData({...formData});
+        }
+
+        sessionStorage.removeItem('userName');
     }, [isLogged, navigate])
 
     const login = ev => {
