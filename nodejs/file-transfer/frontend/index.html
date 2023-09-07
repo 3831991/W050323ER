@@ -13,7 +13,8 @@
         <h1>העלאת קובץ</h1>
 
         <form action="http://localhost:421/files/upload" method="post" enctype="multipart/form-data">
-            <input class="w3-input w3-border w3-round" type="file" name="myFile">
+            <input class="w3-input w3-border w3-round" type="file" name="myFile" onchange="imageChange(event)">
+            <img width="100%" style="display: none;">
             <br>
             <button class="w3-btn w3-green w3-round">העלה</button>
         </form>

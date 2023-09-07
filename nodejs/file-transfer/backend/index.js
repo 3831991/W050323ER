@@ -31,7 +31,7 @@ app.post('/files/upload', (req, res) => {
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.write(`<meta charset="UTF-8">`);
             res.write(`<h1>התמונה עלתה בהצלחה</h1>`);
-            res.write(`<img src="http://localhost:421/file/${file.originalFilename}">`);
+            res.write(`<img src="http://localhost:421/file/${file.originalFilename}" width="100%">`);
             res.end();
         });
     });
