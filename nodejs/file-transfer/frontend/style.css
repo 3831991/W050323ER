@@ -1,0 +1,58 @@
+body {
+    direction: rtl;
+    background: aliceblue;
+}
+
+form, #form {
+    max-width: 700px;
+    background: #ffffffcc;
+    padding: 32px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #00000075;
+    margin: 30px auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.field {
+    margin-bottom: 12px;
+}
+
+#dropArea {
+    height: 250px;
+    border: 5px dashed gray;
+    text-align: center;
+    padding: 86px 0;
+}
+
+#dropArea::after {
+    content: 'שחרר כאן';
+    font-size: 2em;
+    color: gray;
+}
+
+.w3-third {
+    padding: 12px;
+}
+
+.w3-card {
+    height: 150px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.w3-card button {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.w3-card:hover button {
+    opacity: 1;
+}
+
+.dragOver {
+    background-color: #b2be57;
+}
