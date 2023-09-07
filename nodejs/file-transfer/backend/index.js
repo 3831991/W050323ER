@@ -21,6 +21,6 @@ app.post('/files/upload', (req, res) => {
     const form = new formidable.IncomingForm();
 
     form.parse(req, (err, fields, files) => {
-
+        res.end();
     });
 });
