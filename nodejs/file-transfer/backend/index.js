@@ -40,3 +40,13 @@ app.post('/files/upload', (req, res) => {
 app.get('/file/:fileName', (req, res) => {
     res.sendFile(`${__dirname}/files/${req.params.fileName}`);
 });
+
+app.get('/files', (req, res) => {
+    fs.readdir(`${__dirname}/files`, (err, files) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send(files);
+    });
+});

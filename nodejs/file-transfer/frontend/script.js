@@ -17,3 +17,15 @@ function imageChange(ev) {
 
     reader.readAsDataURL(file);
 }
+
+function getAllImages() {
+    fetch("http://localhost:421/files")
+    .then(res => res.json())
+    .then(files => {
+        files.forEach(x => {
+            const img = document.createElement('img');
+            img.src = `http://localhost:421/file/${x}`;
+            document.querySelector('.gallery').appendChild(img);
+        });
+    });
+}
