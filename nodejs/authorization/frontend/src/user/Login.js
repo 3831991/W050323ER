@@ -41,7 +41,7 @@ export default function Login() {
             credentials: 'include',
             method: "POST",
             headers: {
-                'Content-type': 'application/json'
+                'Content-type': 'application/json',
             },
             body: JSON.stringify(formData),
         })
