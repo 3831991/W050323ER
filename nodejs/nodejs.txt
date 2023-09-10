@@ -9,3 +9,7 @@ npm i cors --save
 
 // לאנשי אפל
 npm i -g nodemon -D
+
+
+// הכל ביחד
+npm install express mysql2 cors moment fs --save
