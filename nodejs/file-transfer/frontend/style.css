@@ -72,4 +72,11 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: start;
+    position: relative;
+}
+
+.remove {
+    position: absolute;
+    top: 0;
+    right: 0;
 }

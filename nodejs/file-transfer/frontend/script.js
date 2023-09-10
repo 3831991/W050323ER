@@ -46,6 +46,17 @@ function getAllImages() {
     });
 }
 
+function remove() {
+    const images = document.querySelectorAll(".mySlides");
+    const file = images[slideIndex - 1];
+    const fileName = file.src.split('/').pop();
+
+    fetch(`http://localhost:421/files/${fileName}`, {
+        method: 'DELETE',
+    })
+    .then(() => file.remove());
+}
+
 let slideIndex = 1;
 
 function plusDivs(n) {

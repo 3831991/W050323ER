@@ -50,3 +50,13 @@ app.get('/files', (req, res) => {
         res.send(files);
     });
 });
+
+app.delete('/files/:fileName', (req, res) => {
+    fs.unlink(`${__dirname}/files/${req.params.fileName}`, (err, files) => {
+        if (err) {
+            throw err;
+        }
+
+        res.send();
+    });
+});
