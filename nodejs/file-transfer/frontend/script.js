@@ -18,10 +18,23 @@ function imageChange(ev) {
     reader.readAsDataURL(file);
 }
 
+function uploadImage(ev) {
+    const data = new FormData();
+    data.append('myFile', ev.target.files[0]);
+
+    fetch('http://localhost:421/files/upload', {
+        method: 'POST',
+        body: data,
+    })
+    .then(() => getAllImages());
+}
+
 function getAllImages() {
     fetch("http://localhost:421/files")
     .then(res => res.json())
     .then(files => {
+        document.querySelectorAll(".mySlides").forEach(el => el.remove());
+
         files.forEach(x => {
             const img = document.createElement('img');
             img.src = `http://localhost:421/file/${x}`;
@@ -40,12 +53,16 @@ function plusDivs(n) {
 }
 
 function showDivs(n) {
-    let i;
-    let x = document.querySelectorAll(".mySlides");
-    if (n > x.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = x.length }
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+    const images = document.querySelectorAll(".mySlides");
+
+    if (n > images.length) {
+        slideIndex = 1;
     }
-    x[slideIndex - 1].style.display = "block";
+
+    if (n < 1) {
+        slideIndex = images.length;
+    }
+
+    images.forEach(img => img.style.display = "none");
+    images[slideIndex - 1].style.display = "block";
 }
