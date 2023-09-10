@@ -1,9 +1,11 @@
 body {
     direction: rtl;
-    background: aliceblue;
+    background: #000a1d;
+    color: white;
 }
 
-form, #form {
+form,
+#form {
     max-width: 700px;
     background: #ffffffcc;
     padding: 32px;
@@ -55,4 +57,19 @@ h1 {
 
 .dragOver {
     background-color: #b2be57;
+}
+
+.mySlides {
+    display: none;
+}
+
+.gallery {
+    max-width: 980px;
+    height: 70vh;
+    overflow: hidden;
+    border-radius: 8px;
+    /* box-shadow: 0 0 3px; */
+    display: flex;
+    justify-content: center;
+    align-items: start;
 }
