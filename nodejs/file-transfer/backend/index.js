@@ -17,6 +17,9 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
+/**
+ * Upload a file.
+ */
 app.post('/files/upload', (req, res) => {
     const form = new formidable.IncomingForm();
 
@@ -47,10 +50,16 @@ app.post('/files/upload', (req, res) => {
     });
 });
 
+/**
+ * Get file.
+ */
 app.get('/file/:fileName', (req, res) => {
     res.sendFile(`${__dirname}/files/${req.params.fileName}`);
 });
 
+/**
+ * Get files list.
+ */
 app.get('/files', (req, res) => {
     fs.readdir(`${__dirname}/files`, (err, files) => {
         if (err) {
@@ -61,6 +70,9 @@ app.get('/files', (req, res) => {
     });
 });
 
+/**
+ * Remove a file.
+ */
 app.delete('/files/:fileName', (req, res) => {
     fs.unlink(`${__dirname}/files/${req.params.fileName}`, (err, files) => {
         if (err) {
