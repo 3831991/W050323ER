@@ -24,7 +24,7 @@ export default function Users() {
         user.likes++;
         setUsers([...users]);
 
-        fetch(`http://localhost:4444/users/${user.id}/like`, {
+        fetch(`http://localhost:4444/users/${user._id}/like`, {
             method: 'POST',
         });
     }
@@ -33,21 +33,21 @@ export default function Users() {
         user.dislikes++;
         setUsers([...users]);
 
-        fetch(`http://localhost:4444/users/${user.id}/dislike`, {
+        fetch(`http://localhost:4444/users/${user._id}/dislike`, {
             method: 'POST',
         });
     }
 
-    const remove = id => {
+    const remove = _id => {
         if (!window.confirm("האם למחוק את המשתמש?")) {
             return;
         }
 
-        fetch(`http://localhost:4444/users/${id}`, {
+        fetch(`http://localhost:4444/users/${_id}`, {
             method: 'DELETE',
         })
         .then(() => {
-            setUsers(users.filter(x => x.id !== id));
+            setUsers(users.filter(x => x._id !== _id));
         });
     }
 
@@ -106,7 +106,7 @@ export default function Users() {
                 <tbody>
                 {
                     users.slice((page - 1) * limit, limit * page).map((u, i) => 
-                        <tr key={u.id}>
+                        <tr key={u._id}>
                             <td>{(page - 1) * limit + i + 1}</td>
                             <td>{moment(u.createdTime).format("DD/MM/YY")}</td>
                             <td>{u.firstName}</td>
@@ -123,8 +123,8 @@ export default function Users() {
                                     <i> {u.dislikes || 0}</i>
                                 </span>
 
-                                <Link to={`/users/${u.id}`}><button className='green'><AiFillEdit /></button></Link>
-                                <button className='red' onClick={() => remove(u.id)}><BsFillTrash3Fill /></button>
+                                <Link to={`/users/${u._id}`}><button className='green'><AiFillEdit /></button></Link>
+                                <button className='red' onClick={() => remove(u._id)}><BsFillTrash3Fill /></button>
                             </td>
                         </tr>
                     )

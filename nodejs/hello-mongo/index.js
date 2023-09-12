@@ -20,6 +20,8 @@ const User = mongoose.model("users", schema);
 
 const app = express();
 
+app.use(express.json());
+
 app.use(cors({
     origin: true,
     credentials: true,
@@ -46,8 +48,11 @@ app.get('/users/:id', async (req, res) => {
 });
 
 app.post('/users', async (req, res) => {
-    // const user = new User({ firstName: 'Steve', lastName: 'iDigital', email: 'abc@digi', phone: '0505232356' });
-    // await user.save();
+    const { firstName, lastName, email, phone } = req.body;
+
+    const user = new User({ firstName, lastName, email, phone });
+    const newUser = await user.save();
+    res.send(newUser);
 });
 
 app.put('/users', async (req, res) => {
