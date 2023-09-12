@@ -1,0 +1,230 @@
+h1 {
+  color: #61dafb;
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.frame {
+  width: 90%;
+  max-width: fit-content;
+  min-width: 800px;
+  min-height: 300px;
+  background-color: #ffffffc9;
+  margin: auto;
+  padding: 8px 16px;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.smallFrame {
+  width: 250px;
+  margin: 16px auto;
+  background-color: #b4efff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 0 3px #989898;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+input,
+textarea {
+  display: block;
+  border: 1px solid black;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 3px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 24px 0 8px 0;
+  background-color: #282c34;
+  display: block;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+div.fieldError {
+  background-color: #ffdcdc;
+  padding: 6px;
+  border-radius: 4px;
+  margin: -8px 0px 6px 0;
+}
+
+input.fieldError,
+textarea.fieldError {
+  border-color: red;
+  outline-color: red;
+}
+
+.loader {
+  font-size: 4em;
+  margin: 0;
+}
+
+.user {
+  margin: -16px auto 10px auto;
+  max-width: 85%;
+  color: white;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 6px #979797;
+}
+
+.grid div {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #282c34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.grid div:nth-last-child(-n +5) {
+  border-bottom: none;
+}
+
+.grid div:nth-child(10n+1),
+.grid div:nth-child(10n+2),
+.grid div:nth-child(10n+3),
+.grid div:nth-child(10n+4),
+.grid div:nth-child(10n+5) {
+  background-color: #dcdcdc;
+}
+
+.grid div:nth-child(-n +5) {
+  background-color: #61dafb;
+  font-weight: bold;
+}
+
+.remove,
+.save {
+  margin: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.remove:hover,
+.save:hover {
+  scale: 1.5;
+}
+
+.remove {
+  background: none;
+}
+
+button.logout {
+  display: inline;
+  width: initial;
+  margin: 0 3px;
+  font-size: 12px;
+  padding: 4px 8px;
+  background-color: gray;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button.logout:hover {
+  background-color: red;
+}
+
+button.logout:active {
+  scale: 1.2;
+}
+
+.signup {
+  cursor: pointer;
+  text-align: center;
+}
+
+.signup:hover {
+  text-decoration: underline;
+}
+
+.noData {
+  color: gray;
+  font-size: 3em;
+  margin: 0.2em;
+  font-weight: normal;
+}
+
+.modal-frame {
+  background-color: #00000098;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal {
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  min-height: 300px;
+  background-color: white;
+  box-shadow: 0 0 6px black;
+  border-radius: 5px;
+  margin: auto;
+  animation: slide-bottom 0.555s cubic-bezier(.25,.46,.45,.94) both;
+}
+
+.modal h2 {
+  color: #282c34;
+}
+
+.modal .close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 3px;
+  width: initial;
+  background: none;
+  color: #373737;
+  font-size: 22px;
+  padding: 8px 16px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.modal .close:hover {
+  background-color: #af0000;
+  color: white;
+  border-radius: 50%;
+  rotate: 360deg;
+}
+
+.modal form {
+  padding: 24px;
+}
+
+@keyframes slide-bottom {
+  0% {
+      transform: translateY(-200px);
+  }
+
+  100% {
+      transform: translateY(100px);
+  }
+}
