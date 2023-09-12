@@ -37,14 +37,10 @@ app.get('/', (req, res) => {
 
 app.get('/users', async (req, res) => {
     res.send(await User.find());
-
-    // User.find().then(data => {
-    //     res.send(data);
-    // });
 });
 
 app.get('/users/:id', async (req, res) => {
-    res.send(await User.find({ _id: req.params.id }));
+    res.send(await User.findOne({ _id: req.params.id }));
 });
 
 app.post('/users', async (req, res) => {
@@ -55,8 +51,22 @@ app.post('/users', async (req, res) => {
     res.send(newUser);
 });
 
-app.put('/users', async (req, res) => {
+app.put('/users/:id', async (req, res) => {
+    const { firstName, lastName, email, phone } = req.body;
+    const user = await User.findOne({ _id: req.params.id });
 
+    if (!user) {
+        return res.status(403).send("משתמש לא קיים!");
+    }
+
+    user.firstName  = firstName;
+    user.lastName   = lastName;
+    user.email      = email;
+    user.phone      = phone;
+
+    await user.save();
+
+    res.send(user);
 });
 
 app.delete('/users', async (req, res) => {
