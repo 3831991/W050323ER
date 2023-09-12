@@ -22,5 +22,9 @@ app.use(cors({
 
 app.listen(4444);
 
+app.get('/', (req, res) => {
+    res.send("Welcome");
+});
+
 require('./handlers/users')(app, mongoose);
 require('./handlers/grades')(app, mongoose);

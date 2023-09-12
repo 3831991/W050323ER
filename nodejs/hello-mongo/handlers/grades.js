@@ -6,10 +6,6 @@ module.exports = (app, mongoose) => {
     });
     
     const Grade = mongoose.model("grades", schema);
-
-    app.get('/', (req, res) => {
-        res.send("Welcome");
-    });
     
     app.get('/grades', async (req, res) => {
         res.send(await Grade.find());
