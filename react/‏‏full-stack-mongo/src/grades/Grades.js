@@ -12,7 +12,7 @@ export default function Grades() {
     });
 
     async function getGrades() {
-        const res = await fetch("http://localhost:4000/grades");
+        const res = await fetch("http://localhost:4444/grades");
         const data = await res.json();
         setGrades(data);
     }
@@ -26,11 +26,11 @@ export default function Grades() {
             return;
         }
 
-        fetch(`http://localhost:4000/grades/${id}`, {
+        fetch(`http://localhost:4444/grades/${id}`, {
             method: 'DELETE',
         })
         .then(() => {
-            setGrades(grades.filter(x => x.id !== id));
+            setGrades(grades.filter(x => x._id !== id));
         });
     }
 
@@ -44,7 +44,7 @@ export default function Grades() {
     }
     
     const addGrade = () => {
-        fetch("http://localhost:4000/grades", {
+        fetch("http://localhost:4444/grades", {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
@@ -84,13 +84,13 @@ export default function Grades() {
                     </tr>
                 {
                     grades.map((g, i) => 
-                        <tr key={g.id}>
+                        <tr key={g._id}>
                             <td>{i + 1}</td>
                             <td>{moment(g.date).format("DD/MM/YY")}</td>
                             <td>{g.title}</td>
                             <td>{g.grade}</td>
                             <td>
-                                <button className='red' onClick={() => remove(g.id)}><BsFillTrash3Fill /></button>
+                                <button className='red' onClick={() => remove(g._id)}><BsFillTrash3Fill /></button>
                             </td>
                         </tr>
                     )
