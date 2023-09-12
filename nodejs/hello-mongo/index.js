@@ -69,6 +69,7 @@ app.put('/users/:id', async (req, res) => {
     res.send(user);
 });
 
-app.delete('/users', async (req, res) => {
-
+app.delete('/users/:id', async (req, res) => {
+    await User.deleteOne({ _id: req.params.id });
+    res.send();
 });
