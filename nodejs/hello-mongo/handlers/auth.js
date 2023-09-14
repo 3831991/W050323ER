@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
+const mySecret = "FullStackW050323MyTokenMagnivMeod";
 
 module.exports = (app) => {
     const schema = new mongoose.Schema({
@@ -14,7 +16,13 @@ module.exports = (app) => {
 
     // Login status
     app.get('/login', async (req, res) => {
-
+        jwt.verify(req.headers.authorization, mySecret, (err, decode) => {
+            if (err) {
+                res.status(401).send("User is not authorized");
+            } else {
+                res.send(decode.user);
+            }
+        });
     });
 
     app.post('/login', async (req, res) => {
@@ -32,9 +40,14 @@ module.exports = (app) => {
             return res.status(403).send("username or password is incorrect");
         }
 
-        user.password = undefined;
+        // יצירת אובייקט רגיל מהמחלקה של היוזר
+        const userResult = user.toObject();
+        // מחיקת הסיסמה מהאובייקט שנשלח למשתמש
+        delete userResult.password;
+        // יצירת טוקן
+        userResult.token = jwt.sign({ user: userResult }, mySecret, { expiresIn: '1h' });
 
-        res.send(user);
+        res.send(userResult);
     });
 
     app.post('/signup', async (req, res) => {

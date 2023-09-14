@@ -30,7 +30,7 @@ export default function Login() {
             }
         })
         .then(data => {
-
+            localStorage.token = data.token;
         })
         .catch(err => {
             setLoginError(err.message);

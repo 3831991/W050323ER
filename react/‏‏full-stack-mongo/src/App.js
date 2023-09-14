@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Router from './Router';
 import Loader from './components/Loader';
@@ -15,6 +15,35 @@ function App() {
         setSnackbarText(text);
         setTimeout(() => setSnackbarText(''), 3 * 1000);
     }
+
+    useEffect(() => {
+        if (localStorage.token) {
+            fetch("http://localhost:4444/login", {
+                credentials: 'include',
+                headers: {
+                    'Authorization': localStorage.token
+                },
+            })
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return res.text().then(x => {
+                        throw new Error(x);
+                    });
+                }
+            })
+            .then(data => {
+                
+            })
+            .catch(err => {
+
+            })
+            .finally(() => {
+    
+            });
+        }
+    }, []);
 
     return (
         <GeneralContext.Provider value={{ setLoading, snackbar }}>

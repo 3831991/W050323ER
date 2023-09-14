@@ -17,7 +17,7 @@ app.use(cors({
     origin: true,
     credentials: true,
     methods: 'GET,PUT,POST,DELETE',
-    allowedHeaders: 'Content-Type, Accept',
+    allowedHeaders: 'Content-Type, Accept, Authorization',
 }));
 
 app.listen(4444);
