@@ -1,0 +1,76 @@
+.Cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 110px;
+  }
+  .Cards header {
+    text-align: center;
+    padding: 30px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0 30px;
+  }
+  .Cards header h1 {
+    font-family: 'Pacifico', cursive !important;
+    margin-bottom: 0;
+    font-size: 48px;
+  }
+  .Cards .row {
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: center;
+    display: flex;
+    gap: 20px;
+  }
+  .Cards .column {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.11);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .Cards .column:hover {
+    background-color: rgba(0, 0, 0, 0.93);
+    color: white;
+    scale: 1.03;
+    transition: all 0.2s ease;
+  }
+  .Cards .column:hover h1 {
+    color: white;
+  }
+  .Cards p {
+    margin: 3px 6px;
+  }
+  .Cards svg:hover {
+    scale: 1.1;
+  }
+  .Cards .trash-icon:hover path {
+    color: darkgray;
+  }
+  .Cards .edit-icon:hover path {
+    color: lightblue;
+  }
+  .Cards .phone-icon:hover path {
+    color: green;
+  }
+  .Cards .heart-icon:hover path {
+    color: red;
+  }
+  .Cards .addCard {
+    position: absolute;
+    bottom: 100px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: #1976d2;
+    border-radius: 50%;
+    border: none;
+  }
+  .Cards .addCard a {
+    color: white;
+    padding: 21px;
+    font-size: 30px;
+    text-decoration: none;
+  }
