@@ -11,12 +11,13 @@ import { useContext, useEffect, useState } from 'react';
 import { GeneralContext } from '../App';
 import { Link } from 'react-router-dom';
 import './Cards.css';
+import { search } from '../components/Searchbar';
 
 export default function Cards() {
     const [cards, setCards] = useState([]);
     const [favoriteCards, setFavoriteCards] = useState([]);
     const [redHeart, setRedHeart] = useState(false);
-    const { setLoader, user, roleType, snackbar } = useContext(GeneralContext);
+    const { setLoader, user, roleType, snackbar, searchWord } = useContext(GeneralContext);
 
     useEffect(() => {
         setLoader(true);
@@ -77,10 +78,13 @@ export default function Cards() {
                 <h1>Truly for every occasion</h1>
                 <p>Here you can find business cards from all categories</p>
             </header>
+
+            {searchWord && <p>חיפוש פעיל ({searchWord})</p>}
+
             <div className='row'>
 
                 {
-                    cards.map(c =>
+                    cards.filter(c => search(searchWord, c.title, c.description, c.subTitle)).map(c =>
                         <Card className='column' sx={{ width: 300, mb: 5, boxShadow: '5px 5px 5px 5px rgba(0, 0, 0, 0.11)', borderRadius: '10px' }} key={c.title}>
                             <CardMedia
                                 component="img"

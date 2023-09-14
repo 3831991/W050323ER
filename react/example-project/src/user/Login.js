@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link, useNavigate } from 'react-router-dom';
 import { GeneralContext } from '../App';
 import { useContext } from 'react';
-import { RoleTypes } from '../components/Navbar';
+import { RoleTypes } from '../config';
 
 const defaultTheme = createTheme();
 

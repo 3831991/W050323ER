@@ -14,30 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link, useNavigate, useResolvedPath } from 'react-router-dom';
 import { GeneralContext } from '../App';
-
-export const RoleTypes = {
-    none: 0,
-    user: 1,
-    business: 2,
-    admin: 3,
-};
-
-export const checkPermissions = (permissions, userRoleType) => {
-    return permissions.includes(userRoleType);
-}
-
-const pages = [
-    { route: '/about', title: 'אודות' },
-    { route: '/login', title: 'התחבר', permissions: [RoleTypes.none] },
-    { route: '/signup', title: 'הרשמה', permissions: [RoleTypes.none] },
-    { route: '/favorite', title: 'מועדפים', permissions: [RoleTypes.user, RoleTypes.business, RoleTypes.admin] },
-    { route: '/my-cards', title: 'הכרטיסים שלי', permissions: [RoleTypes.business, RoleTypes.admin] },
-    { route: '/admin', title: 'ניהול משתמשים', permissions: [RoleTypes.admin] },
-];
-
-const settings = [
-    { route: '/account', title: 'אזור אישי', permissions: [RoleTypes.user, RoleTypes.business, RoleTypes.admin] },
-];
+import Searchbar from './Searchbar';
+import { RoleTypes, checkPermissions, pages, settings } from '../config';
 
 export default function Navbar() {
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -171,6 +149,8 @@ export default function Navbar() {
                             </Link>
                         ))}
                     </Box>
+
+                    <Searchbar />
 
                     {
                         user &&

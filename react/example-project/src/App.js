@@ -1,12 +1,14 @@
 import { useState, createContext, useEffect } from 'react';
 import './App.css';
 import Router from './Router';
-import Navbar, { RoleTypes } from './components/Navbar';
+import Navbar from './components/Navbar';
 import Loader from './components/Loader';
+import { RoleTypes } from './config';
 
 export const GeneralContext = createContext();
 
 export default function App() {
+    const [searchWord, setSearchWord] = useState('');
     const [user, setUser] = useState();
     const [loader, setLoader] = useState(true);
     const [roleType, setRoleType] = useState(RoleTypes.none);
@@ -41,7 +43,7 @@ export default function App() {
     }, []);
 
     return (
-        <GeneralContext.Provider value={{ user, setUser, setLoader, roleType, setRoleType }}>
+        <GeneralContext.Provider value={{ user, setUser, setLoader, roleType, setRoleType, searchWord, setSearchWord }}>
             <Navbar />
             <Router />
             {loader && <Loader />}
