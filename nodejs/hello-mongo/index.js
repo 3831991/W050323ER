@@ -28,3 +28,4 @@ app.get('/', (req, res) => {
 
 require('./handlers/users')(app, mongoose);
 require('./handlers/grades')(app, mongoose);
+require('./handlers/auth')(app, mongoose);
