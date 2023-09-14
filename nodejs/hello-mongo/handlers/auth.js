@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
-module.exports = (app, mongoose) => {
+module.exports = (app) => {
     const schema = new mongoose.Schema({
         firstName: String,
         lastName: String,
@@ -19,7 +20,21 @@ module.exports = (app, mongoose) => {
     app.post('/login', async (req, res) => {
         const { email, password } = req.body;
 
-        
+        const user = await UserAdmin.findOne({ email });
+
+        if (!user) {
+            return res.status(403).send("username or password is incorrect");
+        }
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+
+        if (!passwordMatch) {
+            return res.status(403).send("username or password is incorrect");
+        }
+
+        user.password = undefined;
+
+        res.send(user);
     });
 
     app.post('/signup', async (req, res) => {

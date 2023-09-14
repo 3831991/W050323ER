@@ -26,6 +26,6 @@ app.get('/', (req, res) => {
     res.send("Welcome");
 });
 
-require('./handlers/users')(app, mongoose);
-require('./handlers/grades')(app, mongoose);
-require('./handlers/auth')(app, mongoose);
+require('./handlers/users')(app);
+require('./handlers/grades')(app);
+require('./handlers/auth')(app);
