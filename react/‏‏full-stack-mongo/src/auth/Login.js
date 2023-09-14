@@ -12,7 +12,7 @@ export default function Login() {
     const login = ev => {
         ev.preventDefault();
         
-        fetch("https://api.shipap.co.il/login", {
+        fetch("localhost:4444/login", {
             credentials: 'include',
             method: "POST",
             headers: {
