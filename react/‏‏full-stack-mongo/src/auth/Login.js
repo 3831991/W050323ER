@@ -12,7 +12,7 @@ export default function Login() {
     const login = ev => {
         ev.preventDefault();
         
-        fetch("localhost:4444/login", {
+        fetch("http://localhost:4444/login", {
             credentials: 'include',
             method: "POST",
             headers: {

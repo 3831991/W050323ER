@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './User.css';
 import { useState } from 'react';
 
@@ -11,11 +11,12 @@ export default function Signup() {
         password: '',
     });
     const [loginError, setLoginError] = useState('');
+    const navigate = useNavigate();
 
     const signup = ev => {
         ev.preventDefault();
         
-        fetch("localhost:4444/signup", {
+        fetch("http://localhost:4444/signup", {
             credentials: 'include',
             method: "POST",
             headers: {
@@ -33,7 +34,7 @@ export default function Signup() {
             }
         })
         .then(data => {
-
+            navigate('/login');
         })
         .catch(err => {
             setLoginError(err.message);
@@ -58,7 +59,7 @@ export default function Signup() {
         <>
             <div className="Login smallFrame">
                 <h2>הרשמה</h2>
-                
+
                 <form onSubmit={signup}>
                     <label>
                         שם פרטי:
