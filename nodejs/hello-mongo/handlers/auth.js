@@ -16,11 +16,11 @@ module.exports = (app) => {
 
     // Login status
     app.get('/login', async (req, res) => {
-        jwt.verify(req.headers.authorization, mySecret, (err, decode) => {
+        jwt.verify(req.headers.authorization, mySecret, (err, data) => {
             if (err) {
                 res.status(401).send("User is not authorized");
             } else {
-                res.send(decode.user);
+                res.send(data.user);
             }
         });
     });

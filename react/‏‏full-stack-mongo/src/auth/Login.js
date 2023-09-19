@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './User.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { GeneralContext } from '../App';
 
 export default function Login() {
     const [formData, setFormData] = useState({
@@ -8,9 +9,11 @@ export default function Login() {
         password: '',
     });
     const [loginError, setLoginError] = useState('');
+    const { setLoading, snackbar, setUser, user } = useContext(GeneralContext);
 
     const login = ev => {
         ev.preventDefault();
+        setLoading(true);
         
         fetch("http://localhost:4444/login", {
             credentials: 'include',
@@ -30,13 +33,14 @@ export default function Login() {
             }
         })
         .then(data => {
+            setUser(data);
             localStorage.token = data.token;
         })
         .catch(err => {
             setLoginError(err.message);
         })
         .finally(() => {
-
+            setLoading(false);
         });
     }
 

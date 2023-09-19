@@ -93,7 +93,7 @@ export default function Signup() {
             </div>
 
             <p className="signup">
-                <Link to="/signup">להרשמה לחץ כאן</Link>
+                <Link to="/">להתחברות לחץ כאן</Link>
             </p>
         </>
     )
