@@ -1,0 +1,15 @@
+Time: 19/09/2023 14:58:46
+Method: GET
+Route: /login
+User: 6502ebbcbbadcd132eef48fc (אדם פעמיים)
+
+Time: 19/09/2023 14:58:46
+Method: GET
+Route: /users
+User: 6502ebbcbbadcd132eef48fc (אדם פעמיים)
+
+Time: 19/09/2023 14:58:47
+Method: GET
+Route: /users
+User: 6502ebbcbbadcd132eef48fc (אדם פעמיים)
+

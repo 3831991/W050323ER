@@ -44,7 +44,7 @@ function App() {
                 setUser(data);
             })
             .catch(err => {
-                snackbar(err);
+                snackbar('משתמש לא מחובר');
                 navigate('/');
             })
             .finally(() => {
