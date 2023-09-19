@@ -74,7 +74,6 @@ function App() {
                     </div>
                 </div>
             }
-
             {loading && <Loader />}
             {snackbarText && <Snackbar text={snackbarText} />}
         </GeneralContext.Provider>
