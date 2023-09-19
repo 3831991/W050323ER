@@ -34,7 +34,7 @@ export default function Signup() {
             }
         })
         .then(data => {
-            navigate('/login');
+            navigate('/');
         })
         .catch(err => {
             setLoginError(err.message);
