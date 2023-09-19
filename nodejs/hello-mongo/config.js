@@ -6,7 +6,7 @@ exports.getUser = req => {
     return data.user;
 }
 
-exports.addLog = (req, message) => {
+exports.addLog = (req, message = '') => {
 
 }
 

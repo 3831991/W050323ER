@@ -3,7 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const moment = require('moment');
 const fs = require('fs');
-const { getUser } = require('./config');
+const { getUser, addLog } = require('./config');
 
 async function main() {
     await mongoose.connect('mongodb://127.0.0.1:27017/full-stack-w050323er');
@@ -38,7 +38,12 @@ app.use((req, res, next) => {
 
     fileContent += '\n';
 
-    fs.appendFile(fileName, fileContent, () => next());
+    fs.appendFile(fileName, fileContent);
+
+    
+    /// בסוף:
+    addLog(req);
+    next();
 });
 
 app.listen(4444);
