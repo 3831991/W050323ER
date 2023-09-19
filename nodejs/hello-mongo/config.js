@@ -1,0 +1,1 @@
+exports.JWT_SECRET = "FullStackW050323MyTokenMagnivMeod";

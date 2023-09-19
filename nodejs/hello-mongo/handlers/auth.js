@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
-const mySecret = "FullStackW050323MyTokenMagnivMeod";
+const { JWT_SECRET } = require('../config');
 
 module.exports = (app) => {
     const schema = new mongoose.Schema({
@@ -16,7 +16,7 @@ module.exports = (app) => {
 
     // Login status
     app.get('/login', async (req, res) => {
-        jwt.verify(req.headers.authorization, mySecret, (err, data) => {
+        jwt.verify(req.headers.authorization, JWT_SECRET, (err, data) => {
             if (err) {
                 res.status(401).send("User is not authorized");
             } else {
@@ -45,7 +45,7 @@ module.exports = (app) => {
         // מחיקת הסיסמה מהאובייקט שנשלח למשתמש
         delete userResult.password;
         // יצירת טוקן
-        userResult.token = jwt.sign({ user: userResult }, mySecret, { expiresIn: '1h' });
+        userResult.token = jwt.sign({ user: userResult }, JWT_SECRET, { expiresIn: '1h' });
 
         res.send(userResult);
     });

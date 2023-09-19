@@ -11,7 +11,11 @@ export default function Users() {
     const [page, setPage] = useState(1);
 
     async function getUsers() {
-        const res = await fetch("http://localhost:4444/users");
+        const res = await fetch("http://localhost:4444/users", {
+            headers: {
+                'Authorization': localStorage.token
+            },
+        });
         const data = await res.json();
         setUsers(data);
     }
@@ -26,6 +30,9 @@ export default function Users() {
 
         fetch(`http://localhost:4444/users/${user._id}/like`, {
             method: 'POST',
+            headers: {
+                'Authorization': localStorage.token
+            },
         });
     }
 
@@ -35,6 +42,9 @@ export default function Users() {
 
         fetch(`http://localhost:4444/users/${user._id}/dislike`, {
             method: 'POST',
+            headers: {
+                'Authorization': localStorage.token
+            },
         });
     }
 
@@ -45,6 +55,9 @@ export default function Users() {
 
         fetch(`http://localhost:4444/users/${_id}`, {
             method: 'DELETE',
+            headers: {
+                'Authorization': localStorage.token
+            },
         })
         .then(() => {
             setUsers(users.filter(x => x._id !== _id));

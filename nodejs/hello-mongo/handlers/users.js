@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const authGuard = require('../auth-guard');
 
 module.exports = (app) => {
     const schema = new mongoose.Schema({
@@ -10,15 +11,15 @@ module.exports = (app) => {
 
     const User = mongoose.model("users", schema);
 
-    app.get('/users', async (req, res) => {
+    app.get('/users', authGuard, async (req, res) => {
         res.send(await User.find());
     });
 
-    app.get('/users/:id', async (req, res) => {
+    app.get('/users/:id', authGuard, async (req, res) => {
         res.send(await User.findOne({ _id: req.params.id }));
     });
 
-    app.post('/users', async (req, res) => {
+    app.post('/users', authGuard, async (req, res) => {
         const { firstName, lastName, email, phone } = req.body;
     
         const user = new User({ firstName, lastName, email, phone });
@@ -26,7 +27,7 @@ module.exports = (app) => {
         res.send(newUser);
     });
 
-    app.put('/users/:id', async (req, res) => {
+    app.put('/users/:id', authGuard, async (req, res) => {
         const { firstName, lastName, email, phone } = req.body;
         const user = await User.findOne({ _id: req.params.id });
     
@@ -44,7 +45,7 @@ module.exports = (app) => {
         res.send(user);
     });
 
-    app.delete('/users/:id', async (req, res) => {
+    app.delete('/users/:id', authGuard, async (req, res) => {
         await User.deleteOne({ _id: req.params.id });
         res.send();
     });
