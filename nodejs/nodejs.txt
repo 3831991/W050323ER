@@ -1,15 +1,14 @@
 npm init -y
 npm install express --save
-npm i -g nodemon -D
+npm i nodemon -D 
 npm i mysql2 --save
 npm i cors --save
 
 // ליצור קובץ app.js
 // ליצור תיקייה handlers
 
-// לאנשי אפל
-npm i -g nodemon -D
-
-
 // הכל ביחד
 npm install express mysql2 cors moment fs --save
+
+// התקנה חד"פ גלובלית
+npm i -g nodemon -D
