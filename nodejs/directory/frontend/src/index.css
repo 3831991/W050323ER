@@ -62,3 +62,9 @@ select {
   border-radius: 5px;
   margin-top: 3px;
 }
+
+.path:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: blue;
+}

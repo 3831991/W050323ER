@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.get('/folders', (req, res) => {
     fs.readdir(`${__dirname}/folders${req.query.path || ''}`, (err, files) => {
         if (err) {
-            throw err;
+            res.send([]);
         }
 
         res.send(files);
@@ -27,11 +27,7 @@ app.get('/folders', (req, res) => {
 });
 
 app.post('/folder/:folderName', (req, res) => {
-    fs.mkdir(`${__dirname}/folders/${req.params.folderName}`, err => {
-        if (err) {
-            throw err;
-        }
-
+    fs.mkdir(`${__dirname}/folders${req.query.path || ''}/${req.params.folderName}`, err => {
         res.send();
     });
 });
