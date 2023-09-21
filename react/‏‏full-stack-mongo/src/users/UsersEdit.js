@@ -57,8 +57,12 @@ export default function UsersEdit() {
             },
             body: JSON.stringify(user)
         })
-        .then(() => {
-            navigate('/users');
+        .then(res => {
+            if (res.ok) {
+                navigate('/users');
+            } else {
+                res.text().then(err => alert(err));
+            }
         });
     }
 
