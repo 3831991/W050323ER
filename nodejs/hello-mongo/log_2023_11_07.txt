@@ -1,0 +1,23 @@
+Time: 07/11/2023 18:48:23
+Method: POST
+Route: /login
+
+Time: 07/11/2023 18:48:31
+Method: GET
+Route: /login
+User: 6502eb1dbbadcd132eef48f4 (סטיב לא אכל)
+
+Time: 07/11/2023 18:48:38
+Method: GET
+Route: /login
+User: 6502eb1dbbadcd132eef48f4 (סטיב לא אכל)
+
+Time: 07/11/2023 18:50:02
+Method: POST
+Route: /login
+
+Time: 07/11/2023 18:56:49
+Method: GET
+Route: /login
+User: undefined (undefined undefined)
+

@@ -17,7 +17,7 @@ module.exports = (app) => {
 
     // Login status
     app.get('/login', authGuard, async (req, res) => {
-        const user = getUser(req);
+        const user = getUser(req, res);
 
         res.send(user);
     });

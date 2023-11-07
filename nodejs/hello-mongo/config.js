@@ -3,19 +3,24 @@ const JWT_SECRET = "FullStackW050323MyTokenMagnivMeod";
 const moment = require('moment');
 const fs = require('fs');
 
-const getUser = req => {
+const getUser = (req, res) => {
     if (!req.headers.authorization) {
         return null;
     }
 
     const data = jwt.decode(req.headers.authorization, JWT_SECRET);
+
+    if (!data) {
+        return res.status(401).send("User is not authorized");
+    }
+
     return data.user;
 }
 
-exports.addLog = (req, message = '') => {
+exports.addLog = (req, res, message = '') => {
     const fileName = 'log_' + moment().format('YYYY_MM_DD') + '.txt';
     let fileContent = '';
-    const user = getUser(req);
+    const user = getUser(req, res);
 
     fileContent += `Time: ${moment().format('DD/MM/YYYY HH:mm:ss')}\n`;
     fileContent += `Method: ${req.method}\n`;

@@ -22,7 +22,7 @@ app.use(cors({
 }));
 
 app.use((req, res, next) => {
-    addLog(req);
+    addLog(req, res);
     next();
 });
 
