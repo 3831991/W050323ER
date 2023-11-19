@@ -7,14 +7,14 @@ import { UserContext } from '../App';
 
 export default function Login() {
     const [formData, setFormData] = useState({
-        userName: '',
+        email: '',
         password: '',
     });
     const [loginError, setLoginError] = useState('');
     const [errors, setErrors] = useState({});
     const [isValid, setIsValid] = useState(false);
     const loginSchema = Joi.object({
-        userName: Joi.string().min(3).max(10).required(),
+        email: Joi.string().min(3).max(10).required(),
         password: Joi.string().required(),
     });
     const { setUser, isLogged, setIsLogged, setLoading, snackbar } = useContext(UserContext);
@@ -97,10 +97,10 @@ export default function Login() {
                 <form onSubmit={login}>
                     <label>
                         שם משתמש:
-                        <input type="text" id='userName' value={formData.userName} className={errors.userName ? 'fieldError' : ''} onChange={handleError} />
+                        <input type="text" id='email' value={formData.email} className={errors.email ? 'fieldError' : ''} onChange={handleError} />
                     </label>
 
-                    { errors.userName ? <div className='fieldError'>{errors.userName}</div> : '' }
+                    { errors.email ? <div className='fieldError'>{errors.email}</div> : '' }
 
                     <label>
                         סיסמה:
